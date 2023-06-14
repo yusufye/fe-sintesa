@@ -1,0 +1,43 @@
+CRITICAL - 2023-06-06 12:04:10 --> Undefined variable $summary
+in APPPATH\Views\fe\data_diklat_count.php on line 13.
+ 1 APPPATH\Views\fe\data_diklat_count.php(13): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $summary', 'C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\app\\Views\\fe\\data_diklat_count.php', 13)
+ 2 SYSTEMPATH\View\View.php(213): include('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\app\\Views\\fe\\data_diklat_count.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('fe/data_diklat_count', [], true)
+ 5 APPPATH\Controllers\Web.php(54): view('fe/data_diklat_count', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->data_diklat('data-pelamar')
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-06 12:08:58 --> Call to undefined function App\Controllers\show_404()
+in APPPATH\Controllers\Web.php on line 31.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->data_diklat('data_pelamar', 'summary')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-06 12:12:05 --> Undefined variable $send_type
+in APPPATH\Controllers\Web.php on line 49.
+ 1 APPPATH\Controllers\Web.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $send_type', 'C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\app\\Controllers\\Web.php', 49)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->data_diklat('data-pelamar', 'summary')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-06 12:13:10 --> Undefined variable $send_type
+in APPPATH\Controllers\Web.php on line 49.
+ 1 APPPATH\Controllers\Web.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $send_type', 'C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\app\\Controllers\\Web.php', 49)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->data_diklat('data-pelamar', 'summary')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-06 12:20:04 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::getResultArray()
+in APPPATH\Models\Data_diklat_model.php on line 44.
+ 1 APPPATH\Controllers\Web.php(49): App\Models\Data_diklat_model->get_diklat_data_pelamar('pendidikan', 'summary')
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->data_diklat('data-pelamar', 'summary')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')

@@ -1,0 +1,173 @@
+CRITICAL - 2023-06-13 11:11:07 --> You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 883.
+ 1 APPPATH\Models\Model_datatable.php(29): CodeIgniter\Database\BaseConnection->table(null)
+ 2 APPPATH\Controllers\Web.php(72): App\Models\Model_datatable->set_table('s_univ_luarnegeri')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 11:11:14 --> You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 883.
+ 1 APPPATH\Models\Model_datatable.php(29): CodeIgniter\Database\BaseConnection->table(null)
+ 2 APPPATH\Controllers\Web.php(72): App\Models\Model_datatable->set_table('s_univ_luarnegeri')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 11:13:18 --> You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 883.
+ 1 APPPATH\Models\Model_datatable.php(24): CodeIgniter\Database\BaseConnection->table(null)
+ 2 APPPATH\Controllers\Web.php(70): App\Models\Model_datatable->__construct(Object(CodeIgniter\HTTP\IncomingRequest), 's_univ_luarnegeri')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 11:14:37 --> You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 883.
+ 1 APPPATH\Models\Model_datatable.php(73): CodeIgniter\Database\BaseConnection->table(null)
+ 2 APPPATH\Controllers\Web.php(89): App\Models\Model_datatable->count_all()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 11:20:28 --> You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 883.
+ 1 APPPATH\Models\Model_datatable.php(72): CodeIgniter\Database\BaseConnection->table(null)
+ 2 APPPATH\Controllers\Web.php(89): App\Models\Model_datatable->count_all()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 11:20:36 --> You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 883.
+ 1 APPPATH\Models\Model_datatable.php(72): CodeIgniter\Database\BaseConnection->table(null)
+ 2 APPPATH\Controllers\Web.php(89): App\Models\Model_datatable->count_all()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 11:24:09 --> App\Models\Model_datatable::set_table(): Argument #1 ($table) cannot be passed by reference
+in APPPATH\Controllers\Web.php on line 73.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 11:24:36 --> You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 883.
+ 1 APPPATH\Models\Model_datatable.php(76): CodeIgniter\Database\BaseConnection->table(null)
+ 2 APPPATH\Controllers\Web.php(90): App\Models\Model_datatable->count_all()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 15:54:58 --> CodeIgniter\Database\BaseBuilder::orderBy(): Argument #1 ($orderBy) must be of type string, null given, called in C:\Bitnami\wampstack\apache2\htdocs\newsintesa_ci4\app\Models\Model_datatable.php on line 51
+in SYSTEMPATH\Database\BaseBuilder.php on line 1438.
+ 1 APPPATH\Models\Model_datatable.php(51): CodeIgniter\Database\BaseBuilder->orderBy(null, 'asc')
+ 2 APPPATH\Models\Model_datatable.php(65): App\Models\Model_datatable->_get_datatables_query()
+ 3 APPPATH\Controllers\Web.php(80): App\Models\Model_datatable->get_datatables()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 16:49:21 --> Too few arguments to function App\Controllers\Web::globalDtTable(), 0 passed in C:\Bitnami\wampstack\apache2\htdocs\newsintesa_ci4\system\CodeIgniter.php on line 934 and exactly 2 expected
+in APPPATH\Controllers\Web.php on line 70.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable()
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 16:57:31 --> Class "data_pelamar" not found
+in APPPATH\Controllers\Web.php on line 73.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable('data_pelamar', 'get_diklat_data_pelamar', 'pendidikan', 'detail')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 16:58:16 --> Class "data_pelamar" not found
+in APPPATH\Controllers\Web.php on line 73.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable('data_pelamar', 'get_diklat_data_pelamar', 'pendidikan', 'detail')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 17:00:44 --> Class "Data_diklat" not found
+in APPPATH\Controllers\Web.php on line 74.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable('Data_diklat', 'get_diklat_data_pelamar', 'pendidikan', 'detail')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 17:02:17 --> Class "Data_diklat_model" not found
+in APPPATH\Controllers\Web.php on line 74.
+ 1 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable('Data_diklat_model', 'get_diklat_data_pelamar', 'pendidikan', 'detail')
+ 2 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 3 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 17:08:43 --> Undefined variable $datatable
+in APPPATH\Controllers\Web.php on line 81.
+ 1 APPPATH\Controllers\Web.php(81): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $datatable', 'C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\app\\Controllers\\Web.php', 81)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable('Data_diklat_model', 'get_diklat_data_pelamar', 'pendidikan', 'detail')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 17:18:42 --> Undefined variable $list
+in APPPATH\Controllers\Web.php on line 89.
+ 1 APPPATH\Controllers\Web.php(89): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $list', 'C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\app\\Controllers\\Web.php', 89)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable('Data_diklat_model', 'get_diklat_data_pelamar', 'pendidikan', 'detail')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 17:23:38 --> array_keys(): Argument #1 ($array) must be of type array, stdClass given
+in APPPATH\Controllers\Web.php on line 93.
+ 1 APPPATH\Controllers\Web.php(93): array_keys(Object(stdClass))
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable('Data_diklat_model', 'get_diklat_data_pelamar', 'pendidikan', 'detail')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 17:26:21 --> Undefined property: stdClass::$1
+in APPPATH\Controllers\Web.php on line 95.
+ 1 APPPATH\Controllers\Web.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$1', 'C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\app\\Controllers\\Web.php', 95)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable('Data_diklat_model', 'get_diklat_data_pelamar', 'pendidikan', 'detail')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 17:26:57 --> Undefined property: stdClass::$1
+in APPPATH\Controllers\Web.php on line 95.
+ 1 APPPATH\Controllers\Web.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$1', 'C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\app\\Controllers\\Web.php', 95)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable('Data_diklat_model', 'get_diklat_data_pelamar', 'pendidikan', 'detail')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 17:27:05 --> Undefined property: stdClass::$13
+in APPPATH\Controllers\Web.php on line 95.
+ 1 APPPATH\Controllers\Web.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$13', 'C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\app\\Controllers\\Web.php', 95)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable('Data_diklat_model', 'get_diklat_data_pelamar', 'pendidikan', 'detail')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
+CRITICAL - 2023-06-13 17:28:54 --> CodeIgniter\Database\BaseBuilder::orderBy(): Argument #1 ($orderBy) must be of type string, null given, called in C:\Bitnami\wampstack\apache2\htdocs\newsintesa_ci4\app\Models\Model_datatable.php on line 51
+in SYSTEMPATH\Database\BaseBuilder.php on line 1438.
+ 1 APPPATH\Models\Model_datatable.php(51): CodeIgniter\Database\BaseBuilder->orderBy(null, 'asc')
+ 2 APPPATH\Models\Model_datatable.php(65): App\Models\Model_datatable->_get_datatables_query()
+ 3 APPPATH\Controllers\Web.php(88): App\Models\Model_datatable->get_datatables()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Web->globalDtTable('Data_diklat_model', 'get_diklat_data_pelamar', 'pendidikan', 'detail')
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Web))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Bitnami\\wampstack\\apache2\\htdocs\\newsintesa_ci4\\public\\index.php')
