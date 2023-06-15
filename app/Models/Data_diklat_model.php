@@ -22,10 +22,10 @@ class Data_diklat_model extends Model {
                 // $db=$this->db->table('vw_pelamar_pendidikan_detail')->select('*');
                
                 return array(
-                'table'         => 's_univ_luarnegeri',
-                'column_order'  => array('id_univ','nama',null,null,null,null),
-                'order'         => array('id_univ' => 'asc'),
-                'column_search' => array('id_univ','nama'),
+                'table'         => 'vw_pelamar_pendidikan_detail',
+                'column_order'  => array('nip','nama',null,null,null,null),
+                'order'         => array('nama' => 'asc'),
+                'column_search' => array('nip','nama'),
                 // 'column'        => array('id_univ','nama','kode','kota','id_negara','zona')
                 );
             }
