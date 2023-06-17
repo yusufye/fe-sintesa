@@ -7,7 +7,7 @@ use CodeIgniter\Model;
  
 class Model_datatable extends Model
 {
-    protected $table         = "";
+    protected $query;
     protected $column_order  = array();
     protected $column_search = array();
     protected $order         = array();
@@ -22,13 +22,13 @@ class Model_datatable extends Model
         $this->request = $request;
         
     }
-    public function set_table($table,$column_order,$order,$column_search)
+    public function set_table($query,$column_order,$order,$column_search)
     {
-        $this->table         = $table;
+        $this->query         = $query;
         $this->column_order  = $column_order;
         $this->order         = $order;
         $this->column_search = $column_search;
-        $this->dt            = $this->db->table($this->table);
+        $this->dt            = $this->query;
     }
     private function _get_datatables_query()
     {
@@ -75,7 +75,7 @@ class Model_datatable extends Model
     }
     public function count_all()
     {
-        $tbl_storage = $this->db->table($this->table);
+        $tbl_storage = $this->query;
         return $tbl_storage->countAllResults();
     }
 }

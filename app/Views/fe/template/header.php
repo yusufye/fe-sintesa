@@ -71,7 +71,7 @@
           
           <li class="dropdown"><a href="#"><span>DATA DIKLAT</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="data-diklat/data-pelamar">Data Pelamar</a></li>
+              <li><a href="/data-diklat/data-pelamar">Data Pelamar</a></li>
               <li><a href="/data-diklat/data-penempatan">Data Penempatan</a></li>
               <li><a href="/data-diklat/data-alumni">Data Alumni</a></li>
             </ul>

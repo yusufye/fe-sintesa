@@ -14,19 +14,20 @@ class Data_diklat_model extends Model {
                 // ->where('ts.tahun', '2022')
                 ->like('ts.nama', 'DIKLAT GELAR', 'after')
                 ->where('tp.delstat', 'a')
-                ->orderBy('ts.tahun DESC')
-                ->limit(100);
+                ->orderBy('ts.tahun DESC');
             }elseif ($type=='summary') {
-                $db=$this->db->table('vw_pelamar_pendidikan_summary')->select('*');
-            }elseif ($type=='detail') {
-                // $db=$this->db->table('vw_pelamar_pendidikan_detail')->select('*');
-               
                 return array(
-                'table'         => 'vw_pelamar_pendidikan_detail',
+                'query'         => $this->db->table('vw_pelamar_pendidikan_summary'),
                 'column_order'  => array('nip','nama',null,null,null,null),
                 'order'         => array('nama' => 'asc'),
-                'column_search' => array('nip','nama'),
-                // 'column'        => array('id_univ','nama','kode','kota','id_negara','zona')
+                'column_search' => array('nip','nama')
+                );
+            }elseif ($type=='detail') {
+                return array(
+                'query'         => $this->db->table('vw_pelamar_pendidikan_detail'),
+                'column_order'  => array('nip','nama',null,null,null,null),
+                'order'         => array('nama' => 'asc'),
+                'column_search' => array('nip','nama')
                 );
             }
         }elseif ($param=='pelatihan') {

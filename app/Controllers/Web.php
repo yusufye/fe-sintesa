@@ -7,12 +7,6 @@ use Config\Services;
 class Web extends BaseController
 {
     
-    public function __construct()
-    {
-        // parent::__construct();
-        
-    }
-    
     public function index()
     {
         return view('fe/template/header')
@@ -79,7 +73,7 @@ class Web extends BaseController
         $datamodel = new Model_datatable($request);
         if ($request->getMethod(true) == 'POST') {
             $datamodel->set_table(
-				$datatable['table'],
+				$datatable['query'],
 				$datatable['column_order'],
 				$datatable['order'],
 				$datatable['column_search']
@@ -95,12 +89,6 @@ class Web extends BaseController
 				foreach (array_keys(get_object_vars($list)) as $col_name) {
 					$row[]=$list->$col_name;
 				}
-				// $row[]=$list->id_univ;
-				// $row[]=$list->nama;
-				// $row[]=$list->kode;
-				// $row[]=$list->kota;
-				// $row[]=$list->id_negara;
-				// $row[]=$list->zona;
                 $data[] = $row;
             }
             $output = [
