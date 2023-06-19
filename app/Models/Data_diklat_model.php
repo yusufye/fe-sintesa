@@ -16,12 +16,7 @@ class Data_diklat_model extends Model {
                 ->where('tp.delstat', 'a')
                 ->orderBy('ts.tahun DESC');
             }elseif ($type=='summary') {
-                return array(
-                'query'         => $this->db->table('vw_pelamar_pendidikan_summary'),
-                'column_order'  => array('nip','nama',null,null,null,null),
-                'order'         => array('nama' => 'asc'),
-                'column_search' => array('nip','nama')
-                );
+                $db=$this->db->table('vw_pelamar_pendidikan_summary')->select('*');
             }elseif ($type=='detail') {
                 return array(
                 'query'         => $this->db->table('vw_pelamar_pendidikan_detail'),
@@ -44,9 +39,14 @@ class Data_diklat_model extends Model {
                 ->orderBy('ts.tahun DESC')
                 ->limit(100);
             }elseif ($type=='summary') {
-                $db=$this->db->table('vw_pelamar_pendidikan_summary')->select('*');
+                $db=$this->db->table('vw_pelamar_pelatihan_summary')->select('*');
             }elseif ($type=='detail') {
-                
+                return array(
+                    'query'         => $this->db->table('vw_pelamar_pelatihan_detail'),
+                    'column_order'  => array('nip','nama',null,null,null,null),
+                    'order'         => array('nama' => 'asc'),
+                    'column_search' => array('nip','nama')
+                    );
             }
         }elseif ($param=='gabungan') {
             if ($type=='count') {   
@@ -59,9 +59,14 @@ class Data_diklat_model extends Model {
                 ->orderBy('ts.tahun DESC')
                 ->limit(100);
             }elseif ($type=='summary') {
-                $db=$this->db->table('vw_pelamar_pendidikan_summary')->select('*');
+                $db=$this->db->table('vw_pelamar_gabungan_summary')->select('*');
             }elseif ($type=='detail') {
-                
+                return array(
+                    'query'         => $this->db->table('vw_pelamar_gabungan_detail'),
+                    'column_order'  => array('nip','nama',null,null,null,null),
+                    'order'         => array('nama' => 'asc'),
+                    'column_search' => array('nip','nama')
+                    );
             }
         }else{
             return false;

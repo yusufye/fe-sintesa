@@ -32,6 +32,7 @@ class Web extends BaseController
 		$data['orig_title']     = $sub;
 		$data['sub_title']      = $sub_title;
 		$data['title']          = $sub_title;
+		$data['param']          = $sub2;
 		$data['model_name']     = $model_name;
 		$data['model_init']     = 'Data_diklat_model';
 		$data['init_datatable'] = true;
@@ -42,10 +43,13 @@ class Web extends BaseController
 			$send_type='summary';
 		}elseif ($type=='detail' ) { 
 			$send_type='detail';
-			$data['model'] ='Data_diklat';
-			$data['method'] ='get_diklat_'.$model_name;
-			$data['method_param'] =$sub2;
-			$data['method_type'] =$send_type;
+
+			$data['model']                  = 'Data_diklat';
+			$data['method']                 = 'get_diklat_'.$model_name;
+			$data['method_param']           = $sub2;
+			$data['method_type']            = $send_type;
+			$data['init_global_dttable_js'] = true;
+
 		}
 		if ($send_type!='detail') {
 			$data[$send_type][$model_name]['pendidikan']	=$data_diklat_model->{'get_diklat_'.$model_name}('pendidikan',$send_type);

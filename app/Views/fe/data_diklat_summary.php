@@ -8,20 +8,20 @@
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
             <!-- <a class="nav-link active" id="pendidikan" data-toggle="tab" href="#home" role="tab" aria-controls="pendidikan" aria-selected="true">Pendidikan</a> -->
-            <button class="nav-link active" id="nav-pendidikan-tab" data-bs-toggle="tab" data-bs-target="#nav-pendidikan" type="button" role="tab" aria-controls="nav-pendidikan" aria-selected="false">Pendidikan</button>
+            <button class="nav-link <?php echo ($param=='pendidikan'?'active':'')?>" id="nav-pendidikan-tab" data-bs-toggle="tab" data-bs-target="#nav-pendidikan" type="button" role="tab" aria-controls="nav-pendidikan" aria-selected="false">Pendidikan</button>
         </li>
         <li class="nav-item">
             <!-- <a class="nav-link" id="pelatijan" data-toggle="tab" href="#pelatihan" role="tab" aria-controls="pelatihan" aria-selected="true">Pelatihan</a> -->
-            <button class="nav-link" id="nav-pelatihan-tab" data-bs-toggle="tab" data-bs-target="#nav-pelatihan" type="button" role="tab" aria-controls="nav-pelatihan" aria-selected="false">Pelatihan</button>
+            <button class="nav-link <?php echo ($param=='pelatihan'?'active':'')?>" id="nav-pelatihan-tab" data-bs-toggle="tab" data-bs-target="#nav-pelatihan" type="button" role="tab" aria-controls="nav-pelatihan" aria-selected="false">Pelatihan</button>
         </li>
         <li class="nav-item">
             <!-- <a class="nav-link" id="gabungan" data-toggle="tab" href="#gabungan" role="tab" aria-controls="gabungan" aria-selected="true">Gabungan</a> -->
-            <button class="nav-link" id="nav-gabungan-tab" data-bs-toggle="tab" data-bs-target="#nav-gabungan" type="button" role="tab" aria-controls="nav-gabungan" aria-selected="false">Gabungan</button>
+            <button class="nav-link <?php echo ($param=='gabungan'?'active':'')?>" id="nav-gabungan-tab" data-bs-toggle="tab" data-bs-target="#nav-gabungan" type="button" role="tab" aria-controls="nav-gabungan" aria-selected="false">Gabungan</button>
 
         </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-    <div class="tab-pane" id="nav-pendidikan" role="tabpanel" aria-labelledby="nav-pendidikan-tab">
+    <div class="tab-pane <?php echo ($param=='pendidikan'?'active':'')?>" id="nav-pendidikan" role="tabpanel" aria-labelledby="nav-pendidikan-tab">
         <div class="d-flex justify-content-end py-4">
             <a href='<?php echo "/data-diklat/$orig_title/pendidikan/detail" ?>' class="btn btn-primary">Info Detail<i class="fa fa-arrow-right"></i></a>
         </div>
@@ -56,7 +56,7 @@
         </table>
     </div>
 
-    <div class="tab-pane" id="nav-pelatihan" role="tabpanel" aria-labelledby="nav-pelatihan-tab">
+    <div class="tab-pane <?php echo ($param=='pelatihan'?'active':'')?>" id="nav-pelatihan" role="tabpanel" aria-labelledby="nav-pelatihan-tab">
         <div class="d-flex justify-content-end py-4">
             <a href='<?php echo "/data-diklat/$orig_title/pelatihan/detail" ?>' class="btn btn-primary">Info Detail<i class="fa fa-arrow-right"></i></a>
         </div>
@@ -91,7 +91,7 @@
         
         </table>
     </div>
-    <div class="tab-pane" id="nav-gabungan" role="tabpanel" aria-labelledby="nav-gabungan-tab">
+    <div class="tab-pane <?php echo ($param=='gabungan'?'active':'')?>" id="nav-gabungan" role="tabpanel" aria-labelledby="nav-gabungan-tab">
         <div class="d-flex justify-content-end py-4">
             <a href='<?php echo "/data-diklat/$orig_title/gabungan/detail" ?>' class="btn btn-primary">Info Detail<i class="fa fa-arrow-right"></i></a>
         </div>

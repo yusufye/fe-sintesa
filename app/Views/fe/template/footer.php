@@ -42,6 +42,9 @@
   if(isset($init_datatable)){
     echo '<script src="https://code.jquery.com/jquery-3.5.1.js"></script>';
     echo '<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>';
+  }
+
+  if (isset($init_global_dttable_js)) {
     echo '<script src="'.base_url().'public/assets/main/js/data_table.js'.'?v='.time().'"></script>';
   }
 
