@@ -36,6 +36,7 @@ class Web extends BaseController
 		$data['model_name']     = $model_name;
 		$data['model_init']     = 'Data_diklat_model';
 		$data['init_datatable'] = true;
+		$data['init_chart'] 	= true;
 		
 		if ($type==null) { //count all
 			$send_type='count';

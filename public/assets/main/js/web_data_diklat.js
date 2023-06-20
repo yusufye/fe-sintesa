@@ -3,3 +3,56 @@ $(document).ready(function () {
   $("#tableCountPelatihan").DataTable();
   $("#tableCountGabungan").DataTable();
 });
+
+
+const dataRadarPendidikan = {
+  labels:  datasetPendidikan.label,
+  datasets: datasetPendidikan.dataset
+};
+
+new Chart(document.getElementById('chartRadarCountPendidikan'), {
+  type: 'radar',
+  data: dataRadarPendidikan,
+  options: {
+    elements: {
+      line: {
+        borderWidth: 3
+      }
+    }
+  },
+});
+
+const dataRadarPelatihan = {
+  labels:  datasetPelatihan.label,
+  datasets: datasetPelatihan.dataset
+};
+
+new Chart(document.getElementById('chartRadarCountPelatihan'), {
+  type: 'radar',
+  data: dataRadarPelatihan,
+  options: {
+    elements: {
+      line: {
+        borderWidth: 3
+      }
+    }
+  },
+});
+
+
+const dataRadarGabungan = {
+  labels:  datasetGabungan.label,
+  datasets: datasetGabungan.dataset
+};
+
+new Chart(document.getElementById('chartRadarCountGabungan'), {
+  type: 'radar',
+  data: dataRadarGabungan,
+  options: {
+    elements: {
+      line: {
+        borderWidth: 3
+      }
+    }
+  },
+});

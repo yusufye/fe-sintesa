@@ -48,6 +48,10 @@
     echo '<script src="'.base_url().'public/assets/main/js/data_table.js'.'?v='.time().'"></script>';
   }
 
+  if (isset($init_chart)) {
+    echo '<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>';
+  }
+
   $controller  = strtolower(class_basename(service('router')->controllerName()));
   $method = strtolower(service('router')->methodName());
   if (file_exists(FCPATH."assets\main\js\web_data_diklat.js")){
