@@ -11,7 +11,6 @@ class Data_diklat_model extends Model {
                 ->select('*,penempatan,pstat,ts.tahun AS tahun')
                 ->join('t_datadiri td', 'tp.id_datadiri = td.id_datadiri', 'LEFT')
                 ->join('t_seleksi ts', 'tp.id_seleksi = ts.id_seleksi', 'LEFT')
-                // ->where('ts.tahun', '2022')
                 ->like('ts.nama', 'DIKLAT GELAR', 'after')
                 ->where('tp.delstat', 'a')
                 ->orderBy('ts.tahun DESC');
@@ -31,7 +30,6 @@ class Data_diklat_model extends Model {
                 ->select('*,penempatan,pstat,ts.tahun AS tahun')
                 ->join('t_datadiri td', 'tp.id_datadiri = td.id_datadiri', 'LEFT')
                 ->join('t_seleksi ts', 'tp.id_seleksi = ts.id_seleksi', 'LEFT')
-                // ->where('ts.tahun', '2022')
                 ->where('tp.delstat', 'a')
                 ->groupStart()
                 ->like('ts.nama', 'DIKLAT NON', 'after')
@@ -54,7 +52,6 @@ class Data_diklat_model extends Model {
                 ->select('*,penempatan,pstat,ts.tahun AS tahun')
                 ->join('t_datadiri td', 'tp.id_datadiri = td.id_datadiri', 'LEFT')
                 ->join('t_seleksi ts', 'tp.id_seleksi = ts.id_seleksi', 'LEFT')
-                // ->where('ts.tahun', '2022')
                 ->like('ts.nama', 'GELAR', 'both')
                 ->orderBy('ts.tahun DESC')
                 ->limit(100);
@@ -83,36 +80,69 @@ class Data_diklat_model extends Model {
     {
 
         if ($param=='pendidikan') {
-            $db=$this->db->table('t_peserta tp')
-            ->select('*,penempatan,pstat,ts.tahun AS tahun')
-            ->join('t_datadiri td', 'tp.id_datadiri = td.id_datadiri', 'LEFT')
-            ->join('t_seleksi ts', 'tp.id_seleksi = ts.id_seleksi', 'LEFT')
-            ->where('penempatan !=', '')
-            ->where('pstat', 1)
-            ->where('ts.tahun', '2022')
-            ->groupStart()
-            ->like('ts.nama', 'GELAR', 'both')
-            ->groupEnd()
-            ->orderBy('ts.tahun DESC');
+            if ($type=='count') {   
+                $db=$this->db->table('t_peserta tp')
+                ->select('*,penempatan,pstat,ts.tahun AS tahun')
+                ->join('t_datadiri td', 'tp.id_datadiri = td.id_datadiri', 'LEFT')
+                ->join('t_seleksi ts', 'tp.id_seleksi = ts.id_seleksi', 'LEFT')
+                ->where('penempatan !=', '')
+                ->where('pstat', 1)
+                ->groupStart()
+                ->like('ts.nama', 'GELAR', 'both')
+                ->groupEnd()
+                ->orderBy('ts.tahun DESC');
+            }elseif ($type=='summary') {
+                $db=$this->db->table('vw_pelamar_pendidikan_summary')->select('*');
+            }elseif ($type=='detail') {
+                return array(
+                'query'         => $this->db->table('vw_pelamar_pendidikan_detail'),
+                'column_order'  => array('nip','nama',null,null,null,null),
+                'order'         => array('nama' => 'asc'),
+                'column_search' => array('nip','nama')
+                );
+            }
         }elseif ($param=='pelatihan') {
-            $db=$this->db->table('t_peserta tp')
-            ->select('*,penempatan,pstat,ts.tahun AS tahun')
-            ->join('t_datadiri td', 'tp.id_datadiri = td.id_datadiri', 'LEFT')
-            ->join('t_seleksi ts', 'tp.id_seleksi = ts.id_seleksi', 'LEFT')
-            ->where('penempatan !=', '')
-            ->where('pstat', 1)
-            ->where('ts.tahun', '2022')
-            ->groupStart()
-            ->like('ts.nama', 'DIKLAT NON', 'after')
-            ->groupEnd()
-            ->orderBy('ts.tahun DESC');
+            if ($type=='count') {   
+                $db=$this->db->table('t_peserta tp')
+                ->select('*,penempatan,pstat,ts.tahun AS tahun')
+                ->join('t_datadiri td', 'tp.id_datadiri = td.id_datadiri', 'LEFT')
+                ->join('t_seleksi ts', 'tp.id_seleksi = ts.id_seleksi', 'LEFT')
+                ->where('penempatan !=', '')
+                ->where('pstat', 1)
+                ->groupStart()
+                ->like('ts.nama', 'DIKLAT NON', 'after')
+                ->groupEnd()
+                ->orderBy('ts.tahun DESC');
+            }elseif ($type=='summary') {
+                $db=$this->db->table('vw_pelamar_pendidikan_summary')->select('*');
+            }elseif ($type=='detail') {
+                return array(
+                'query'         => $this->db->table('vw_pelamar_pendidikan_detail'),
+                'column_order'  => array('nip','nama',null,null,null,null),
+                'order'         => array('nama' => 'asc'),
+                'column_search' => array('nip','nama')
+                );
+            }
+            
         }elseif ($param=='gabungan') {
-            $db=$this->db->table('t_peserta tp')
-            ->select('*,penempatan,pstat,ts.tahun AS tahun')
-            ->join('t_datadiri td', 'tp.id_datadiri = td.id_datadiri', 'LEFT')
-            ->join('t_seleksi ts', 'tp.id_seleksi = ts.id_seleksi', 'LEFT')
-            ->where(array('penempatan !=' => '','pstat' => 1,'ts.tahun' => '2022'))
-            ->orderBy('ts.tahun DESC');
+            if ($type=='count') {   
+                $db=$this->db->table('t_peserta tp')
+                ->select('*,penempatan,pstat,ts.tahun AS tahun')
+                ->join('t_datadiri td', 'tp.id_datadiri = td.id_datadiri', 'LEFT')
+                ->join('t_seleksi ts', 'tp.id_seleksi = ts.id_seleksi', 'LEFT')
+                ->where(array('penempatan !=' => '','pstat' => 1,'ts.tahun' => '2022'))
+                ->orderBy('ts.tahun DESC');
+            }elseif ($type=='summary') {
+                $db=$this->db->table('vw_pelamar_pendidikan_summary')->select('*');
+            }elseif ($type=='detail') {
+                return array(
+                'query'         => $this->db->table('vw_pelamar_pendidikan_detail'),
+                'column_order'  => array('nip','nama',null,null,null,null),
+                'order'         => array('nama' => 'asc'),
+                'column_search' => array('nip','nama')
+                );
+            }
+            
         }else{
             return false;
         }
@@ -120,7 +150,7 @@ class Data_diklat_model extends Model {
         if ($type=='count') {
             return $db->countAllResults();
         }else{
-            return $db->getResultArray();
+            return $db->get()->getResultArray();
         }
     }
 
@@ -128,38 +158,73 @@ class Data_diklat_model extends Model {
     {
 
         if ($param=='pendidikan') {
-            $this->db->select('*,penempatan,pstat,ts.tahun AS tahun')
-            ->from('t_peserta tp')
-            ->join('t_datadiri td', 'tp.id_datadiri = td.id_datadiri', 'LEFT')
-            ->join('t_seleksi ts', 'tp.id_seleksi = ts.id_seleksi', 'LEFT')
-            ->join('t_alumni ta', 'tp.id_peserta = ta.id_peserta', 'LEFT')
-            ->where('ta.tgl_lulus !=', '')
-            ->group_start()
-            ->like('ts.nama', 'DIKLAT GELAR', 'after')
-            ->group_end()
-            ->order_by('ts.tahun DESC');
+            if ($type=='count') {   
+                $db=$this->db->table('t_peserta tp')
+                ->select('*,penempatan,pstat,ts.tahun AS tahun')
+                ->join('t_datadiri td', 'tp.id_datadiri = td.id_datadiri', 'LEFT')
+                ->join('t_seleksi ts', 'tp.id_seleksi = ts.id_seleksi', 'LEFT')
+                ->join('t_alumni ta', 'tp.id_peserta = ta.id_peserta', 'LEFT')
+                ->where('ta.tgl_lulus !=', '')
+                ->groupStart()
+                ->like('ts.nama', 'DIKLAT GELAR', 'after')
+                ->groupEnd()
+                ->orderBy('ts.tahun DESC');
+            }elseif ($type=='summary') {
+                $db=$this->db->table('vw_pelamar_pendidikan_summary')->select('*');
+            }elseif ($type=='detail') {
+                return array(
+                'query'         => $this->db->table('vw_pelamar_pendidikan_detail'),
+                'column_order'  => array('nip','nama',null,null,null,null),
+                'order'         => array('nama' => 'asc'),
+                'column_search' => array('nip','nama')
+                );
+            }
         }elseif ($param=='pelatihan') {
-            $this->db->select('*,penempatan,pstat,ts.tahun AS tahun')
-            ->from('t_peserta tp')
-            ->join('t_datadiri td', 'tp.id_datadiri = td.id_datadiri', 'LEFT')
-            ->join('t_seleksi ts', 'tp.id_seleksi = ts.id_seleksi', 'LEFT')
-            ->join('t_alumni ta', 'tp.id_peserta = ta.id_peserta', 'LEFT')
-            ->where('ta.tgl_lulus !=', '')
-            ->group_start()
-            ->like('ts.nama', 'DIKLAT NON', 'after')
-            ->group_end()
-            ->order_by('ts.tahun DESC');
+            if ($type=='count') {   
+                $db=$this->db->table('t_peserta tp')
+                ->select('*,penempatan,pstat,ts.tahun AS tahun')
+                ->join('t_datadiri td', 'tp.id_datadiri = td.id_datadiri', 'LEFT')
+                ->join('t_seleksi ts', 'tp.id_seleksi = ts.id_seleksi', 'LEFT')
+                ->join('t_alumni ta', 'tp.id_peserta = ta.id_peserta', 'LEFT')
+                ->where('ta.tgl_lulus !=', '')
+                ->groupStart()
+                ->like('ts.nama', 'DIKLAT NON', 'after')
+                ->groupEnd()
+                ->orderBy('ts.tahun DESC');
+            }elseif ($type=='summary') {
+                $db=$this->db->table('vw_pelamar_pendidikan_summary')->select('*');
+            }elseif ($type=='detail') {
+                return array(
+                'query'         => $this->db->table('vw_pelamar_pendidikan_detail'),
+                'column_order'  => array('nip','nama',null,null,null,null),
+                'order'         => array('nama' => 'asc'),
+                'column_search' => array('nip','nama')
+                );
+            }
+            
         }elseif ($param=='gabungan') {
-            $this->db->select('*,penempatan,pstat,ts.tahun AS tahun')
-            ->from('t_peserta tp')
-            ->join('t_datadiri td', 'tp.id_datadiri = td.id_datadiri', 'LEFT')
-            ->join('t_seleksi ts', 'tp.id_seleksi = ts.id_seleksi', 'LEFT')
-            ->join('t_alumni ta', 'tp.id_peserta = ta.id_peserta', 'LEFT')
-            ->where('ta.tgl_lulus !=', '')
-            ->group_start()
-            ->like('ts.nama', 'GELAR', 'both')
-            ->group_end()
-            ->order_by('ts.tahun DESC');
+            if ($type=='count') {   
+                $db=$this->db->table('t_peserta tp')
+                ->select('*,penempatan,pstat,ts.tahun AS tahun')
+                ->join('t_datadiri td', 'tp.id_datadiri = td.id_datadiri', 'LEFT')
+                ->join('t_seleksi ts', 'tp.id_seleksi = ts.id_seleksi', 'LEFT')
+                ->join('t_alumni ta', 'tp.id_peserta = ta.id_peserta', 'LEFT')
+                ->where('ta.tgl_lulus !=', '')
+                ->groupStart()
+                ->like('ts.nama', 'GELAR', 'both')
+                ->groupEnd()
+                ->orderBy('ts.tahun DESC');
+            }elseif ($type=='summary') {
+                $db=$this->db->table('vw_pelamar_pendidikan_summary')->select('*');
+            }elseif ($type=='detail') {
+                return array(
+                'query'         => $this->db->table('vw_pelamar_pendidikan_detail'),
+                'column_order'  => array('nip','nama',null,null,null,null),
+                'order'         => array('nama' => 'asc'),
+                'column_search' => array('nip','nama')
+                );
+            }
+           
         }else{
             return false;
         }
@@ -167,7 +232,7 @@ class Data_diklat_model extends Model {
         if ($type=='count') {
             return $db->countAllResults();
         }else{
-            return $db->getResultArray();
+            return $db->get()->getResultArray();
         }
     }
 }

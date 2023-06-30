@@ -1,7 +1,7 @@
 $(document).ready(function () {
-  $("#tableCountPendidikan").DataTable();
-  $("#tableCountPelatihan").DataTable();
-  $("#tableCountGabungan").DataTable();
+  $("#tableCountPendidikan").DataTable({searching: false,ordering: false});
+  $("#tableCountPelatihan").DataTable({searching: false,ordering: false});
+  $("#tableCountGabungan").DataTable({searching: false,ordering: false});
 });
 
 
@@ -12,6 +12,18 @@ const dataRadarPendidikan = {
 
 new Chart(document.getElementById('chartRadarCountPendidikan'), {
   type: 'radar',
+  data: dataRadarPendidikan,
+  options: {
+    elements: {
+      line: {
+        borderWidth: 3
+      }
+    }
+  },
+});
+
+new Chart(document.getElementById('chartAreaCountPendidikan'), {
+  type: 'line',
   data: dataRadarPendidikan,
   options: {
     elements: {
@@ -39,6 +51,18 @@ new Chart(document.getElementById('chartRadarCountPelatihan'), {
   },
 });
 
+new Chart(document.getElementById('chartAreaCountPelatihan'), {
+  type: 'line',
+  data: dataRadarPelatihan,
+  options: {
+    elements: {
+      line: {
+        borderWidth: 3
+      }
+    }
+  },
+});
+
 
 const dataRadarGabungan = {
   labels:  datasetGabungan.label,
@@ -47,6 +71,19 @@ const dataRadarGabungan = {
 
 new Chart(document.getElementById('chartRadarCountGabungan'), {
   type: 'radar',
+  data: dataRadarGabungan,
+  options: {
+    elements: {
+      line: {
+        borderWidth: 3
+      }
+    }
+  },
+});
+
+
+new Chart(document.getElementById('chartAreaCountGabungan'), {
+  type: 'line',
   data: dataRadarGabungan,
   options: {
     elements: {

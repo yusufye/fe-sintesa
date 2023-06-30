@@ -29,12 +29,16 @@
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane <?php echo ($param=='pendidikan'?'active':'')?>" id="nav-pendidikan" role="tabpanel"
                 aria-labelledby="nav-pendidikan-tab">
-                <div class="d-flex justify-content-end py-4">
-                    <a href='<?php echo "/data-diklat/$orig_title/pendidikan/detail" ?>' class="btn btn-primary">Info
-                        Detail<i class="fa fa-arrow-right"></i></a>
-                </div>
-                <table id="tableCountPendidikan" class="table table-striped">
-                    <?php
+                <div class="row">
+
+
+                    <div class="d-flex justify-content-end py-4">
+                        <a href='<?php echo "/data-diklat/$orig_title/pendidikan/detail" ?>'
+                            class="btn btn-primary">Info
+                            Detail<i class="fa fa-arrow-right"></i></a>
+                    </div>
+                    <table id="tableCountPendidikan" class="table table-striped">
+                        <?php
                         $group_pendidikan=array();
                         if ($data_summary_pendidikan!=null) {
                             foreach ($data_summary_pendidikan as $key => $value) {
@@ -62,27 +66,29 @@
 
 
                     ?>
-                </table>
+                    </table>
+                </div>
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col col-md-6">
                         <canvas id="chartRadarCountPendidikan"></canvas>
                     </div>
-                    <div class="col-sm-6">
-                        <canvas id="chartBarCountPendidikan"></canvas>
+                    <div class="col col-md-6">
+                        <canvas id="chartAreaCountPendidikan"></canvas>
                     </div>
-
                 </div>
+
             </div>
 
             <div class="tab-pane <?php echo ($param=='pelatihan'?'active':'')?>" id="nav-pelatihan" role="tabpanel"
                 aria-labelledby="nav-pelatihan-tab">
-                <div class="d-flex justify-content-end py-4">
-                    <a href='<?php echo "/data-diklat/$orig_title/pelatihan/detail" ?>' class="btn btn-primary">Info
-                        Detail<i class="fa fa-arrow-right"></i></a>
-                </div>
+                <div class="row">
+                    <div class="d-flex justify-content-end py-4">
+                        <a href='<?php echo "/data-diklat/$orig_title/pelatihan/detail" ?>' class="btn btn-primary">Info
+                            Detail<i class="fa fa-arrow-right"></i></a>
+                    </div>
 
-                <table id="tableCountPelatihan" class="table table-striped">
-                    <?php
+                    <table id="tableCountPelatihan" class="table table-striped">
+                        <?php
                         if ($data_summary_pelatihan!=null) {
                             $group_pelatihan[$key_row][]=$row;
                             foreach ($data_summary_pelatihan as $key => $value) {
@@ -112,26 +118,29 @@
 
                     ?>
 
-                </table>
+                    </table>
+                </div>
                 <div class="row">
-                    <div class="col-sm-6">
+
+                    <div class="col col-md-6">
                         <canvas id="chartRadarCountPelatihan"></canvas>
                     </div>
-                    <div class="col-sm-6">
-                        <canvas id="chartBarCountPelatihan"></canvas>
+                    <div class="col col-md-6">
+                        <canvas id="chartAreaCountPelatihan"></canvas>
                     </div>
-
                 </div>
+
             </div>
             <div class="tab-pane <?php echo ($param=='gabungan'?'active':'')?>" id="nav-gabungan" role="tabpanel"
                 aria-labelledby="nav-gabungan-tab">
-                <div class="d-flex justify-content-end py-4">
-                    <a href='<?php echo "/data-diklat/$orig_title/gabungan/detail" ?>' class="btn btn-primary">Info
-                        Detail<i class="fa fa-arrow-right"></i></a>
-                </div>
+                <div class="row">
+                    <div class="d-flex justify-content-end py-4">
+                        <a href='<?php echo "/data-diklat/$orig_title/gabungan/detail" ?>' class="btn btn-primary">Info
+                            Detail<i class="fa fa-arrow-right"></i></a>
+                    </div>
 
-                <table id="tableCountGabungan" class="table table-striped">
-                    <?php
+                    <table id="tableCountGabungan" class="table table-striped">
+                        <?php
                         if ($data_summary_gabungan!=null) {
                             $group_gabungan[$key_row][]=$row;
                             foreach ($data_summary_gabungan as $key => $value) {
@@ -161,16 +170,22 @@
 
                     ?>
 
-                </table>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <canvas id="chartRadarCountGabungan"></canvas>
-                    </div>
-                    <div class="col-sm-6">
-                        <canvas id="chartBarCountGabungan"></canvas>
-                    </div>
+                    </table>
 
                 </div>
+
+
+                <div class="row">
+
+                    <div class="col col-md-6">
+                        <canvas id="chartRadarCountGabungan"></canvas>
+                    </div>
+
+                    <div class="col col-md-6">
+                        <canvas id="chartAreaCountGabungan"></canvas>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -188,12 +203,9 @@
                 $chart_data_pendidikan['dataset'][]=array(
                     'label'                     => strval($key),
                     'data'                      => $value,
-                    'backgroundColor'           => 'rgba(255, 99, 132, 0.2)',
-                    'borderColor'               => 'rgb(255, 99, 132)',
-                    'pointBackgroundColor'      => 'rgb(255, 99, 132)',
-                    'pointBorderColor'          => '#fff',
-                    'pointHoverBackgroundColor' => '#fff',
-                    'pointHoverBorderColor'     => 'rgb(255, 99, 132)'
+                    'backgroundColor'           => 'rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)',
+                    'borderColor'               => 'rgb('.rand(0,255).', '.rand(0,255).', '.rand(0,255).')',
+                    'fill'                      => true
                 );
             }
         }
@@ -207,12 +219,9 @@
                 $chart_data_pelatihan['dataset'][]=array(
                     'label'                     => strval($key),
                     'data'                      => $value,
-                    'backgroundColor'           => 'rgba(255, 99, 132, 0.2)',
-                    'borderColor'               => 'rgb(255, 99, 132)',
-                    'pointBackgroundColor'      => 'rgb(255, 99, 132)',
-                    'pointBorderColor'          => '#fff',
-                    'pointHoverBackgroundColor' => '#fff',
-                    'pointHoverBorderColor'     => 'rgb(255, 99, 132)'
+                    'backgroundColor'           => 'rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)',
+                    'borderColor'               => 'rgb('.rand(0,255).', '.rand(0,255).', '.rand(0,255).')',
+                    'fill'                      => true
                 );
             }
         }
@@ -226,12 +235,9 @@
                 $chart_data_gabungan['dataset'][]=array(
                     'label'                     => strval($key),
                     'data'                      => $value,
-                    'backgroundColor'           => 'rgba(255, 99, 132, 0.2)',
-                    'borderColor'               => 'rgb(255, 99, 132)',
-                    'pointBackgroundColor'      => 'rgb(255, 99, 132)',
-                    'pointBorderColor'          => '#fff',
-                    'pointHoverBackgroundColor' => '#fff',
-                    'pointHoverBorderColor'     => 'rgb(255, 99, 132)'
+                    'backgroundColor'           => 'rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)',
+                    'borderColor'               => 'rgb('.rand(0,255).', '.rand(0,255).', '.rand(0,255).')',
+                    'fill'                      => true
                 );
             }
         }
@@ -239,15 +245,4 @@
 var datasetPendidikan = <?php echo json_encode($chart_data_pendidikan) ?>;
 var datasetPelatihan = <?php echo json_encode($chart_data_pelatihan) ?>;
 var datasetGabungan = <?php echo json_encode($chart_data_gabungan) ?>;
-
-
-// label: 'My First Dataset',
-//     data: [65, 59, 90, 81, 56, 55, 40],
-//     fill: true,
-//     backgroundColor: 'rgba(255, 99, 132, 0.2)',
-//     borderColor: 'rgb(255, 99, 132)',
-//     pointBackgroundColor: 'rgb(255, 99, 132)',
-//     pointBorderColor: '#fff',
-//     pointHoverBackgroundColor: '#fff',
-//     pointHoverBorderColor: 'rgb(255, 99, 132)'
 </script>
