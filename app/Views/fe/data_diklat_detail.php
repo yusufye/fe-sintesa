@@ -1,5 +1,5 @@
 <?php 
-        $data_detail_pendidikan=$detail[$model_name]['pendidikan'];
+        $data_detail_pendidikan=$detail[$model_name][$param];
 ?>
 
 <section id="services" class="services">
