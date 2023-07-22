@@ -56,7 +56,15 @@ class Model_datatable extends Model
 
         if ($this->request->getPost('filters')) {
             foreach ($this->request->getPost('filters') as $row_filter) {
-                $this->dt->where($row_filter['field'],$row_filter['value']);
+                if (isset($row_filter['value']) && $row_filter['value']!='') {
+                    if ($row_filter['type']=='date_range_start') {
+                        $this->dt->where($row_filter['field']." >=",$row_filter['value']);
+                    }elseif ($row_filter['type']=='date_range_end') {
+                        $this->dt->where($row_filter['field']." <=",$row_filter['value']);
+                    }else{
+                        $this->dt->like($row_filter['field'],$row_filter['value'],'both');
+                    }
+                }
             }
         }
     }

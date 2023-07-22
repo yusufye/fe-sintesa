@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use App\Models\Data_diklat_model;
 use App\Models\Data_perencana_model;
+use App\Models\Data_administratif_model;
 use App\Models\Model_datatable;
 use Config\Services;
 class Web extends BaseController
@@ -85,15 +86,29 @@ class Web extends BaseController
 			);
 
             $lists = $datamodel->get_datatables();
+			// $x=$datamodel->db->getLastQuery()->getQuery();
+			// echo '<pre>';print_r($x);echo'</pre>';
+			// exit();
 			$data = [];
             $no = $request->getPost("start");
             foreach ($lists as $key=>$list) {
 				$no++;
                 $row = [];
-
 				foreach (array_keys(get_object_vars($list)) as $col_name) {
-					$row[]=$list->$col_name;
+					if($col_name=='gambar'){
+						$send_row="<img src='".$list->$col_name."' style='max-width:50px'>";
+					}elseif ($col_name=='btn_detail') {
+						$send_row="<button type='button' class='btn btn-primary show_dialog_detail btn-sm' data-source='".$list->btn_detail_source."' data-id='".$list->$col_name."' >Detail</button>";
+					}elseif ($col_name=='btn_download') {
+						$send_row="<a class='btn btn-secondary btn-sm' target='_blank' href='".$list->btn_download."'>Download</a>";
+					}elseif ($col_name=='btn_detail_source') {
+						continue;
+					}else{
+						$send_row=$list->$col_name;
+					}
+					$row[]=$send_row;
 				}
+				
                 $data[] = $row;
             }
             $output = [
@@ -154,6 +169,78 @@ class Web extends BaseController
       
 		return view('fe/template/header',$data)
 		.view('fe/data_perencana_'.$send_type,$data)
+		.view('fe/template/footer',$data);
+	}
+
+	public function data_administratif_biodata_narasumber() 
+	{
+        $data_administratif_model = new Data_administratif_model();
+		
+		
+		$data['title']                  = 'Biodata Narasumber';
+		$data['model_init']             = 'Data_administratif_model';
+		$data['init_datatable']         = true;
+		$data['model']                  = 'data_administratif';
+		$data['method']                 = 'get_administratif_data_biodata_narasumber';
+		$data['method_param']           = 'biodata_narasumber';
+		$data['method_type']            = 'detail';
+		$data['init_global_dttable_js'] = true;
+		
+      
+		return view('fe/template/header',$data)
+		.view('fe/data_administratif_narasumber',$data)
+		.view('fe/template/footer',$data);
+	}
+	
+	public function detail_pegawai($id) {
+		$data_administratif_model 	= new Data_administratif_model();
+		$data_pegawai_detai			= $data_administratif_model->get_detail_pegawai($id);
+		echo json_encode($data_pegawai_detai);
+	}
+
+	
+	public function data_administratif_kegiatan() 
+	{
+        $data_administratif_model = new Data_administratif_model();
+		
+		
+		$data['title']                  = 'Data Kegiatan';
+		$data['model_init']             = 'Data_administratif_model';
+		$data['init_datatable']         = true;
+		$data['model']                  = 'data_administratif';
+		$data['method']                 = 'get_administratif_kegiatan';
+		$data['method_param']           = 'data_kegiatan';
+		$data['method_type']            = 'detail';
+		$data['init_global_dttable_js'] = true;
+	
+		return view('fe/template/header',$data)
+		.view('fe/data_administratif_kegiatan',$data)
+		.view('fe/template/footer',$data);
+	}
+
+	public function detail_kegiatan($id) {
+		$data_administratif_model 	= new Data_administratif_model();
+		$data_kegiatan_detail		= $data_administratif_model->get_detail_kegiatan($id);
+		echo json_encode($data_kegiatan_detail);
+	}
+
+	public function data_administratif_lkj() 
+	{
+        $data_administratif_model = new Data_administratif_model();
+		
+		
+		$data['title']                  = 'Data LKJ';
+		$data['model_init']             = 'Data_administratif_model';
+		$data['init_datatable']         = true;
+		$data['model']                  = 'data_administratif';
+		$data['method']                 = 'get_administratif_data_biodata_narasumber';
+		$data['method_param']           = 'biodata_narasumber';
+		$data['method_type']            = 'detail';
+		$data['init_global_dttable_js'] = true;
+		
+      
+		return view('fe/template/header',$data)
+		.view('fe/data_administratif_lkj',$data)
 		.view('fe/template/footer',$data);
 	}
 }

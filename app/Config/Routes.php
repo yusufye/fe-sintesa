@@ -37,6 +37,13 @@ $routes->get('/data-diklat/(:any)/(:any)/(:any)', 'Web::data_diklat/$1/$2/$3');
 $routes->get('/data-perencana/(:any)', 'Web::data_perencana/$1');
 $routes->get('/data-perencana/(:any)/(:any)', 'Web::data_perencana/$1/$2');
 $routes->get('/data-perencana/(:any)/(:any)/(:any)', 'Web::data_perencana/$1/$2/$3');
+//data administratif
+$routes->get('/data-administratif/biodata-narasumber', 'Web::data_administratif_biodata_narasumber');
+$routes->post('/web/detail_pegawai/(:any)', 'Web::detail_pegawai/$1');
+$routes->get('/data-administratif/data-kegiatan', 'Web::data_administratif_kegiatan');
+$routes->post('/web/detail_kegiatan/(:any)', 'Web::detail_kegiatan/$1');
+$routes->get('/data-administratif/data-lkj', 'Web::data_administratif_lkj');
+
 
 /*
  * --------------------------------------------------------------------

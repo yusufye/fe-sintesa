@@ -25,12 +25,12 @@
   <link href="<?php echo base_url();?>public/assets/bizland/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="<?php echo base_url();?>public/assets/bizland/assets/css/style.css" rel="stylesheet">
   <?php
   if(isset($init_datatable)){
     echo '<link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">';
   }
-?>
+  ?>
+  <link href="<?php echo base_url();?>public/assets/bizland/assets/css/style.css" rel="stylesheet">
 
   
 

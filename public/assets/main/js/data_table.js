@@ -40,7 +40,7 @@ var dataSet = [
 var Globalfilters={};
 function generateGlobalFilters() {
     Globalfilters = $.map($('.Globalfilters'), function(el) {
-    return {field: $(el).data('filtername'), value:$(el).val()}
+    return {field: $(el).data('filtername'), value:$(el).val(), type:$(el).data('filtertype')??'like'}
 });
 }
  
@@ -64,7 +64,6 @@ $(document).ready(function () {
             table.ajax.reload();
         });
             
-    console.log(); 
 
    
         table = $('#'+DtTableId).DataTable({
