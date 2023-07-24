@@ -61,7 +61,6 @@ class Web extends BaseController
 			$data[$send_type][$model_name][$sub2]	=$data_diklat_model->{'get_diklat_'.$model_name}($sub2,$send_type);
 		}
 		
-		
       
 		return view('fe/template/header',$data)
 		.view('fe/data_diklat_'.$send_type,$data)

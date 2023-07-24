@@ -35,7 +35,7 @@
                     <div class="d-flex justify-content-end py-4">
                         <a href='<?php echo "/data-diklat/$orig_title/pendidikan/detail" ?>'
                             class="btn btn-primary">Info
-                            Detail<i class="fa fa-arrow-right"></i></a>
+                            Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
                     <table id="tableCountPendidikan" class="table table-striped">
                         <?php
@@ -84,7 +84,7 @@
                 <div class="row">
                     <div class="d-flex justify-content-end py-4">
                         <a href='<?php echo "/data-diklat/$orig_title/pelatihan/detail" ?>' class="btn btn-primary">Info
-                            Detail<i class="fa fa-arrow-right"></i></a>
+                            Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
 
                     <table id="tableCountPelatihan" class="table table-striped">
@@ -136,7 +136,7 @@
                 <div class="row">
                     <div class="d-flex justify-content-end py-4">
                         <a href='<?php echo "/data-diklat/$orig_title/gabungan/detail" ?>' class="btn btn-primary">Info
-                            Detail<i class="fa fa-arrow-right"></i></a>
+                            Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
 
                     <table id="tableCountGabungan" class="table table-striped">

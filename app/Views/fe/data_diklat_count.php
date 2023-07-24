@@ -10,7 +10,7 @@
             <div class="icon-box">
               <div class="icon"><i class='bx bxs-graduation'></i></div>
               <h4><a href="">Data Pendidikan</a></h4>
-              <p><h5><span data-purecounter-start="0" data-purecounter-end="<?php echo $count[$model_name]['pendidikan']; ?>" data-purecounter-duration="1" class="purecounter"></span> Data</h5></p>
+              <p><h5><span data-purecounter-start="0" data-purecounter-end="<?php echo $count[$model_name]['pendidikan'][0]['total']; ?>" data-purecounter-duration="1" class="purecounter"></span> Data</h5></p>
               <p><a href='<?php echo "/data-diklat/$orig_title/pendidikan/summary" ?>' class="btn btn-warning"><i class='bx bx-right-arrow-circle' ></i> Info Detail</i></a></p>
             </div>
           </div>
@@ -19,7 +19,7 @@
           <div class="icon-box">
               <div class="icon"><i class="fa-solid fa-user-tie"></i></div>
               <h4><a href="">Data Pelatihan</a></h4>
-              <p><h5><span data-purecounter-start="0" data-purecounter-end="<?php echo $count[$model_name]['pelatihan']; ?>" data-purecounter-duration="1" class="purecounter"></span> Data</h5></p>
+              <p><h5><span data-purecounter-start="0" data-purecounter-end="<?php echo $count[$model_name]['pelatihan'][0]['total']; ?>" data-purecounter-duration="1" class="purecounter"></span> Data</h5></p>
                 <a href='<?php echo "/data-diklat/$orig_title/pelatihan/summary" ?>' class="btn btn-warning"><i class="bx bx-right-arrow-circle"></i></i> Info Detail</i></a>
             </div>
           </div>
@@ -28,7 +28,7 @@
           <div class="icon-box">
               <div class="icon"><i class="fa-solid fa-people-group"></i></div>
               <h4><a href="">Data Gabungan</a></h4>
-              <p><h5><span data-purecounter-start="0" data-purecounter-end="<?php echo $count[$model_name]['gabungan']; ?>" data-purecounter-duration="1" class="purecounter"></span> Data</h5></p>
+              <p><h5><span data-purecounter-start="0" data-purecounter-end="<?php echo $count[$model_name]['gabungan'][0]['total']; ?>" data-purecounter-duration="1" class="purecounter"></span> Data</h5></p>
                 <a href='<?php echo "/data-diklat/$orig_title/gabungan/summary" ?>' class="btn btn-warning"><i class="bx bx-right-arrow-circle"></i> Info Detail</i></a>
             </div>
         </div>

@@ -15,7 +15,7 @@ $(document).ready(function () {
     })
 });
 
-function showDetail(source,id,qwe){  
+function showDetail(source,id,callback){
     if (source=='biodata_narasumber') {
         to_url="/web/detail_pegawai/"+id;
     }else{
@@ -26,6 +26,12 @@ function showDetail(source,id,qwe){
         type: "POST",
         url: to_url,
         dataType: "json",
-        success: qwe
+        success: callback,
+        beforeSend: function() {
+            $("#ajax_loader").show();
+        },
+        complete: function() {
+            $("#ajax_loader").hide();
+        }
     });
 }
