@@ -242,4 +242,53 @@ class Web extends BaseController
 		.view('fe/data_administratif_lkj',$data)
 		.view('fe/template/footer',$data);
 	}
+
+	public function get_chart_perencana_pusat_detail() {
+		$data_perencana_model 	= new Data_perencana_model();
+		$data_chart_pusat			= $data_perencana_model->get_chart_perencana_pusat_detail();
+
+		if ($data_chart_pusat!=null) {
+			$group_pendidikan=array();
+			foreach ($data_chart_pusat as $key => $value) {
+				// echo '<pre>';print_r($value);echo'</pre>';
+				
+				foreach ($value as $key_row=>$row) {
+					$group_pendidikan[$key_row][]=$row;
+
+					// if ($key_row=='jabatan') {
+					// 	$chart_data_pusat['label']=$row;
+					// }
+					// if (!in_array($key_row,array('jabatan','Jumlah'))) {
+					// 	$chart_data_pusat['dataset'][]=array(
+					// 		'label'                     => strval($key_row),
+					// 		'data'                      => $row,
+					// 		'backgroundColor'           => 'rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)',
+					// 		'borderColor'               => 'rgb('.rand(0,255).', '.rand(0,255).', '.rand(0,255).')',
+					// 		'fill'                      => true
+					// 	);
+					// }
+				}
+			}
+
+			$chart_data_pusat=array();
+			foreach ($group_pendidikan as $key => $value) {
+				if ($key=='jabatan') {
+					$chart_data_pusat['label']=$value;
+				}
+				if (!in_array($key,array('jabatan','Jumlah'))) {
+					$chart_data_pusat['dataset'][]=array(
+						'label'                     => strval($key),
+						'data'                      => $value,
+						'backgroundColor'           => 'rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)',
+						'borderColor'               => 'rgb('.rand(0,255).', '.rand(0,255).', '.rand(0,255).')',
+						'fill'                      => true
+					);
+				}
+			}
+		}
+		// echo '<pre>';print_r($chart_data_pusat);echo'</pre>';
+		// exit();
+		echo json_encode($chart_data_pusat);
+	}
+	
 }
