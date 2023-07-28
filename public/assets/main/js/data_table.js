@@ -74,7 +74,7 @@ $(document).ready(function () {
             "order": [],
         
             "ajax": {
-                "url": "/web/globalDtTable/"+DtModelNaame+"/"+DtMethodName+"/"+DtMethodParam+"/"+DtMethodType,
+                "url": baseUrl+"/web/globalDtTable/"+DtModelNaame+"/"+DtMethodName+"/"+DtMethodParam+"/"+DtMethodType,
                 "type": "POST",
                 "dataType": 'json',
                 "data":function (d) { 

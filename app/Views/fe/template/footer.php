@@ -55,9 +55,9 @@
 
   $controller  = strtolower(class_basename(service('router')->controllerName()));
   $method = strtolower(service('router')->methodName());
-  if (file_exists(FCPATH."assets\main\js\web_data_diklat.js")){
-    echo '<script src="'.base_url("public/assets/main/js/{$controller}_{$method}.js").'?v='.time().'"></script>';
-  }
+  // if (file_exists(FCPATH."assets\main\js\web_data_diklat.js")){
+  // }
+  echo '<script src="'.base_url("public/assets/main/js/{$controller}_{$method}.js").'?v='.time().'"></script>';
   
 ?>
 

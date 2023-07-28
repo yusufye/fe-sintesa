@@ -18,7 +18,7 @@
         </div>
 
         <div class="col-lg-6 aos-init aos-animate" data-aos="fade-right" data-aos-delay="100">
-          <img src="assets/main/bg-isometric-removebg.png" class="img-fluid" alt="">
+          <img src="<?php echo base_url();?>public/assets/main/bg-isometric-removebg.png" class="img-fluid" alt="">
         </div>
 
       </div>

@@ -21,9 +21,9 @@ $(document).ready(function () {
 
 function showDetail(source,id,qwe){  
     if (source=='data_kegiatan') {
-        to_url="/web/detail_kegiatan/"+id;
+        to_url=baseUrl+"/web/detail_kegiatan/"+id;
     }else{
-        to_url="/web/detail_kegiatan/"+id;
+        to_url=baseUrl+"/web/detail_kegiatan/"+id;
     }
 
     $.ajax({

@@ -33,7 +33,7 @@
 
 
                     <div class="d-flex justify-content-end py-4">
-                        <a href='<?php echo "/data-diklat/$orig_title/pendidikan/detail" ?>'
+                        <a href='<?php echo base_url()."/data-diklat/$orig_title/pendidikan/detail" ?>'
                             class="btn btn-primary">Info
                             Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
@@ -83,7 +83,7 @@
                 aria-labelledby="nav-pelatihan-tab">
                 <div class="row">
                     <div class="d-flex justify-content-end py-4">
-                        <a href='<?php echo "/data-diklat/$orig_title/pelatihan/detail" ?>' class="btn btn-primary">Info
+                        <a href='<?php echo base_url()."/data-diklat/$orig_title/pelatihan/detail" ?>' class="btn btn-primary">Info
                             Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
 
@@ -135,7 +135,7 @@
                 aria-labelledby="nav-gabungan-tab">
                 <div class="row">
                     <div class="d-flex justify-content-end py-4">
-                        <a href='<?php echo "/data-diklat/$orig_title/gabungan/detail" ?>' class="btn btn-primary">Info
+                        <a href='<?php echo base_url()."/data-diklat/$orig_title/gabungan/detail" ?>' class="btn btn-primary">Info
                             Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
 
