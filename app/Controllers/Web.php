@@ -11,7 +11,8 @@ class Web extends BaseController
     
     public function index()
     {
-        return view('fe/template/header')
+		$data['menu_title']   			= 'Home';
+        return view('fe/template/header',$data)
         .view('fe/home')
         .view('fe/template/footer');
     }
@@ -30,6 +31,7 @@ class Web extends BaseController
 			$model_name = strtolower(str_replace("-","_",$sub));
 		}
 		
+		$data['menu_title']   	= 'Data Diklat';
 		$data['orig_title']     = $sub;
 		$data['sub_title']      = $sub_title;
 		$data['title']          = $sub_title;
@@ -133,6 +135,7 @@ class Web extends BaseController
 			$model_name = strtolower(str_replace("-","_",$sub));
 		}
 		
+		$data['menu_title']   	= 'Data Perencana';
 		$data['orig_title']     = $sub;
 		$data['sub_title']      = $sub_title;
 		$data['title']          = $sub_title;
@@ -175,7 +178,7 @@ class Web extends BaseController
 	{
         $data_administratif_model = new Data_administratif_model();
 		
-		
+		$data['menu_title']   			= 'Data Administratif';
 		$data['title']                  = 'Biodata Narasumber';
 		$data['model_init']             = 'Data_administratif_model';
 		$data['init_datatable']         = true;
@@ -202,7 +205,7 @@ class Web extends BaseController
 	{
         $data_administratif_model = new Data_administratif_model();
 		
-		
+		$data['menu_title']   			= 'Data Administratif';
 		$data['title']                  = 'Data Kegiatan';
 		$data['model_init']             = 'Data_administratif_model';
 		$data['init_datatable']         = true;
@@ -227,7 +230,7 @@ class Web extends BaseController
 	{
         $data_administratif_model = new Data_administratif_model();
 		
-		
+		$data['menu_title']   			= 'Data Administratif';
 		$data['title']                  = 'Data LKJ';
 		$data['model_init']             = 'Data_administratif_model';
 		$data['init_datatable']         = true;

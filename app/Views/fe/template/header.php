@@ -67,9 +67,9 @@
       <nav id="navbar" class="navbar">
         <ul>
             
-          <li><a class="nav-link scrollto active" href="#hero">HOME</a></li>
+          <li><a class="nav-link scrollto <?php echo ($menu_title=='Home'?'active':''); ?>" href="<?php echo base_url();?>">HOME</a></li>
           
-          <li class="dropdown"><a href="#"><span>DATA DIKLAT</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a class="<?php echo ($menu_title=='Data Diklat'?'active':''); ?>" href="#"><span>DATA DIKLAT</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="/data-diklat/data-pelamar">Data Pelamar</a></li>
               <li><a href="/data-diklat/data-penempatan">Data Penempatan</a></li>
@@ -77,18 +77,18 @@
             </ul>
           </li>
           
-          <li class="dropdown"><a href="#"><span>DATA PERENCANA</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a class="<?php echo ($menu_title=='Data Perencana'?'active':''); ?>" href="#"><span>DATA PERENCANA</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="/data-perencana/data-perencana">Data Perencana</a></li>
               <li><a href="/data-perencana/data-tim-penilai">Data Tim Penilai</a></li>
             </ul>
           </li>
 
-          <li class="dropdown"><a href="#"><span>DATA ADMINISTRATIF</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a class="<?php echo ($menu_title=='Data Administratif'?'active':''); ?>" href="#"><span>DATA ADMINISTRATIF</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="/biodata-narasumber">Data Biodata Narasumber</a></li>
-              <li><a href="/data-kegiatan">Data Kegiatan</a></li>
-              <li><a href="/data-lkj">Data LKJ</a></li>
+              <li><a href="/data-administratif/biodata-narasumber">Data Biodata Narasumber</a></li>
+              <li><a href="/data-administratif/data-kegiatan">Data Kegiatan</a></li>
+              <li><a href="/data-administratif/data-lkj">Data LKJ</a></li>
               <li><a href="/data-administratif/data-kerjasama">Data Kerjasama</a></li>
             </ul>
           </li>
