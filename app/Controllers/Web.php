@@ -4,6 +4,7 @@ namespace App\Controllers;
 use App\Models\Data_diklat_model;
 use App\Models\Data_perencana_model;
 use App\Models\Data_administratif_model;
+use App\Models\Publikasi_model;
 use App\Models\Model_datatable;
 use Config\Services;
 class Web extends BaseController
@@ -83,7 +84,8 @@ class Web extends BaseController
 				$datatable['query'],
 				$datatable['column_order'],
 				$datatable['order'],
-				$datatable['column_search']
+				$datatable['column_search'],
+				$datatable['query_where']??[]
 			);
 
             $lists = $datamodel->get_datatables();
@@ -292,6 +294,69 @@ class Web extends BaseController
 		// echo '<pre>';print_r($chart_data_pusat);echo'</pre>';
 		// exit();
 		echo json_encode($chart_data_pusat);
+	}
+
+	public function publikasi($sub=null,$sub2=null,$type=null)
+	{
+        $publikasi_model = new Publikasi_model();
+		$list_sub=['kebijakan-diklat','kebijakan-jfp','kebijakan-umum','kurikulum-pelatihan'];
+		$list_sub_summary=['video','paparan'];
+		
+		if (!in_array($sub,$list_sub)) {
+			throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+		}else{
+			$sub_title  = ucwords(str_replace("-"," ",$sub));
+			$model_name = strtolower(str_replace("-","_",$sub));
+		}
+		
+		$data['menu_title']   	= 'Publikasi';
+		$data['orig_title']     = $sub;
+		$data['sub_title']      = $sub_title;
+		$data['title']          = $sub_title;
+		$data['param']          = $sub2;
+		$data['model_name']     = $model_name;
+		$data['model_init']     = 'Publikasi_model';
+		$data['init_datatable'] = ($sub2<>'video')?true:false;
+		$data['init_chart'] 	= false;
+
+		if ($sub=='kurikulum-pelatihan') {
+			return view('fe/template/header',$data)
+			.view('fe/kurikulum-pelatihan',$data)
+			.view('fe/template/footer',$data);
+		}
+		
+		if ($type==null) { //count all
+			$send_type='count';
+		}elseif ($type=='summary' ) { 
+			$send_type='summary';
+		}elseif ($type=='detail' ) { 
+			$send_type='detail';
+
+			$data['model']                  = 'Publikasi';
+			$data['method']                 = 'get_publikasi_'.$model_name;
+			$data['method_param']           = $sub2;
+			$data['method_type']            = $send_type;
+			$data['init_global_dttable_js'] = true;
+
+		}
+		
+		
+		
+		if ($send_type!='detail') {
+			$data[$send_type][$model_name]['video']		=$publikasi_model->{'get_publikasi_'.$model_name}('video',$send_type);
+			$data[$send_type][$model_name]['paparan']	=$publikasi_model->{'get_publikasi_'.$model_name}('paparan',$send_type);
+		}else{
+			$data[$send_type][$model_name][$sub2]		=$publikasi_model->{'get_publikasi_'.$model_name}($sub2,$send_type);
+		}
+		return view('fe/template/header',$data)
+		.view('fe/publikasi_'.$send_type,$data)
+		.view('fe/template/footer',$data);
+	}
+
+	public function detail_publikasi($id) {
+		$data_publikasi_model 		= new Publikasi_model();
+		$data_publikasi_detai		= $data_publikasi_model->get_detail_publikasi($id);
+		echo json_encode($data_publikasi_detai);
 	}
 	
 }

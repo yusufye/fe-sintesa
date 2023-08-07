@@ -1279,7 +1279,7 @@ section {
 .team .member .social {
   position: absolute;
   left: 0;
-  bottom: 30px;
+  bottom: 50%;
   right: 0;
   opacity: 0;
   transition: ease-in-out 0.3s;
@@ -1294,7 +1294,7 @@ section {
   border-radius: 4px;
   width: 36px;
   height: 36px;
-  background: rgba(16, 110, 234, 0.8);
+  background: rgba(206, 213, 221, 0.8);
   display: inline-block;
   transition: ease-in-out 0.3s;
   color: #fff;
@@ -1335,7 +1335,7 @@ section {
 
 .team .member:hover .social {
   opacity: 1;
-  bottom: 15px;
+  /* bottom: 15px; */
 }
 
 /*--------------------------------------------------------------
@@ -1856,3 +1856,4 @@ section {
   color: black !important;
   border: 1px solid #1F3BB1;
 }
+
