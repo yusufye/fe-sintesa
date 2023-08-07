@@ -318,6 +318,12 @@ class Web extends BaseController
 		$data['model_init']     = 'Publikasi_model';
 		$data['init_datatable'] = ($sub2<>'video')?true:false;
 		$data['init_chart'] 	= false;
+
+		if ($sub=='kurikulum-pelatihan') {
+			return view('fe/template/header',$data)
+			.view('fe/kurikulum-pelatihan',$data)
+			.view('fe/template/footer',$data);
+		}
 		
 		if ($type==null) { //count all
 			$send_type='count';
