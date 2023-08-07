@@ -22,9 +22,9 @@ $(document).ready(function () {
 
 function showDetail(source,id,callback){
     if (source=='biodata_narasumber') {
-        to_url="/web/detail_publikasi/"+id;
+        to_url=baseUrl+"/web/detail_publikasi/"+id;
     }else{
-        to_url="/web/detail_publikasi/"+id;
+        to_url=baseUrl+"/web/detail_publikasi/"+id;
     }
 
     $.ajax({
