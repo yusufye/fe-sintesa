@@ -11,6 +11,7 @@ class Model_datatable extends Model
     protected $column_order  = array();
     protected $column_search = array();
     protected $order         = array();
+    protected $query_where   = array();
     protected $request;
     protected $db;
     protected $dt;
@@ -22,12 +23,13 @@ class Model_datatable extends Model
         $this->request = $request;
         
     }
-    public function set_table($query,$column_order,$order,$column_search)
+    public function set_table($query,$column_order,$order,$column_search,$query_where)
     {
         $this->query         = $query;
         $this->column_order  = $column_order;
         $this->order         = $order;
         $this->column_search = $column_search;
+        $this->query_where   = $query_where;
         $this->dt            = $this->query;
     }
     private function _get_datatables_query()
@@ -67,6 +69,10 @@ class Model_datatable extends Model
                 }
             }
         }
+
+        if (!empty($this->query_where)) {
+            $this->dt->where($this->query_where);
+        }
     }
     function get_datatables()
     {
@@ -84,6 +90,9 @@ class Model_datatable extends Model
     public function count_all()
     {
         $tbl_storage = $this->query;
+        if (!empty($this->query_where)) {
+            $this->dt->where($this->query_where);
+        }
         return $tbl_storage->countAllResults();
     }
 }

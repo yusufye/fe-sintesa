@@ -11,6 +11,7 @@
             <div class="icon-box">
             <div class="icon"><i class='bx bxs-video'></i></div>
               <h4><a href="">Jumlah Video</a></h4>
+              <p><h5><span data-purecounter-start="0" data-purecounter-end="<?php echo $count[$model_name]['video'][0]['total']; ?>" data-purecounter-duration="1" class="purecounter"></span> Data</h5></p>
                 <a href="" class="btn btn-warning"><i class='bx bx-right-arrow-circle' ></i> Info Detail</i></a>
             </div>
           </div>
@@ -19,6 +20,7 @@
           <div class="icon-box">
               <div class="icon"><i class="fa-solid fa-person-chalkboard"></i></div>
               <h4><a href="">Jumlah Paparan</a></h4>
+                <p><h5><span data-purecounter-start="0" data-purecounter-end="<?php echo $count[$model_name]['paparan'][0]['total']; ?>" data-purecounter-duration="1" class="purecounter"></span> Data</h5></p>
                 <a href="" class="btn btn-warning"><i class="bx bx-right-arrow-circle"></i> Info Detail</i></a>
             </div>
           </div>
