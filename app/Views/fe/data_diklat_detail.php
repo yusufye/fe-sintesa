@@ -19,12 +19,14 @@
         <table id="tableDetailPendidikan" class="table">
             <thead>
                 <tr>
-                    <th>nip</th>
-                    <th>nama</th>
-                    <th>jabatan</th>
-                    <th>unit_kerja</th>
-                    <th>nama_inst</th>
-                    <th>pnddkn</th>
+                    <th>Nama</th>
+                    <th>Gender</th>
+                    <th>Wilayah</th>
+                    <th>Instansi</th>
+                    <th>Pendidikan</th>
+                    <th>Jurusan</th>
+                    <th>Penempatan</th>
+                    <th>Tahun</th>
                 </tr>
             </thead>
         </table>
