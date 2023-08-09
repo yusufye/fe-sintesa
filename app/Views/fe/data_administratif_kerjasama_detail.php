@@ -4,17 +4,30 @@
 
 <section id="services" class="services">
     <div class="container" data-aos="fade-up">
-        <!-- <select name="filter_kota" id="filter_kota" data-filtername="kota" class="filters">
-        <option value="Sendai"></option>
-        <option value="Tokyo"></option>
-        <option value="Yokohama"></option>
-    </select>
+    <div class="row">
+          <div class="col-sm-3">
+            <label>Nama Kerjasama</label>
+            <input class="form-control form-control-sm Globalfilters" data-filtername="nama_kerjasama" type="text" placeholder="Nama Kerjasama">
+          </div>  
 
-    <select name="filter_kode" id="filter_kode" data-filtername="kode" class="filters">
-        <option value="RIKYO"></option>
-        <option value="TOY"></option>
-        <option value="TAKU"></option>
-    </select> -->
+          <div class="col-sm-3">
+            <label>Deskripsi</label>
+            <input class="form-control form-control-sm Globalfilters" data-filtername="deskripsi" type="text" placeholder="Deskripsi">
+        </div>  
+
+          <div class="col-sm-3">
+          <label>Date Range</label>
+          <input class="form-control form-control-sm Globalfilters" data-filtername="start_date" data-filtertype="date_range_start" type="date" placeholder="Start Date">
+        </div>
+
+        <div class="col-sm-3">
+        <label></label>
+          <input class="form-control form-control-sm Globalfilters" data-filtername="end_date" data-filtertype="date_range_end" type="date" placeholder="End Date">
+        </div>    
+
+       
+    </div>
+        <br>
 
         <table id="tableDetailKerjasama" class="table">
             <thead>
