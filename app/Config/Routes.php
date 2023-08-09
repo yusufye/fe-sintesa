@@ -45,6 +45,10 @@ $routes->post('/web/detail_pegawai/(:any)', 'Web::detail_pegawai/$1');
 $routes->get('/data-administratif/data-kegiatan', 'Web::data_administratif_kegiatan');
 $routes->post('/web/detail_kegiatan/(:any)', 'Web::detail_kegiatan/$1');
 $routes->get('/data-administratif/data-lkj', 'Web::data_administratif_lkj');
+$routes->get('/data-administratif/data-kerjasama', 'Web::data_administratif_kerjasama');
+$routes->get('/data-administratif/data-kerjasama/(:any)', 'Web::data_administratif_kerjasama/$1');
+$routes->get('/data-administratif/data-kerjasama/(:any)/(:any)', 'Web::data_administratif_kerjasama/$1/$2');
+// $routes->get('/data-administratif/data-kerjasama/(:any)/(:any)/(:any)', 'Web::data_administratif_kerjasama/$1/$2/$3');
 //publikasi
 $routes->get('/publikasi/(:any)', 'Web::publikasi/$1');
 $routes->get('/publikasi/(:any)/(:any)', 'Web::publikasi/$1/$2');

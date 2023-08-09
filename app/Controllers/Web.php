@@ -296,6 +296,54 @@ class Web extends BaseController
 		echo json_encode($chart_data_pusat);
 	}
 
+	function data_administratif_kerjasama($sub2=null,$type=null) {
+		$data_administratif_model = new Data_administratif_model();
+		// $list_sub=['data-kerjasama'];
+		
+
+		// $sub_title  = ucwords(str_replace("-"," ",$sub));
+		// 	$model_name = strtolower(str_replace("-","_",$sub));
+		
+		$data['menu_title']   	= 'data_administratif';
+		$data['orig_title']     = 'data-kerjasama';
+		$data['sub_title']      = 'Data Kerjasama';
+		$data['title']          = 'Data Kerjasama';
+		$data['param']          = $sub2;
+		$data['model_name']     = 'data_kerjasama';
+		$data['model_init']     = 'Data_administratif_model';
+		$data['init_datatable'] = ($sub2<>'video')?true:false;
+		$data['init_chart'] 	= false;
+
+		
+		if ($type==null) { //count all
+			$send_type='count';
+		}elseif ($type=='summary' ) { 
+			$send_type='summary';
+		}elseif ($type=='detail' ) { 
+			$send_type='detail';
+
+			$data['model']                  = 'data_administratif';
+			$data['method']                 = 'get_data_administratif_kerjasama';
+			$data['method_param']           = $sub2;
+			$data['method_type']            = $send_type;
+			$data['init_global_dttable_js'] = true;
+
+		}
+		
+		
+		
+		if ($send_type!='detail') {
+			$data[$send_type]['data_kerjasama']['prodi']		=$data_administratif_model->{'get_data_administratif_kerjasama'}('prodi',$send_type);
+			$data[$send_type]['data_kerjasama']['pusat']	=$data_administratif_model->{'get_data_administratif_kerjasama'}('pusat',$send_type);
+			$data[$send_type]['data_kerjasama']['daerah']	=$data_administratif_model->{'get_data_administratif_kerjasama'}('daerah',$send_type);
+		}else{
+			$data[$send_type]['data_kerjasama'][$sub2]		=$data_administratif_model->{'get_data_administratif_kerjasama'}($sub2,$send_type);
+		}
+		return view('fe/template/header',$data)
+		.view('fe/data_administratif_kerjasama_'.$send_type,$data)
+		.view('fe/template/footer',$data);
+	}
+
 	public function publikasi($sub=null,$sub2=null,$type=null)
 	{
         $publikasi_model = new Publikasi_model();
