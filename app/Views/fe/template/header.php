@@ -51,7 +51,14 @@
       <div class="contact-info d-flex align-items-center">
       </div>
       <div class="d-none d-md-flex align-items-center">
-        <a href="#" class="btn btn-warning">Login</a>
+        <?php
+          if (!session('login')) {
+            echo '<a href="'.base_url('/login').'" class="btn btn-warning">Login</a>';
+          }else{
+            echo '<a href="'.base_url('/logout').'" class="btn btn-warning">Logout</a>';
+          }
+        ?>
+        
       </div>
     </div>
   </section>
