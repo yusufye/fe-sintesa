@@ -46,7 +46,7 @@
                     <a href="<?= base_url('login') ?>" class="logo logo-admin"><img src="<?php echo base_url();?>public/assets/main/logo-sintesa-new-220x45.png" alt="" width="250" height="50"></a>
                 </h3>
                 <div class="p-1">
-                    <?= form_open('http://localhost:8080/login/validasi', ['class' => 'formlogin']) ?>
+                    <?= form_open(base_url().'/login/validasi', ['class' => 'formlogin']) ?>
                     <?= csrf_field() ?>
                     <form class="form-horizontal m-t-30" action="index.html">
                         <div class="form-group">
