@@ -47,6 +47,9 @@ class Web extends BaseController
 		}elseif ($type=='summary' ) { 
 			$send_type='summary';
 		}elseif ($type=='detail' ) { 
+			if (!session('login')) {
+				return redirect()->to(base_url('/login'));
+			}
 			$send_type='detail';
 
 			$data['model']                  = 'Data_diklat';
@@ -152,6 +155,9 @@ class Web extends BaseController
 		}elseif ($type=='summary' ) { 
 			$send_type='summary';
 		}elseif ($type=='detail' ) { 
+			if (!session('login')) {
+				return redirect()->to(base_url('/login'));
+			}
 			$send_type='detail';
 
 			$data['model']                  = 'Data_perencana';
@@ -320,6 +326,9 @@ class Web extends BaseController
 		}elseif ($type=='summary' ) { 
 			$send_type='summary';
 		}elseif ($type=='detail' ) { 
+			if (!session('login')) {
+				return redirect()->to(base_url('/login'));
+			}
 			$send_type='detail';
 
 			$data['model']                  = 'data_administratif';

@@ -54,6 +54,10 @@ $routes->get('/publikasi/(:any)', 'Web::publikasi/$1');
 $routes->get('/publikasi/(:any)/(:any)', 'Web::publikasi/$1/$2');
 $routes->get('/publikasi/(:any)/(:any)/(:any)', 'Web::publikasi/$1/$2/$3');
 $routes->post('/web/detail_publikasi/(:any)', 'Web::detail_publikasi/$1');
+//auth
+$routes->get('/login', 'Login::index');
+$routes->post('/login/validasi', 'Login::validasi');
+$routes->get('/logout', 'Login::logout');
 
 
 
