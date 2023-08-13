@@ -41,8 +41,16 @@
 </script>
 <?php
   if(isset($init_datatable)){
-    echo '<script src="https://code.jquery.com/jquery-3.5.1.js"></script>';
-    echo '<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>';
+    // echo '<script src="https://code.jquery.com/jquery-3.5.1.js"></script>';
+    // echo '<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>';
+    echo '<script src="'.base_url().'public/assets/bizland/assets/vendor/datatable/jquery-3.7.0.js"></script>';
+    echo '<script src="'.base_url().'public/assets/bizland/assets/vendor/datatable/jquery.dataTables.min.js"></script>';
+    echo '<script src="'.base_url().'public/assets/bizland/assets/vendor/datatable/dataTables.buttons.min.js"></script>';
+    echo '<script src="'.base_url().'public/assets/bizland/assets/vendor/datatable/jszip.min.js"></script>';
+    echo '<script src="'.base_url().'public/assets/bizland/assets/vendor/datatable/pdfmake.min.js"></script>';
+    echo '<script src="'.base_url().'public/assets/bizland/assets/vendor/datatable/vfs_fonts.js"></script>';
+    echo '<script src="'.base_url().'public/assets/bizland/assets/vendor/datatable/buttons.html5.min.js"></script>';
+    echo '<script src="'.base_url().'public/assets/bizland/assets/vendor/datatable/buttons.print.min.js"></script>';
   }
 
   if (isset($init_global_dttable_js)) {

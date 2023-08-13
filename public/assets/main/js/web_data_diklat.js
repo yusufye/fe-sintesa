@@ -1,7 +1,97 @@
 $(document).ready(function () {
-  $("#tableCountPendidikan").DataTable({searching: false,ordering: false});
-  $("#tableCountPelatihan").DataTable({searching: false,ordering: false});
-  $("#tableCountGabungan").DataTable({searching: false,ordering: false});
+  $("#tableCountPendidikan").DataTable(
+    {
+      searching: false,ordering: false,
+      dom: "<'row'B>"+
+            "<'row' lfrtip>",
+            buttons: [
+                {
+                    extend:'print'
+                },
+                {
+                extend: 'collection',
+                className: "",
+                text: 'Export',
+                buttons:
+                [
+                    {
+                        extend: "copy", className: ""
+                    },
+                    {
+                        extend: "pdf", className: ""
+                    },
+                        {
+                        extend: "excel", className: ""
+                    },
+                        {
+                        extend: "csv", className: ""
+                    },
+                ],
+              }],
+            "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+    });
+  $("#tableCountPelatihan").DataTable(
+    {
+      searching: false,ordering: false,
+      dom: "<'row'B>"+
+            "<'row' lfrtip>",
+            buttons: [
+                {
+                    extend:'print'
+                },
+                {
+                extend: 'collection',
+                className: "",
+                text: 'Export',
+                buttons:
+                [
+                    {
+                        extend: "copy", className: ""
+                    },
+                    {
+                        extend: "pdf", className: ""
+                    },
+                        {
+                        extend: "excel", className: ""
+                    },
+                        {
+                        extend: "csv", className: ""
+                    },
+                ],
+              }],
+            "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+    });
+  $("#tableCountGabungan").DataTable(
+    {
+      searching: false,ordering: false,
+      dom: "<'row'B>"+
+            "<'row' lfrtip>",
+            buttons: [
+                {
+                    extend:'print'
+                },
+                {
+                extend: 'collection',
+                className: "",
+                text: 'Export',
+                buttons:
+                [
+                    {
+                        extend: "copy", className: ""
+                    },
+                    {
+                        extend: "pdf", className: ""
+                    },
+                        {
+                        extend: "excel", className: ""
+                    },
+                        {
+                        extend: "csv", className: ""
+                    },
+                ],
+              }],
+            "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+    });
 });
 
 
