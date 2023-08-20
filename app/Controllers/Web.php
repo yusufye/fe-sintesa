@@ -165,6 +165,10 @@ class Web extends BaseController
 			$data['method_param']           = $sub2;
 			$data['method_type']            = $send_type;
 			$data['init_global_dttable_js'] = true;
+			$data['list_golongan'] 			= $data_perencana_model->get_list_golongan();
+			$data['list_instansi'] 			= $data_perencana_model->get_list_instansi();
+			$data['list_unit_kerja'] 		= $data_perencana_model->get_list_unit_kerja();
+			$data['list_jabatan']	 		= $data_perencana_model->get_list_jabatan();
 
 		}
 		if ($send_type!='detail') {

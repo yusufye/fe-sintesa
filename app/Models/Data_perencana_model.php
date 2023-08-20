@@ -122,6 +122,46 @@ class Data_perencana_model extends Model {
         return $this->db->table('vw_perencana_pusat')->get()->getResultArray();
     }
 
+    function get_list_golongan(){
+        return $this->db->query($this->db->table('vw_perencana_pusat')
+        ->select('golongan')
+        ->getCompiledSelect().' UNION '.$this->db->table('vw_perencana_daerah')
+        ->select('golongan')
+        ->getCompiledSelect().' UNION '.$this->db->table('vw_perencana_gabungan')
+        ->select('golongan')
+        ->getCompiledSelect())->getResultArray();
+    }
+
+    function get_list_instansi(){
+        return $this->db->query($this->db->table('vw_perencana_pusat')
+        ->select('kementrian_name')
+        ->getCompiledSelect().' UNION '.$this->db->table('vw_perencana_daerah')
+        ->select('kementrian_name')
+        ->getCompiledSelect().' UNION '.$this->db->table('vw_perencana_gabungan')
+        ->select('kementrian_name')
+        ->getCompiledSelect())->getResultArray();
+    }
+
+    function get_list_unit_kerja(){
+        return $this->db->query($this->db->table('vw_perencana_pusat')
+        ->select('unit_kerja')
+        ->getCompiledSelect().' UNION '.$this->db->table('vw_perencana_daerah')
+        ->select('unit_kerja')
+        ->getCompiledSelect().' UNION '.$this->db->table('vw_perencana_gabungan')
+        ->select('unit_kerja')
+        ->getCompiledSelect())->getResultArray();
+    }
+    
+    function get_list_jabatan(){
+        return $this->db->query($this->db->table('vw_perencana_pusat')
+        ->select('jabatan')
+        ->getCompiledSelect().' UNION '.$this->db->table('vw_perencana_daerah')
+        ->select('jabatan')
+        ->getCompiledSelect().' UNION '.$this->db->table('vw_perencana_gabungan')
+        ->select('jabatan')
+        ->getCompiledSelect())->getResultArray();
+    }
+
 }
 
 /* End of file Data_diklat_model.php */

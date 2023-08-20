@@ -92,95 +92,103 @@ $(document).ready(function () {
 });
 
 
-
-const dataRadarPusat = {
-  labels:  datasetPusat.label,
-  datasets: datasetPusat.dataset
-};
-
-new Chart(document.getElementById('chartRadarCountPusat'), {
-  type: 'radar',
-  data: dataRadarPusat,
-  options: {
-    elements: {
-      line: {
-        borderWidth: 3
+if (typeof(datasetPusat)!='undefined') {
+  
+  const dataRadarPusat = {
+    labels:  datasetPusat.label,
+    datasets: datasetPusat.dataset
+  };
+    
+  new Chart(document.getElementById('chartRadarCountPusat'), {
+      type: 'radar',
+    data: dataRadarPusat,
+    options: {
+      elements: {
+        line: {
+          borderWidth: 3
+        }
       }
-    }
-  },
-});
+    },
+  });
 
-new Chart(document.getElementById('chartAreaCountPusat'), {
-  type: 'line',
-  data: dataRadarPusat,
-  options: {
-    elements: {
-      line: {
-        borderWidth: 3
+  new Chart(document.getElementById('chartAreaCountPusat'), {
+    type: 'line',
+    data: dataRadarPusat,
+    options: {
+      elements: {
+        line: {
+          borderWidth: 3
+        }
       }
-    }
-  },
-});
+    },
+  });
 
-const dataRadarDaerah = {
-  labels:  datasetDaerah.label,
-  datasets: datasetDaerah.dataset
-};
+}
 
-new Chart(document.getElementById('chartRadarCountDaerah'), {
-  type: 'radar',
-  data: dataRadarDaerah,
-  options: {
-    elements: {
-      line: {
-        borderWidth: 3
+if (typeof(datasetDaerah)!='undefined') {
+
+  const dataRadarDaerah = {
+    labels:  datasetDaerah.label,
+    datasets: datasetDaerah.dataset
+  };
+
+  new Chart(document.getElementById('chartRadarCountDaerah'), {
+    type: 'radar',
+    data: dataRadarDaerah,
+    options: {
+      elements: {
+        line: {
+          borderWidth: 3
+        }
       }
-    }
-  },
-});
+    },
+  });
 
-new Chart(document.getElementById('chartAreaCountDaerah'), {
-  type: 'line',
-  data: dataRadarDaerah,
-  options: {
-    elements: {
-      line: {
-        borderWidth: 3
+  new Chart(document.getElementById('chartAreaCountDaerah'), {
+    type: 'line',
+    data: dataRadarDaerah,
+    options: {
+      elements: {
+        line: {
+          borderWidth: 3
+        }
       }
-    }
-  },
-});
+    },
+  });
+}
 
+if (typeof(datasetGabungan)!='undefined') {
 
-const dataRadarGabungan = {
-  labels:  datasetGabungan.label,
-  datasets: datasetGabungan.dataset
-};
+  const dataRadarGabungan = {
+    labels:  datasetGabungan.label,
+    datasets: datasetGabungan.dataset
+  };
 
-new Chart(document.getElementById('chartRadarCountGabungan'), {
-  type: 'radar',
-  data: dataRadarGabungan,
-  options: {
-    elements: {
-      line: {
-        borderWidth: 3
+  new Chart(document.getElementById('chartRadarCountGabungan'), {
+    type: 'radar',
+    data: dataRadarGabungan,
+    options: {
+      elements: {
+        line: {
+          borderWidth: 3
+        }
       }
-    }
-  },
-});
+    },
+  });
 
 
-new Chart(document.getElementById('chartAreaCountGabungan'), {
-  type: 'line',
-  data: dataRadarGabungan,
-  options: {
-    elements: {
-      line: {
-        borderWidth: 3
+  new Chart(document.getElementById('chartAreaCountGabungan'), {
+    type: 'line',
+    data: dataRadarGabungan,
+    options: {
+      elements: {
+        line: {
+          borderWidth: 3
+        }
       }
-    }
-  },
-});
+    },
+  });
+}
 
 
 function generatePerencanaFilters(callback) {
