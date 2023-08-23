@@ -90,10 +90,13 @@ $(document).ready(function () {
             "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
   });
 
-  generatePerencanaFilters(function(result){
-    console.log('res',result);
-    generate_chart(result)
-  })
+  if (typeof(method_type)!='undefined') {
+    
+    generatePerencanaFilters(function(result){
+      console.log('res',result);
+      generate_chart(result)
+    })
+  }
 });
 
 
@@ -215,39 +218,39 @@ function generatePerencanaFilters(callback) {
   });
 }
 
-
-var dataAreaGender = {};
-
-var ChartGenderArea= new Chart(document.getElementById('chartBarGender'), {
-  type: 'bar',
-  data: dataAreaGender,
-  options: {
-    elements: {
-      line: {
-        borderWidth: 3
+if (typeof(method_type)!='undefined') {
+  var dataAreaGender = {};
+  
+  var ChartGenderArea= new Chart(document.getElementById('chartBarGender'), {
+    type: 'bar',
+    data: dataAreaGender,
+    options: {
+      elements: {
+        line: {
+          borderWidth: 3
+        }
       }
-    }
-  },
-});
-
-var dataAreaPeriod = {};
-
-var ChartPeriodArea= new Chart(document.getElementById('chartBarPeriod'), {
-  type: 'bar',
-  data: dataAreaPeriod,
-  options: {
-    elements: {
-      line: {
-        borderWidth: 3
+    },
+  });
+  
+  var dataAreaPeriod = {};
+  
+  var ChartPeriodArea= new Chart(document.getElementById('chartBarPeriod'), {
+    type: 'bar',
+    data: dataAreaPeriod,
+    options: {
+      elements: {
+        line: {
+          borderWidth: 3
+        }
       }
-    }
-  },
-});
+    },
+  });
 
-function generate_chart(result){
+  function generate_chart(result){
     dataAreaGender.labels=  result.gender.label;
     dataAreaGender.datasets=  result.gender.dataset;
-
+    
     dataAreaPeriod.labels=  result.period.label;
     dataAreaPeriod.datasets=  result.period.dataset;
     
@@ -255,11 +258,11 @@ function generate_chart(result){
     ChartPeriodArea.update();
 
     $('#tablePeriod').html(result.table_period);
+  }
+  
+  $('.Globalfilters').change(function (e) {
+    generatePerencanaFilters(function(result){
+      generate_chart(result)
+    })
+  });
 }
-
-$('.Globalfilters').change(function (e) {
-  generatePerencanaFilters(function(result){
-    console.log('res',result);
-    generate_chart(result)
-  })
-});

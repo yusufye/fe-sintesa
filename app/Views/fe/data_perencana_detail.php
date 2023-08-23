@@ -136,4 +136,5 @@ var DtMethodName  = '<?php echo $method; ?>';
 var DtMethodParam = '<?php echo $method_param; ?>';
 var DtMethodType  = '<?php echo $method_type; ?>';
 var type          = '<?php echo $orig_title; ?>';
+var method_type   = '<?php echo $method_type; ?>';
 </script>
