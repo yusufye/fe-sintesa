@@ -57,6 +57,8 @@ class Web extends BaseController
 			$data['method_param']           = $sub2;
 			$data['method_type']            = $send_type;
 			$data['init_global_dttable_js'] = true;
+			$data['list_instansi'] 			= $data_diklat_model->get_list_instansi($sub);
+			$data['list_periode']	 		= $data_diklat_model->get_list_periode($sub);
 
 		}
 		if ($send_type!='detail') {
@@ -71,6 +73,56 @@ class Web extends BaseController
 		return view('fe/template/header',$data)
 		.view('fe/data_diklat_'.$send_type,$data)
 		.view('fe/template/footer',$data);
+	}
+
+	public function get_chart_diklat_detail() {
+		$request              = Services::request();
+		$data_diklat_model 	  = new Data_diklat_model();
+
+		$param                = $request->getPost('param');
+		$type                 = $request->getPost('type');
+		$filters              = $request->getPost('filters');
+
+		$chart_data_gender           = $data_diklat_model->get_chart_diklat_detail($param,$type,'gender',$filters);	
+		$chart_data_period           = $data_diklat_model->get_chart_diklat_detail($param,$type,'tahun',$filters);
+		
+		$chart_data=array();
+		if ($chart_data_gender!=null) {
+			
+			$chart_data['gender']['label'][]=['Gender'];
+			foreach ($chart_data_gender as $key => $value) {
+				$chart_data['gender']['dataset'][]=array(
+					'label'                     => $value['gender'],
+					'data'                      => [$value['jumlah']],
+					'backgroundColor'           => 'rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)',
+					'borderColor'               => 'rgb('.rand(0,255).', '.rand(0,255).', '.rand(0,255).')',
+					'fill'                      => true
+				);
+			}
+		}
+
+		if ($chart_data_period!=null) {
+			
+			$chart_data['period']['label'][]=['Periode'];
+			$chart_data['table_period']='<table id="ChartTabularPeriode" class="table table-bordered"> <thead class="table-primary"> <tr> <td>Periode</td> <td>Jumlah</td> </tr></thead>';
+
+			
+			foreach ($chart_data_period as $key => $value) {
+				$chart_data['period']['dataset'][]=array(
+					'label'                     => $value['tahun'],
+					'data'                      => [$value['jumlah']],
+					'backgroundColor'           => 'rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)',
+					'borderColor'               => 'rgb('.rand(0,255).', '.rand(0,255).', '.rand(0,255).')',
+					'fill'                      => true
+				);
+
+				$chart_data['table_period'].="<tr><td>".$value['tahun']."</td><td>".$value['jumlah']."</td></tr>";
+			}
+			$chart_data['table_period'].='</table>';
+		
+		}
+		
+		echo json_encode($chart_data);
 	}
 
 	public function globalDtTable($model, $method, $param, $type)
@@ -165,6 +217,11 @@ class Web extends BaseController
 			$data['method_param']           = $sub2;
 			$data['method_type']            = $send_type;
 			$data['init_global_dttable_js'] = true;
+			$data['list_golongan'] 			= $data_perencana_model->get_list_golongan();
+			$data['list_instansi'] 			= $data_perencana_model->get_list_instansi();
+			$data['list_unit_kerja'] 		= $data_perencana_model->get_list_unit_kerja();
+			$data['list_jabatan']	 		= $data_perencana_model->get_list_jabatan();
+			$data['list_periode']	 		= $data_perencana_model->get_list_periode();
 
 		}
 		if ($send_type!='detail') {
@@ -254,52 +311,57 @@ class Web extends BaseController
 		.view('fe/template/footer',$data);
 	}
 
-	public function get_chart_perencana_pusat_detail() {
-		$data_perencana_model 	= new Data_perencana_model();
-		$data_chart_pusat			= $data_perencana_model->get_chart_perencana_pusat_detail();
+	public function get_chart_perencana_detail() {
+		$request              = Services::request();
+		$data_perencana_model = new Data_perencana_model();
 
-		if ($data_chart_pusat!=null) {
-			$group_pendidikan=array();
-			foreach ($data_chart_pusat as $key => $value) {
-				// echo '<pre>';print_r($value);echo'</pre>';
-				
-				foreach ($value as $key_row=>$row) {
-					$group_pendidikan[$key_row][]=$row;
+		$param                = $request->getPost('param');
+		$type                 = $request->getPost('type');
+		$filters              = $request->getPost('filters');
 
-					// if ($key_row=='jabatan') {
-					// 	$chart_data_pusat['label']=$row;
-					// }
-					// if (!in_array($key_row,array('jabatan','Jumlah'))) {
-					// 	$chart_data_pusat['dataset'][]=array(
-					// 		'label'                     => strval($key_row),
-					// 		'data'                      => $row,
-					// 		'backgroundColor'           => 'rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)',
-					// 		'borderColor'               => 'rgb('.rand(0,255).', '.rand(0,255).', '.rand(0,255).')',
-					// 		'fill'                      => true
-					// 	);
-					// }
-				}
-			}
-
-			$chart_data_pusat=array();
-			foreach ($group_pendidikan as $key => $value) {
-				if ($key=='jabatan') {
-					$chart_data_pusat['label']=$value;
-				}
-				if (!in_array($key,array('jabatan','Jumlah'))) {
-					$chart_data_pusat['dataset'][]=array(
-						'label'                     => strval($key),
-						'data'                      => $value,
-						'backgroundColor'           => 'rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)',
-						'borderColor'               => 'rgb('.rand(0,255).', '.rand(0,255).', '.rand(0,255).')',
-						'fill'                      => true
-					);
-				}
+		$chart_data_gender           = $data_perencana_model->get_chart_perencana_detail($param,$type,'gender',$filters);
+		
+			
+		$chart_data_period           = $data_perencana_model->get_chart_perencana_detail($param,$type,'periode',$filters);
+		
+			
+		$chart_data=array();
+		if ($chart_data_gender!=null) {
+			
+			$chart_data['gender']['label'][]=['Gender'];
+			foreach ($chart_data_gender as $key => $value) {
+				$chart_data['gender']['dataset'][]=array(
+					'label'                     => $value['gender'],
+					'data'                      => [$value['jumlah']],
+					'backgroundColor'           => 'rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)',
+					'borderColor'               => 'rgb('.rand(0,255).', '.rand(0,255).', '.rand(0,255).')',
+					'fill'                      => true
+				);
 			}
 		}
-		// echo '<pre>';print_r($chart_data_pusat);echo'</pre>';
-		// exit();
-		echo json_encode($chart_data_pusat);
+
+		if ($chart_data_period!=null) {
+			
+			$chart_data['period']['label'][]=['Periode'];
+			$chart_data['table_period']='<table id="ChartTabularPeriode" class="table table-bordered"> <thead class="table-primary"> <tr> <td>Periode</td> <td>Jumlah</td> </tr></thead>';
+
+			
+			foreach ($chart_data_period as $key => $value) {
+				$chart_data['period']['dataset'][]=array(
+					'label'                     => $value['periode'],
+					'data'                      => [$value['jumlah']],
+					'backgroundColor'           => 'rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)',
+					'borderColor'               => 'rgb('.rand(0,255).', '.rand(0,255).', '.rand(0,255).')',
+					'fill'                      => true
+				);
+
+				$chart_data['table_period'].="<tr><td>".$value['periode']."</td><td>".$value['jumlah']."</td></tr>";
+			}
+			$chart_data['table_period'].='</table>';
+		
+		}
+		
+		echo json_encode($chart_data);
 	}
 
 	function data_administratif_kerjasama($sub2=null,$type=null) {
