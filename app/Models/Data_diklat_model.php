@@ -38,7 +38,7 @@ class Data_diklat_model extends Model {
                 $db=$this->db->table('vw_pelamar_gabungan_summary')->select('*');
             }elseif ($type=='detail') {
                 return array(
-                    'query'         => $this->db->table('vw_alumni_gabungan')->select('nama,gender,wilayah,nama_inst,pnddkn,jurusan,penempatan,tahun'),
+                    'query'         => $this->db->table('vw_pelamar_gabungan')->select('nama,gender,wilayah,nama_inst,pnddkn,jurusan,penempatan,tahun'),
                     'column_order'  => array('nama', 'gender', 'wilayah','nama_inst', 'pnddkn', 'jurusan', 'penempatan', 'tahun'),
                     'order'         => array('tahun' => 'asc'),
                     'column_search' => array('nama', 'gender', 'wilayah','nama_inst', 'pnddkn', 'jurusan', 'penempatan')
@@ -92,7 +92,7 @@ class Data_diklat_model extends Model {
                 $db=$this->db->table('vw_penempatan_gabungan_summary')->select('*');
             }elseif ($type=='detail') {
                 return array(
-                'query'         => $this->db->table('vw_penempatan_pendidikan')->select('nama,gender,wilayah,nama_inst,pnddkn,jurusan,penempatan,tahun'),
+                'query'         => $this->db->table('vw_penempatan_gabungan')->select('nama,gender,wilayah,nama_inst,pnddkn,jurusan,penempatan,tahun'),
                 'column_order'  => array('nama', 'gender', 'wilayah','nama_inst', 'pnddkn', 'jurusan', 'penempatan', 'tahun'),
                 'order'         => array('tahun' => 'asc'),
                 'column_search' => array('nama', 'gender', 'wilayah','nama_inst', 'pnddkn', 'jurusan', 'penempatan')
