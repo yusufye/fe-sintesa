@@ -39,6 +39,7 @@ $routes->get('/data-perencana/(:any)', 'Web::data_perencana/$1');
 $routes->get('/data-perencana/(:any)/(:any)', 'Web::data_perencana/$1/$2');
 $routes->get('/data-perencana/(:any)/(:any)/(:any)', 'Web::data_perencana/$1/$2/$3');
 $routes->post('/web/get_chart_perencana_pusat_detail', 'Web::get_chart_perencana_pusat_detail');
+$routes->post('web/get_chart_perencana_detail', 'Web::get_chart_perencana_detail');
 //data administratif
 $routes->get('/data-administratif/biodata-narasumber', 'Web::data_administratif_biodata_narasumber');
 $routes->post('/web/detail_pegawai/(:any)', 'Web::detail_pegawai/$1');

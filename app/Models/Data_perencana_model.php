@@ -105,21 +105,42 @@ class Data_perencana_model extends Model {
         return $db->get()->getResultArray();
     }
 
-    function get_chart_perencana_pusat_detail($filters=null){
+    function get_chart_perencana_detail($param,$type,$group_by,$filters=null){
+        if ($type=='data-perencana') {
+            if ($param=='pusat') {
+                $return=$this->db->table('vw_perencana_pusat')->select("$group_by,count(jumlah) as jumlah")->groupBy($group_by);
+            }elseif ($param=='daerah') {
+                $return=$this->db->table('vw_perencana_daerah')->select("$group_by,count(jumlah) as jumlah")->groupBy($group_by);
+            }elseif($param=='gabungan'){
+                $return=$this->db->table('vw_perencana_gabungan')->select("$group_by,count(jumlah) as jumlah")->groupBy($group_by);
+            }
+        }else{
+            if ($param=='pusat') {
+                $return=$this->db->table('vw_penilai_pusat')->select("$group_by,count(jumlah) as jumlah")->groupBy($group_by);
+            }elseif ($param=='daerah') {
+                $return=$this->db->table('vw_penilai_daerah')->select("$group_by,count(jumlah) as jumlah")->groupBy($group_by);
+            }elseif($param=='gabungan'){
+                $return=$this->db->table('vw_penilai_gabungan')->select("$group_by,count(jumlah) as jumlah")->groupBy($group_by);
+            }
+        }
+
         if (isset($filters)) {
             foreach ($filters as $row_filter) {
                 if (isset($row_filter['value']) && $row_filter['value']!='') {
                     if ($row_filter['type']=='date_range_start') {
-                        $this->dt->where($row_filter['field']." >=",$row_filter['value']);
+                        $return->where($row_filter['field']." >=",$row_filter['value']);
                     }elseif ($row_filter['type']=='date_range_end') {
-                        $this->dt->where($row_filter['field']." <=",$row_filter['value']);
+                        $return->where($row_filter['field']." <=",$row_filter['value']);
+                    }elseif ($row_filter['type']=='equal_to') {
+                        $return->where($row_filter['field']."=",$row_filter['value']);
                     }else{
-                        $this->dt->like($row_filter['field'],$row_filter['value'],'both');
+                        $return->like($row_filter['field'],$row_filter['value'],'both');
                     }
                 }
             }
         }
-        return $this->db->table('vw_perencana_pusat')->get()->getResultArray();
+        
+        return $return->get()->getResultArray();
     }
 
     function get_list_golongan(){
@@ -159,6 +180,16 @@ class Data_perencana_model extends Model {
         ->select('jabatan')
         ->getCompiledSelect().' UNION '.$this->db->table('vw_perencana_gabungan')
         ->select('jabatan')
+        ->getCompiledSelect())->getResultArray();
+    }
+
+    function get_list_periode(){
+        return $this->db->query($this->db->table('vw_perencana_pusat')
+        ->select('periode')
+        ->getCompiledSelect().' UNION '.$this->db->table('vw_perencana_daerah')
+        ->select('periode')
+        ->getCompiledSelect().' UNION '.$this->db->table('vw_perencana_gabungan')
+        ->select('periode')
         ->getCompiledSelect())->getResultArray();
     }
 

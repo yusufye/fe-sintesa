@@ -89,6 +89,11 @@ $(document).ready(function () {
               }],
             "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
   });
+
+  generatePerencanaFilters(function(result){
+    console.log('res',result);
+    generate_chart(result)
+  })
 });
 
 
@@ -196,35 +201,65 @@ function generatePerencanaFilters(callback) {
       return {field: $(el).data('filtername'), value:$(el).val(), type:$(el).data('filtertype')??'like'}
   });
 
+
   $.ajax({
     type: "POST",
-    url: "/web/get_chart_perencana_pusat_detail",
+    url: "/web/get_chart_perencana_detail",
     dataType: "json",
-    data:function (d) { 
-      d.filters=Perencanafilters; 
+    data:{ 
+      filters:Perencanafilters, 
+      param:DtMethodParam,
+      type:type,
     },
     success:callback
   });
 }
 
+
+var dataAreaGender = {};
+
+var ChartGenderArea= new Chart(document.getElementById('chartBarGender'), {
+  type: 'bar',
+  data: dataAreaGender,
+  options: {
+    elements: {
+      line: {
+        borderWidth: 3
+      }
+    }
+  },
+});
+
+var dataAreaPeriod = {};
+
+var ChartPeriodArea= new Chart(document.getElementById('chartBarPeriod'), {
+  type: 'bar',
+  data: dataAreaPeriod,
+  options: {
+    elements: {
+      line: {
+        borderWidth: 3
+      }
+    }
+  },
+});
+
+function generate_chart(result){
+    dataAreaGender.labels=  result.gender.label;
+    dataAreaGender.datasets=  result.gender.dataset;
+
+    dataAreaPeriod.labels=  result.period.label;
+    dataAreaPeriod.datasets=  result.period.dataset;
+    
+    ChartGenderArea.update();
+    ChartPeriodArea.update();
+
+    $('#tablePeriod').html(result.table_period);
+}
+
 $('.Globalfilters').change(function (e) {
   generatePerencanaFilters(function(result){
-    console.log(result);
-    // const dataRadarPusat = {
-    //   labels:  datasetPusat.label,
-    //   datasets: datasetPusat.dataset
-    // };
-    
-    // new Chart(document.getElementById('chartRadarCountPusat'), {
-    //   type: 'radar',
-    //   data: dataRadarPusat,
-    //   options: {
-    //     elements: {
-    //       line: {
-    //         borderWidth: 3
-    //       }
-    //     }
-    //   },
-    // });
+    console.log('res',result);
+    generate_chart(result)
   })
 });
