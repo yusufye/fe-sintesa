@@ -93,8 +93,9 @@ $(document).ready(function () {
   if (typeof(method_type)!='undefined') {
     
     generatePerencanaFilters(function(result){
-      console.log('res',result);
-      generate_chart(result)
+      if (Object.keys(result).length !== 0) {
+        generate_chart(result)
+      }
     })
   }
 });
@@ -220,34 +221,35 @@ function generatePerencanaFilters(callback) {
 
 if (typeof(method_type)!='undefined') {
   var dataAreaGender = {};
-  
-  var ChartGenderArea= new Chart(document.getElementById('chartBarGender'), {
-    type: 'bar',
-    data: dataAreaGender,
-    options: {
-      elements: {
-        line: {
-          borderWidth: 3
+    var ChartGenderArea= new Chart(document.getElementById('chartBarGender'), {
+      type: 'bar',
+      data: dataAreaGender,
+      options: {
+        elements: {
+          line: {
+            borderWidth: 3
+          }
         }
-      }
-    },
-  });
+      },
+    });
   
-  var dataAreaPeriod = {};
   
-  var ChartPeriodArea= new Chart(document.getElementById('chartBarPeriod'), {
-    type: 'bar',
-    data: dataAreaPeriod,
-    options: {
-      elements: {
-        line: {
-          borderWidth: 3
+  var dataAreaPeriod = {}
+    var ChartPeriodArea= new Chart(document.getElementById('chartBarPeriod'), {
+      type: 'bar',
+      data: dataAreaPeriod,
+      options: {
+        elements: {
+          line: {
+            borderWidth: 3
+          }
         }
-      }
-    },
-  });
+      },
+    });
+  
 
   function generate_chart(result){
+    console.log('run');
     dataAreaGender.labels=  result.gender.label;
     dataAreaGender.datasets=  result.gender.dataset;
     
@@ -262,7 +264,10 @@ if (typeof(method_type)!='undefined') {
   
   $('.Globalfilters').change(function (e) {
     generatePerencanaFilters(function(result){
-      generate_chart(result)
+      console.log(result);
+      if (Object.keys(result).length !== 0) {
+        generate_chart(result)
+      }
     })
   });
 }

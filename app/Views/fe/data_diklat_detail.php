@@ -30,8 +30,25 @@
                 </tr>
             </thead>
         </table>
+
+        <div class="row">
+            <div class="col col-md-4">
+                <label for="chartBarGender">Grafik Berdasarkan Jenis Kelamin</label>
+                <canvas id="chartBarGender"></canvas>
+            </div>
+            <div class="col col-md-4">
+                <label for="chartBarPeriod">Grafik Berdasarkan Tahun</label>
+                <canvas id="chartBarPeriod"></canvas>
+            </div>
+            <div class="col col-md-4">
+                <label for="tablePeriod">Table Berdasarkan Tahun</label>
+                <div id="tablePeriod"></div>
+            </div>
+        </div>
     </div>
 </section>
+
+
 
 <script>
 var DtTableId = 'tableDetailPendidikan';
@@ -39,4 +56,6 @@ var DtModelNaame = '<?php echo $model_init; ?>';
 var DtMethodName = '<?php echo $method; ?>';
 var DtMethodParam = '<?php echo $method_param; ?>';
 var DtMethodType = '<?php echo $method_type; ?>';
+var type          = '<?php echo $orig_title; ?>';
+var method_type   = '<?php echo $method_type; ?>';
 </script>

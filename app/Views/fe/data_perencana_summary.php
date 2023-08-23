@@ -61,7 +61,7 @@
                                 echo "</tr></tbody>";
                             }
                         }else{
-                            echo "<tr><td>Data Not Found</td></tr>";
+                            echo "<thead><tr><td>Data Not Found</td></tr></thead>";
                         }
 
 
@@ -112,7 +112,7 @@
                                 echo "</tr></tbody>";
                             }
                         }else{
-                            echo "<tr><td>Data Not Found</td></tr>";
+                            echo "<thead><tr><td>Data Not Found</td></tr></thead>";
                         }
 
 
@@ -164,7 +164,7 @@
                                 echo "</tr></tbody>";
                             }
                         }else{
-                            echo "<tr><td>Data Not Found</td></tr>";
+                            echo "<thead><tr><td>Data Not Found</td></tr></thead>";
                         }
 
 
@@ -195,50 +195,59 @@
 <script>
 <?php 
         $chart_data_pusat=array();
-        foreach ($group_pusat as $key => $value) {
-            if ($key=='Program') {
-                $chart_data_pusat['label']=$value;
-            }
-            if (!in_array($key,array('Program','total'))) {
-                $chart_data_pusat['dataset'][]=array(
+        if (!empty($group_pusat)) {
+            
+            foreach ($group_pusat as $key => $value) {
+                if ($key=='Program') {
+                    $chart_data_pusat['label']=$value;
+                }
+                if (!in_array($key,array('Program','total'))) {
+                    $chart_data_pusat['dataset'][]=array(
                     'label'                     => strval($key),
                     'data'                      => $value,
                     'backgroundColor'           => 'rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)',
                     'borderColor'               => 'rgb('.rand(0,255).', '.rand(0,255).', '.rand(0,255).')',
                     'fill'                      => true
                 );
+                }
             }
         }
 
         $chart_data_daerah=array();
-        foreach ($group_daerah as $key => $value) {
-            if ($key=='Program') {
-                $chart_data_daerah['label']=$value;
-            }
-            if (!in_array($key,array('Program','total'))) {
-                $chart_data_daerah['dataset'][]=array(
+        if (!empty($group_daerah)) {
+            
+            foreach ($group_daerah as $key => $value) {
+                if ($key=='Program') {
+                    $chart_data_daerah['label']=$value;
+                }
+                if (!in_array($key,array('Program','total'))) {
+                    $chart_data_daerah['dataset'][]=array(
                     'label'                     => strval($key),
                     'data'                      => $value,
                     'backgroundColor'           => 'rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)',
                     'borderColor'               => 'rgb('.rand(0,255).', '.rand(0,255).', '.rand(0,255).')',
                     'fill'                      => true
                 );
+                }
             }
         }
 
         $chart_data_gabungan=array();
-        foreach ($group_gabungan as $key => $value) {
-            if ($key=='Program') {
-                $chart_data_gabungan['label']=$value;
-            }
-            if (!in_array($key,array('Program','total'))) {
-                $chart_data_gabungan['dataset'][]=array(
+        if (!empty($group_gabungan)) {
+            
+            foreach ($group_gabungan as $key => $value) {
+                if ($key=='Program') {
+                    $chart_data_gabungan['label']=$value;
+                }
+                if (!in_array($key,array('Program','total'))) {
+                    $chart_data_gabungan['dataset'][]=array(
                     'label'                     => strval($key),
                     'data'                      => $value,
                     'backgroundColor'           => 'rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)',
                     'borderColor'               => 'rgb('.rand(0,255).', '.rand(0,255).', '.rand(0,255).')',
                     'fill'                      => true
                 );
+                }
             }
         }
    ?>
