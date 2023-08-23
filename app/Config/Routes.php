@@ -34,6 +34,8 @@ $routes->post('/web/globalDtTable/(:any)/(:any)/(:any)/(:any)', 'Web::globalDtTa
 $routes->get('/data-diklat/(:any)', 'Web::data_diklat/$1');
 $routes->get('/data-diklat/(:any)/(:any)', 'Web::data_diklat/$1/$2');
 $routes->get('/data-diklat/(:any)/(:any)/(:any)', 'Web::data_diklat/$1/$2/$3');
+$routes->post('web/get_chart_diklat_detail', 'Web::get_chart_diklat_detail');
+
 //data perencana
 $routes->get('/data-perencana/(:any)', 'Web::data_perencana/$1');
 $routes->get('/data-perencana/(:any)/(:any)', 'Web::data_perencana/$1/$2');

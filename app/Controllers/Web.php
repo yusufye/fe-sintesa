@@ -57,6 +57,8 @@ class Web extends BaseController
 			$data['method_param']           = $sub2;
 			$data['method_type']            = $send_type;
 			$data['init_global_dttable_js'] = true;
+			$data['list_instansi'] 			= $data_diklat_model->get_list_instansi($sub);
+			$data['list_periode']	 		= $data_diklat_model->get_list_periode($sub);
 
 		}
 		if ($send_type!='detail') {
@@ -71,6 +73,56 @@ class Web extends BaseController
 		return view('fe/template/header',$data)
 		.view('fe/data_diklat_'.$send_type,$data)
 		.view('fe/template/footer',$data);
+	}
+
+	public function get_chart_diklat_detail() {
+		$request              = Services::request();
+		$data_diklat_model 	  = new Data_diklat_model();
+
+		$param                = $request->getPost('param');
+		$type                 = $request->getPost('type');
+		$filters              = $request->getPost('filters');
+
+		$chart_data_gender           = $data_diklat_model->get_chart_diklat_detail($param,$type,'gender',$filters);	
+		$chart_data_period           = $data_diklat_model->get_chart_diklat_detail($param,$type,'tahun',$filters);
+		
+		$chart_data=array();
+		if ($chart_data_gender!=null) {
+			
+			$chart_data['gender']['label'][]=['Gender'];
+			foreach ($chart_data_gender as $key => $value) {
+				$chart_data['gender']['dataset'][]=array(
+					'label'                     => $value['gender'],
+					'data'                      => [$value['jumlah']],
+					'backgroundColor'           => 'rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)',
+					'borderColor'               => 'rgb('.rand(0,255).', '.rand(0,255).', '.rand(0,255).')',
+					'fill'                      => true
+				);
+			}
+		}
+
+		if ($chart_data_period!=null) {
+			
+			$chart_data['period']['label'][]=['Periode'];
+			$chart_data['table_period']='<table id="ChartTabularPeriode" class="table table-bordered"> <thead class="table-primary"> <tr> <td>Periode</td> <td>Jumlah</td> </tr></thead>';
+
+			
+			foreach ($chart_data_period as $key => $value) {
+				$chart_data['period']['dataset'][]=array(
+					'label'                     => $value['tahun'],
+					'data'                      => [$value['jumlah']],
+					'backgroundColor'           => 'rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)',
+					'borderColor'               => 'rgb('.rand(0,255).', '.rand(0,255).', '.rand(0,255).')',
+					'fill'                      => true
+				);
+
+				$chart_data['table_period'].="<tr><td>".$value['tahun']."</td><td>".$value['jumlah']."</td></tr>";
+			}
+			$chart_data['table_period'].='</table>';
+		
+		}
+		
+		echo json_encode($chart_data);
 	}
 
 	public function globalDtTable($model, $method, $param, $type)
