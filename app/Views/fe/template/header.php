@@ -55,7 +55,7 @@
           if (!session('login')) {
             echo '<a href="'.base_url('/login').'" class="btn btn-warning">Login</a>';
           }else{
-            echo '<a href="'.base_url('/logout').'" class="btn btn-warning">Logout</a>';
+            echo '<a href="'.base_url('/logout').'" class="btn btn-warning">Logout, '.session('username').'</a>';
           }
         ?>
         

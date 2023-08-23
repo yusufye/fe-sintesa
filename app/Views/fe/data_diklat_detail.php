@@ -43,8 +43,8 @@
         </div>
         <br>
 
-        <table id="tableDetailPendidikan" class="table">
-            <thead>
+        <table id="tableDetailPendidikan" class="table  dataTable table-striped">
+            <thead class="table-primary">
                 <tr>
                     <th>Nama</th>
                     <th>Gender</th>
@@ -57,7 +57,10 @@
                 </tr>
             </thead>
         </table>
-
+    </div>
+        <br>
+        <br>
+    <div class="container">
         <div class="row">
             <div class="col col-md-4">
                 <label for="chartBarGender">Grafik Berdasarkan Jenis Kelamin</label>
