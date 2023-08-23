@@ -205,7 +205,7 @@ function generateDiklatFilters(callback) {
 
   $.ajax({
     type: "POST",
-    url: "/web/get_chart_diklat_detail",
+    url: baseUrl+"/web/get_chart_diklat_detail",
     dataType: "json",
     data:{ 
       filters:Diklatfilters, 
