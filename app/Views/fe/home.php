@@ -12,9 +12,9 @@
         <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
         <h3><span style="color:#106eea">Selamat Datang di Sintesa</span></h3>
         <p style="text-align:justify">Sintesa merupakan sebuah portal sistem informasi terpadu satu data yang dikelola oleh Pusat Pembinaan, Pendidikan dan pelatihan perencana – Kementerian Perencanaan Pembangunan Nasional/Badan Perencanaan Pembangunan Nasional (Pusbindiklatren Kementerian PPN/Bappenas). Portal ini mengintegrasikan data-data terkait pembinaan fungsional perencana serta penyelenggaraan program pendidikan bagi PNS perencanan pusat dan daerah yang menjadi tugas dan fungsi Pusbindiklatren Kementerian PPN/Bappenas.</p>
-          <p>
+          <!-- <p>
           <a href="#" class="btn btn-primary">Login</a>
-          </p>
+          </p> -->
         </div>
 
         <div class="col-lg-6 aos-init aos-animate" data-aos="fade-right" data-aos-delay="100">

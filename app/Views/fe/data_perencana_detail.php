@@ -116,11 +116,13 @@
                 <label for="chartBarGender">Grafik Berdasarkan Jenis Kelamin</label>
                 <canvas id="chartBarGender"></canvas>
             </div>
-            <div class="col col-md-4">
+        </div>
+        <div class="row">
+            <div class="col col-md-6">
                 <label for="chartBarPeriod">Grafik Berdasarkan Tahun</label>
                 <canvas id="chartBarPeriod"></canvas>
             </div>
-            <div class="col col-md-4">
+            <div class="col col-md-6">
                 <label for="tablePeriod">Table Berdasarkan Tahun</label>
                 <div id="tablePeriod"></div>
             </div>

@@ -107,12 +107,12 @@ $(document).ready(function () {
                 "data":function (d) { 
                     d.filters=Globalfilters; 
                 },
-                "beforeSend": function() {
-                    $("#ajax_loader").show();
-                  },
-                  "complete": function() {
-                    $("#ajax_loader").hide();
-                  }
+                // "beforeSend": function() {
+                //     $("#ajax_loader").show();
+                //   },
+                //   "complete": function() {
+                //     $("#ajax_loader").hide();
+                //   }
 
             },
         

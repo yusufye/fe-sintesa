@@ -241,7 +241,7 @@ if (typeof(method_type)!='undefined') {
           line: {
             borderWidth: 3
           }
-        }
+        },
       },
     });
   
