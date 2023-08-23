@@ -74,12 +74,12 @@ class Data_perencana_model extends Model {
             }
         }elseif ($param=='daerah') {
             if ($type=='count') {   
-                $db=$this->db->table('vw_penilai_pusat_summary')->select('SUM(total) as total');
+                $db=$this->db->table('vw_penilai_daerah_summary')->select('SUM(total) as total');
             }elseif ($type=='summary') {
-                $db=$this->db->table('vw_penilai_pusat_summary')->select('Program, `Perencana Ahli Pertama`, `Perencana Ahli Muda`, `Perencana Ahli Madya`, `Perencana Ahli Utama`, total', false);
+                $db=$this->db->table('vw_penilai_daerah_summary')->select('Program, `Perencana Ahli Pertama`, `Perencana Ahli Muda`, `Perencana Ahli Madya`, `Perencana Ahli Utama`, total', false);
             }elseif ($type=='detail') {
                 return array(
-                    'query'         => $this->db->table('vw_penilai_pusat'),
+                    'query'         => $this->db->table('vw_penilai_daerah'),
                     'column_order'  => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode'),
                     'order'         => array('name' => 'asc'),
                     'column_search' => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode')
@@ -87,9 +87,9 @@ class Data_perencana_model extends Model {
             }
         }elseif ($param=='gabungan') {
             if ($type=='count') {   
-                $db=$this->db->table('vw_penilai_pusat_summary')->select('SUM(total) as total');
+                $db=$this->db->table('vw_penilai_gabungan_summary')->select('SUM(total) as total');
             }elseif ($type=='summary') {
-                $db=$this->db->table('vw_penilai_pusat_summary')->select('Program, `Perencana Ahli Pertama`, `Perencana Ahli Muda`, `Perencana Ahli Madya`, `Perencana Ahli Utama`, total', false);
+                $db=$this->db->table('vw_penilai_gabungan_summary')->select('Program, `Perencana Ahli Pertama`, `Perencana Ahli Muda`, `Perencana Ahli Madya`, `Perencana Ahli Utama`, total', false);
             }elseif ($type=='detail') {
                 return array(
                     'query'         => $this->db->table('vw_penilai_gabungan'),
