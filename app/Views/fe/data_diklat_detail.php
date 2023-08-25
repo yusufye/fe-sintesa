@@ -63,16 +63,22 @@
     <div class="container">
         <div class="row">
             <div class="col col-md-4">
+                <?php button_chart_export('chartBarGender'); ?>
+                <br>
                 <label for="chartBarGender">Grafik Berdasarkan Jenis Kelamin</label>
                 <canvas id="chartBarGender"></canvas>
             </div>
         </div>
         <div class="row">
             <div class="col col-md-6">
+                <?php button_chart_export('chartBarPeriod'); ?>
+                <br>
                 <label for="chartBarPeriod">Grafik Berdasarkan Tahun</label>
                 <canvas id="chartBarPeriod"></canvas>
             </div>
             <div class="col col-md-6">
+                <?php button_chart_export('tablePeriod',true); ?>
+                <br>
                 <label for="tablePeriod">Table Berdasarkan Tahun</label>
                 <div id="tablePeriod"></div>
             </div>

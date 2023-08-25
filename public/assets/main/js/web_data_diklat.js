@@ -109,7 +109,7 @@ if (typeof(datasetPendidikan)!='undefined') {
     datasets: datasetPendidikan.dataset
   };
 
-  new Chart(document.getElementById('chartRadarCountPendidikan'), {
+  var chartRadarCountPendidikan=new Chart(document.getElementById('chartRadarCountPendidikan'), {
     type: 'radar',
     data: dataRadarPendidikan,
     options: {
@@ -269,3 +269,9 @@ if (typeof(method_type)!='undefined') {
     })
   });
 }
+
+
+// const button = document.getElementsByClassName('button-export-chart');
+// button.addEventListener('click', () => {
+  
+// });
