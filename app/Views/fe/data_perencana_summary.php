@@ -70,9 +70,11 @@
                 </div>
                 <div class="row">
                     <div class="col col-md-6">
+                        <?php button_chart_export('chartRadarCountPusat'); ?>
                         <canvas id="chartRadarCountPusat"></canvas>
                     </div>
                     <div class="col col-md-6">
+                        <?php button_chart_export('chartAreaCountPusat'); ?>
                         <canvas id="chartAreaCountPusat"></canvas>
                     </div>
                 </div>
@@ -123,9 +125,11 @@
                 <div class="row">
 
                     <div class="col col-md-6">
+                        <?php button_chart_export('chartRadarCountDaerah'); ?>
                         <canvas id="chartRadarCountDaerah"></canvas>
                     </div>
                     <div class="col col-md-6">
+                        <?php button_chart_export('chartAreaCountDaerah'); ?>
                         <canvas id="chartAreaCountDaerah"></canvas>
                     </div>
                 </div>
@@ -178,10 +182,12 @@
                 <div class="row">
 
                     <div class="col col-md-6">
+                        <?php button_chart_export('chartRadarCountGabungan'); ?>
                         <canvas id="chartRadarCountGabungan"></canvas>
                     </div>
 
                     <div class="col col-md-6">
+                        <?php button_chart_export('chartAreaCountGabungan'); ?>
                         <canvas id="chartAreaCountGabungan"></canvas>
                     </div>
                 </div>

@@ -68,11 +68,13 @@
                     ?>
                     </table>
                 </div>
-                <div class="row">
+                <div class="row" id="reportPage">
                     <div class="col col-md-6">
+                        <?php button_chart_export('chartRadarCountPendidikan'); ?>
                         <canvas id="chartRadarCountPendidikan"></canvas>
                     </div>
                     <div class="col col-md-6">
+                        <?php button_chart_export('chartAreaCountPendidikan'); ?>
                         <canvas id="chartAreaCountPendidikan"></canvas>
                     </div>
                 </div>
@@ -123,9 +125,11 @@
                 <div class="row">
 
                     <div class="col col-md-6">
+                        <?php button_chart_export('chartRadarCountPelatihan'); ?>
                         <canvas id="chartRadarCountPelatihan"></canvas>
                     </div>
                     <div class="col col-md-6">
+                        <?php button_chart_export('chartAreaCountPelatihan'); ?>
                         <canvas id="chartAreaCountPelatihan"></canvas>
                     </div>
                 </div>
@@ -178,10 +182,12 @@
                 <div class="row">
 
                     <div class="col col-md-6">
+                        <?php button_chart_export('chartAreaCountPelatihan'); ?>
                         <canvas id="chartRadarCountGabungan"></canvas>
                     </div>
 
                     <div class="col col-md-6">
+                        <?php button_chart_export('chartAreaCountPelatihan'); ?>
                         <canvas id="chartAreaCountGabungan"></canvas>
                     </div>
                 </div>

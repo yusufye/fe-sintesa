@@ -59,6 +59,10 @@
 
   if (isset($init_chart)) {
     echo '<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>';
+    echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>';
+    echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>';
+    echo '<script src="'.base_url().'public/assets/main/js/export_chart.js"></script>';
+
   }
 
   $controller  = strtolower(class_basename(service('router')->controllerName()));
