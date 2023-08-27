@@ -9,8 +9,8 @@
             <li class="nav-item">
                 <!-- <a class="nav-link active" id="pusat" data-toggle="tab" href="#home" role="tab" aria-controls="pusat" aria-selected="true">pusat</a> -->
                 <button class="nav-link <?php echo ($param=='pusat'?'active':'')?>" id="nav-pusat-tab"
-                    data-bs-toggle="tab" data-bs-target="#nav-pusat" type="button" role="tab"
-                    aria-controls="nav-pusat" aria-selected="false">Pusat</button>
+                    data-bs-toggle="tab" data-bs-target="#nav-pusat" type="button" role="tab" aria-controls="nav-pusat"
+                    aria-selected="false">Pusat</button>
             </li>
             <li class="nav-item">
                 <!-- <a class="nav-link" id="pelatijan" data-toggle="tab" href="#daerah" role="tab" aria-controls="daerah" aria-selected="true">daerah</a> -->
@@ -85,7 +85,8 @@
                 aria-labelledby="nav-daerah-tab">
                 <div class="row">
                     <div class="d-flex justify-content-end py-4">
-                        <a href='<?php echo base_url()."/data-perencana/$orig_title/daerah/detail" ?>' class="btn btn-primary">Info
+                        <a href='<?php echo base_url()."/data-perencana/$orig_title/daerah/detail" ?>'
+                            class="btn btn-primary">Info
                             Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
 
@@ -139,8 +140,13 @@
                 aria-labelledby="nav-gabungan-tab">
                 <div class="row">
                     <div class="d-flex justify-content-end py-4">
-                        <a href='<?php echo base_url()."/data-perencana/$orig_title/gabungan/detail" ?>' class="btn btn-primary">Info
-                            Detail <i class="fa-regular fa-circle-right"></i></a>
+                        <<<<<<< HEAD <a href='<?php echo base_url()."/data-perencana/$orig_title/gabungan/detail" ?>'
+                            class="btn btn-primary">Info
+                            =======
+                            <a href='<?php echo "/data-perencana/$orig_title/gabungan/detail" ?>'
+                                class="btn btn-primary">Info
+                                >>>>>>> development
+                                Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
 
                     <table id="tableCountGabungan" class="table table-striped">

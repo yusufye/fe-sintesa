@@ -1,7 +1,7 @@
 
 <!-- ======= Footer ======= -->
 <footer id="footer">
-  <div class="container py-4">
+  <div class="container py-2">
     <div class="copyright">
       Copyright &copy; 2022 - SINTESA - Pusbindiklatren Kementerian PPN/Bappenas. All Rights Reserved.
     </div>
@@ -19,7 +19,7 @@
   
 </footer><!-- End Footer -->
 
-<div id="preloader"></div>
+<div id="preloader" class="mx-auto" style="width:100%;"></div>
 <!-- <div id="ajax_loader"></div> -->
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

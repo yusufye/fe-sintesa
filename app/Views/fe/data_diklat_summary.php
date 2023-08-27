@@ -37,12 +37,14 @@
                             class="btn btn-primary">Info
                             Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
-                    <table id="tableCountPendidikan" class="table table-striped">
-                        <?php
+                    <div class='table-responsive'>
+
+                        <table id="tableCountPendidikan" class="table table-striped table-responsive">
+                            <?php
                         $group_pendidikan=array();
                         if ($data_summary_pendidikan!=null) {
                             foreach ($data_summary_pendidikan as $key => $value) {
-                            
+                                
                                 if ($key==0) {
                                     echo "<thead class='table-primary'><tr>";
                                     foreach (array_keys($value) as $field) {
@@ -66,7 +68,8 @@
 
 
                     ?>
-                    </table>
+                        </table>
+                    </div>
                 </div>
                 <div class="row" id="reportPage">
                     <div class="col col-md-6">
@@ -89,8 +92,9 @@
                             Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
 
-                    <table id="tableCountPelatihan" class="table table-striped">
-                        <?php
+                    <div class='table-responsive'>
+                        <table id="tableCountPelatihan" class="table table-striped">
+                            <?php
                         if ($data_summary_pelatihan!=null) {
                             $group_pelatihan[$key_row][]=$row;
                             foreach ($data_summary_pelatihan as $key => $value) {
@@ -120,7 +124,8 @@
 
                     ?>
 
-                    </table>
+                        </table>
+                    </div>
                 </div>
                 <div class="row">
 
@@ -142,9 +147,9 @@
                         <a href='<?php echo base_url()."/data-diklat/$orig_title/gabungan/detail" ?>' class="btn btn-primary">Info
                             Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
-
-                    <table id="tableCountGabungan" class="table table-striped">
-                        <?php
+                    <div class='table-responsive'>
+                        <table id="tableCountGabungan" class="table table-striped">
+                            <?php
                         if ($data_summary_gabungan!=null) {
                             $group_gabungan[$key_row][]=$row;
                             foreach ($data_summary_gabungan as $key => $value) {
@@ -174,8 +179,8 @@
 
                     ?>
 
-                    </table>
-
+                        </table>
+                    </div>
                 </div>
 
 
