@@ -7,11 +7,13 @@
         <div class="row">
             <div class="col-sm-3">
                 <label>Nama</label>
-                <input class="form-control form-control-sm Globalfilters Perencanafilters" data-filtername="name" type="text" placeholder="Nama">
+                <input class="form-control form-control-sm Globalfilters Perencanafilters" data-filtername="name"
+                    type="text" placeholder="Nama">
             </div>
             <div class="col-sm-3">
                 <label>Jenis Kelamin</label>
-                <select class="form-control form-control-sm Globalfilters Perencanafilters" data-filtertype="equal_to" data-filtername="gender" type="text" placeholder="Gender">
+                <select class="form-control form-control-sm Globalfilters Perencanafilters" data-filtertype="equal_to"
+                    data-filtername="gender" type="text" placeholder="Gender">
                     <option value="">- Select Gender -</option>
                     <option value="L">L</option>
                     <option value="P">P</option>
@@ -19,7 +21,8 @@
             </div>
             <div class="col-sm-3">
                 <label>Golongan</label>
-                <select class="form-control form-control-sm Globalfilters Perencanafilters" data-filtertype="equal_to" data-filtername="golongan" type="text" placeholder="Golongan">
+                <select class="form-control form-control-sm Globalfilters Perencanafilters" data-filtertype="equal_to"
+                    data-filtername="golongan" type="text" placeholder="Golongan">
                     <option value="">- Select Golongan -</option>
                     <?php
                         foreach ($list_golongan as $row) {
@@ -30,8 +33,9 @@
             </div>
             <div class="col-sm-3">
                 <label>Instansi</label>
-                <select class="form-control form-control-sm Globalfilters Perencanafilters" data-filtertype="equal_to" data-filtername="kementrian_name" type="text" placeholder="Instansi">
-                <option value="">- Select Instansi -</option>
+                <select class="form-control form-control-sm Globalfilters Perencanafilters" data-filtertype="equal_to"
+                    data-filtername="kementrian_name" type="text" placeholder="Instansi">
+                    <option value="">- Select Instansi -</option>
                     <?php
                         foreach ($list_instansi as $row) {
                             echo "<option value='".$row['kementrian_name']."'>".$row['kementrian_name']."</option>";
@@ -44,7 +48,8 @@
         <div class="row">
             <div class="col-sm-3">
                 <label>Unit Kerja</label>
-                <select class="form-control form-control-sm Globalfilters Perencanafilters" data-filtertype="equal_to" data-filtername="unit_kerja" type="text" placeholder="Unit Kerja">
+                <select class="form-control form-control-sm Globalfilters Perencanafilters" data-filtertype="equal_to"
+                    data-filtername="unit_kerja" type="text" placeholder="Unit Kerja">
                     <option value="">- Select Unit Kerja -</option>
                     <?php
                         foreach ($list_unit_kerja as $row) {
@@ -55,7 +60,8 @@
             </div>
             <div class="col-sm-3">
                 <label>Jabatan</label>
-                <select class="form-control form-control-sm Globalfilters Perencanafilters" data-filtertype="equal_to" data-filtername="jabatan" type="text" placeholder="Jabatan">
+                <select class="form-control form-control-sm Globalfilters Perencanafilters" data-filtertype="equal_to"
+                    data-filtername="jabatan" type="text" placeholder="Jabatan">
                     <option value="">- Select Jabatan -</option>
                     <?php
                         foreach ($list_jabatan as $row) {
@@ -66,7 +72,8 @@
             </div>
             <div class="col-sm-3">
                 <label>Periode</label>
-                <select class="form-control form-control-sm Globalfilters Perencanafilters" data-filtertype="equal_to" data-filtername="periode" type="text" placeholder="periode">
+                <select class="form-control form-control-sm Globalfilters Perencanafilters" data-filtertype="equal_to"
+                    data-filtername="periode" type="text" placeholder="periode">
                     <option value="">- Select Periode -</option>
                     <?php
                         foreach ($list_periode as $row) {
@@ -77,20 +84,21 @@
             </div>
         </div>
         <br>
-
-        <table id="tableDetailPendidikan" class="table dataTable table-striped">
-            <thead class="table-primary">
-                <tr>
-                    <td>Nama</td>
-                    <td>Jenis Kelamin</td>
-                    <td>Golongan</td>
-                    <td>Nama Instansi</td>
-                    <td>Unit Kerja</td>
-                    <td>Jabatan</td>
-                    <td>Periode</td>
-                </tr>
-            </thead>
-        </table>
+        <div class='table-responsive'>
+            <table id="tableDetailPendidikan" class="table dataTable table-striped">
+                <thead class="table-primary">
+                    <tr>
+                        <td>Nama</td>
+                        <td>Jenis Kelamin</td>
+                        <td>Golongan</td>
+                        <td>Nama Instansi</td>
+                        <td>Unit Kerja</td>
+                        <td>Jabatan</td>
+                        <td>Periode</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
     </div>
     <br>
     <br>
@@ -133,16 +141,16 @@
                 <div id="tablePeriod"></div>
             </div>
         </div>
-        
+
     </div>
 </section>
 
 <script>
-var DtTableId     = 'tableDetailPendidikan';
-var DtModelNaame  = '<?php echo $model_init; ?>';
-var DtMethodName  = '<?php echo $method; ?>';
+var DtTableId = 'tableDetailPendidikan';
+var DtModelNaame = '<?php echo $model_init; ?>';
+var DtMethodName = '<?php echo $method; ?>';
 var DtMethodParam = '<?php echo $method_param; ?>';
-var DtMethodType  = '<?php echo $method_type; ?>';
-var type          = '<?php echo $orig_title; ?>';
-var method_type   = '<?php echo $method_type; ?>';
+var DtMethodType = '<?php echo $method_type; ?>';
+var type = '<?php echo $orig_title; ?>';
+var method_type = '<?php echo $method_type; ?>';
 </script>
