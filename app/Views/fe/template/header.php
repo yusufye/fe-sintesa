@@ -47,15 +47,15 @@
 
   <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-flex align-items-center">
-    <div class="container d-flex justify-content-center justify-content-md-between">
+    <div class="container justify-content-center justify-content-md-between clearfix">
       <div class="contact-info d-flex align-items-center">
       </div>
-      <div class="d-none d-md-flex align-items-center">
+      <div class="clearfix">
         <?php
           if (!session('login')) {
-            echo '<a href="'.base_url('/login').'" class="btn btn-warning">Login</a>';
+            echo '<a href="'.base_url('/login').'" class="btn btn-warning btn-sm float-end">Login</a>';
           }else{
-            echo '<a href="'.base_url('/logout').'" class="btn btn-warning">Logout, '.session('username').'</a>';
+            echo '<a href="'.base_url('/logout').'" class="btn btn-warning btn-sm float-end">Logout, '.session('username').'</a>';
           }
         ?>
         
@@ -115,6 +115,6 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="index.html" class="logo"><img src="<?php echo base_url();?>public/assets/main/logo_pusbindiklatren-removebg-260x40.png" alt="pusbindiklatren"></a>
+      <a href="index.html" class="logo d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block d-lg-none d-xl-block"><img src="<?php echo base_url();?>public/assets/main/logo_pusbindiklatren-removebg-260x40.png" alt="pusbindiklatren"></a>
     </div>
   </header><!-- End Header -->

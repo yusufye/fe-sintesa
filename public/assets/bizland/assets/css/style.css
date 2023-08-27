@@ -45,20 +45,14 @@ h6 {
   z-index: 9999;
   overflow: hidden;
   background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 #preloader:before {
-  content: url("../../../main/sintesa-loader.gif");
-  /* content: "aaa"; */
-  position: fixed;
-  top: 50%;
-  left: 20%;
-  /* border: 6px solid #106eea;
-  border-top-color: #e2eefd;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px; */
-  /* animation: animate-preloader 1s linear infinite; */
+  content: url("../../../main/sintesa-loader-sm.gif");
 }
 
 #ajax_loader {
@@ -1643,12 +1637,12 @@ section {
 --------------------------------------------------------------*/
 #footer {
   background: #1F3BB1;
-  padding: 0 0 30px 0;
+  padding: 8px 0 2px 0;
   color: #ffffff;
   font-size: 14px;
   background: #1F3BB1;
 
-    height:55px; 
+    /* height:55px;  */
     width: 100%; 
     /* background-image: none;
     background-repeat: repeat;
@@ -1826,6 +1820,7 @@ section {
     float: none;
     text-align: center;
     padding: 2px 0;
+    font-size: 11px;
   }
 }
 
