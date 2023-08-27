@@ -140,13 +140,7 @@
                 aria-labelledby="nav-gabungan-tab">
                 <div class="row">
                     <div class="d-flex justify-content-end py-4">
-                        <<<<<<< HEAD <a href='<?php echo base_url()."/data-perencana/$orig_title/gabungan/detail" ?>'
-                            class="btn btn-primary">Info
-                            =======
-                            <a href='<?php echo "/data-perencana/$orig_title/gabungan/detail" ?>'
-                                class="btn btn-primary">Info
-                                >>>>>>> development
-                                Detail <i class="fa-regular fa-circle-right"></i></a>
+                        <a href='<?php echo base_url()."/data-perencana/$orig_title/gabungan/detail" ?>' class="btn btn-primary">Info Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
 
                     <table id="tableCountGabungan" class="table table-striped">

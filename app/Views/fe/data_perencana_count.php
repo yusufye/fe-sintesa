@@ -6,43 +6,46 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
-                <div class="icon-box">
-                    <div class="icon"><i class="fa-solid fa-users-viewfinder"></i></div>
-                    <h4><a href="">Data Pusat</a></h4>
-                    <p>
-                    <h5><span data-purecounter-start="0"
-                            data-purecounter-end="<?php echo $count[$model_name]['pusat'][0]['total']??0; ?>"
-                            data-purecounter-duration="1" class="purecounter"></span> Data</h5>
-                    </p>
-                    <p><a href='<?php echo base_url()."/data-perencana/$orig_title/pusat/summary" ?>'
-                            class="btn btn-warning"><i class='bx bx-right-arrow-circle'></i> Info Detail</i></a></p>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+                <div class="col-lg-4 col-md-6 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon-box">
-                        <div class="icon"><i class="fa-solid fa-users-rays"></i></div>
-                        <h4><a href="">Data Daerah</a></h4>
+                        <div class="icon"><i class="fa-solid fa-users-viewfinder"></i></div>
+                        <h4><a href="">Data Pusat</a></h4>
                         <p>
                         <h5><span data-purecounter-start="0"
-                                data-purecounter-end="<?php echo $count[$model_name]['daerah'][0]['total']??0; ?>"
+                                data-purecounter-end="<?php echo $count[$model_name]['pusat'][0]['total']??0; ?>"
                                 data-purecounter-duration="1" class="purecounter"></span> Data</h5>
                         </p>
-                        <a href='<?php echo base_url()."/data-perencana/$orig_title/daerah/summary" ?>'
-                            class="btn btn-warning"><i class="bx bx-right-arrow-circle"></i></i> Info Detail</i></a>
+                        <p><a href='<?php echo base_url()."/data-perencana/$orig_title/pusat/summary" ?>'
+                                class="btn btn-warning"><i class='bx bx-right-arrow-circle'></i> Info Detail</i></a></p>
                     </div>
+                </div>
 
-                    <div class="col-lg-4 col-md-6 col-xs-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="col-lg-4 col-md-6 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
                         <div class="icon-box">
-                            <div class="icon"><i class="fa-solid fa-users-rectangle"></i></div>
-                            <h4><a href="">Data Gabungan</a></h4>
+                            <div class="icon"><i class="fa-solid fa-users-rays"></i></div>
+                            <h4><a href="">Data Daerah</a></h4>
                             <p>
                             <h5><span data-purecounter-start="0"
-                                    data-purecounter-end="<?php echo $count[$model_name]['gabungan'][0]['total']??0; ?>"
+                                    data-purecounter-end="<?php echo $count[$model_name]['daerah'][0]['total']??0; ?>"
                                     data-purecounter-duration="1" class="purecounter"></span> Data</h5>
                             </p>
-                            <a href='<?php echo base_url()."/data-perencana/$orig_title/gabungan/summary" ?>'
-                                class="btn btn-warning"><i class="bx bx-right-arrow-circle"></i> Info Detail</i></a>
+                            <a href='<?php echo base_url()."/data-perencana/$orig_title/daerah/summary" ?>'
+                                class="btn btn-warning"><i class="bx bx-right-arrow-circle"></i></i> Info Detail</i></a>
+                        </div>
+                    </div>
+
+                        <div class="col-lg-4 col-md-6 col-xs-6" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="icon-box">
+                                <div class="icon"><i class="fa-solid fa-users-rectangle"></i></div>
+                                <h4><a href="">Data Gabungan</a></h4>
+                                <p>
+                                <h5><span data-purecounter-start="0"
+                                        data-purecounter-end="<?php echo $count[$model_name]['gabungan'][0]['total']??0; ?>"
+                                        data-purecounter-duration="1" class="purecounter"></span> Data</h5>
+                                </p>
+                                <a href='<?php echo base_url()."/data-perencana/$orig_title/gabungan/summary" ?>'
+                                    class="btn btn-warning"><i class="bx bx-right-arrow-circle"></i> Info Detail</i></a>
+                            </div>
                         </div>
 
                     </div>
