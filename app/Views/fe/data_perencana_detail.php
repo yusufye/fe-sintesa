@@ -103,45 +103,42 @@
     <br>
     <br>
     <div class="container">
-        <!-- <div class="row">
-            <div class="col col-md-6">
-                <canvas id="chartRadarGender"></canvas>
-            </div>
-            <div class="col col-md-6">
-                <canvas id="chartAreaGender"></canvas>
-            </div>
-        </div>
         <div class="row">
-            <div class="col col-md-6">
-                <canvas id="chartRadarPeriode"></canvas>
-            </div>
-            <div class="col col-md-6">
-                <canvas id="chartAreaPeriode"></canvas>
-            </div>
-        </div> -->
-        <div class="row">
-            <div class="col col-md-4">
+            <div class="col col-md-8">
                 <?php button_chart_export('chartBarGender'); ?>
                 <br>
                 <label for="chartBarGender">Grafik Berdasarkan Jenis Kelamin</label>
                 <canvas id="chartBarGender"></canvas>
             </div>
+            <div class="col col-md-4">
+                <?php button_chart_export('chartPieGender'); ?>
+                <br>
+                <label for="chartPieGender">Grafik Berdasarkan Jenis Kelamin</label>
+                <canvas id="chartPieGender"></canvas>
+            </div>
         </div>
         <div class="row">
-            <div class="col col-md-6">
+            <div class="col col-md-8">
                 <?php button_chart_export('chartBarPeriod'); ?>
                 <br>
                 <label for="chartBarPeriod">Grafik Berdasarkan Tahun</label>
                 <canvas id="chartBarPeriod"></canvas>
             </div>
-            <div class="col col-md-6">
+            <div class="col col-md-4">
+                <?php button_chart_export('chartPiePeriod'); ?>
+                <br>
+                <label for="chartPiePeriod">Grafik Berdasarkan Tahun</label>
+                <canvas id="chartPiePeriod"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-md-3">
                 <?php button_chart_export('tablePeriod',true); ?>
                 <br>
                 <label for="tablePeriod">Table Berdasarkan Tahun</label>
                 <div id="tablePeriod"></div>
             </div>
         </div>
-
     </div>
 </section>
 
