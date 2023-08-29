@@ -89,9 +89,16 @@ class Web extends BaseController
 		$chart_data=array();
 		if ($chart_data_gender!=null) {
 			
-			$chart_data['gender']['label'][]=['Gender'];
+			$chart_data['gender']['bar']['label'][]=['Gender'];
+			$pie_group_gender=array();
 			foreach ($chart_data_gender as $key => $value) {
-				$chart_data['gender']['dataset'][]=array(
+				$pie_group_gender['gender'][]=$value['gender'];
+				$pie_group_gender['jumlah'][]=$value['jumlah'];
+				$pie_group_gender['pie_color'][]='rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)';
+				$pie_group_gender['border_color'][]='rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)';
+
+
+				$chart_data['gender']['bar']['dataset'][]=array(
 					'label'                     => $value['gender'],
 					'data'                      => [$value['jumlah']],
 					'backgroundColor'           => 'rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)',
@@ -99,6 +106,16 @@ class Web extends BaseController
 					'fill'                      => true
 				);
 			}
+
+			$chart_data['gender']['pie']['label']=$pie_group_gender['gender'];
+			$chart_data['gender']['pie']['dataset'][]=array(
+				// 'label'                     => $pie_group_gender['gender'],
+				'data'                      => $pie_group_gender['jumlah'],
+				'backgroundColor'           => $pie_group_gender['pie_color'],
+				'borderColor'               => $pie_group_gender['border_color'],
+				'fill'                      => true
+			);
+
 		}
 
 		if ($chart_data_period!=null) {
@@ -106,8 +123,14 @@ class Web extends BaseController
 			$chart_data['period']['label'][]=['Periode'];
 			$chart_data['table_period']='<table id="ChartTabularPeriode" class="table table-bordered"> <thead class="table-primary"> <tr> <td>Periode</td> <td>Jumlah</td> </tr></thead>';
 
-			
+			$pie_group_period=array();
 			foreach ($chart_data_period as $key => $value) {
+
+				$pie_group_period['tahun'][]=$value['tahun'];
+				$pie_group_period['jumlah'][]=$value['jumlah'];
+				$pie_group_period['pie_color'][]='rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)';
+				$pie_group_period['border_color'][]='rgba('.rand(0,255).','.rand(0,255).', '.rand(0,255).', 0.2)';
+
 				$chart_data['period']['dataset'][]=array(
 					'label'                     => $value['tahun'],
 					'data'                      => [$value['jumlah']],
@@ -119,6 +142,15 @@ class Web extends BaseController
 				$chart_data['table_period'].="<tr><td>".$value['tahun']."</td><td>".$value['jumlah']."</td></tr>";
 			}
 			$chart_data['table_period'].='</table>';
+			
+			$chart_data['period']['pie']['label']=$pie_group_period['tahun'];
+			$chart_data['period']['pie']['dataset'][]=array(
+				// 'label'                     => $pie_group_period['period'],
+				'data'                      => $pie_group_period['jumlah'],
+				'backgroundColor'           => $pie_group_period['pie_color'],
+				'borderColor'               => $pie_group_period['border_color'],
+				'fill'                      => true
+			);
 		
 		}
 		
