@@ -230,6 +230,19 @@ if (typeof(method_type)!='undefined') {
         }
       },
     });
+
+    var dataPieGender = {};
+    var ChartGenderPie= new Chart(document.getElementById('chartPieGender'), {
+      type: 'pie',
+      data: dataPieGender,
+      options: {
+        elements: {
+          line: {
+            borderWidth: 3
+          }
+        }
+      },
+    });
   
   
   var dataAreaPeriod = {}
@@ -244,17 +257,40 @@ if (typeof(method_type)!='undefined') {
         },
       },
     });
+
+    
+    var dataPiePeriod = {};
+    var ChartPeriodPie= new Chart(document.getElementById('chartPiePeriod'), {
+      type: 'pie',
+      data: dataPiePeriod,
+      options: {
+        elements: {
+          line: {
+            borderWidth: 3
+          }
+        }
+      },
+    });
   
 
   function generate_chart(result){
-    dataAreaGender.labels=  result.gender.label;
-    dataAreaGender.datasets=  result.gender.dataset;
+    console.log(result);
+    dataAreaGender.labels=  result.gender.bar.label;
+    dataAreaGender.datasets=  result.gender.bar.dataset;
+    ChartGenderArea.update();
+
+    dataPieGender.labels=  result.gender.pie.label;
+    dataPieGender.datasets=  result.gender.pie.dataset;
+    ChartGenderPie.update();
     
     dataAreaPeriod.labels=  result.period.label;
     dataAreaPeriod.datasets=  result.period.dataset;
-    
-    ChartGenderArea.update();
     ChartPeriodArea.update();
+
+    dataPiePeriod.labels=  result.period.pie.label;
+    dataPiePeriod.datasets=  result.period.pie.dataset;
+    ChartPeriodPie.update();
+    
 
     $('#tablePeriod').html(result.table_period);
   }
