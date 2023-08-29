@@ -41,27 +41,31 @@
                         <?php
                         $group_pusat=array();
                         if ($data_summary_pusat!=null) {
+                            echo "<thead class='table-primary'>";
                             foreach ($data_summary_pusat as $key => $value) {
                             
                                 if ($key==0) {
-                                    echo "<thead class='table-primary'><tr>";
+                                    echo "<tr>";
                                     foreach (array_keys($value) as $field) {
                                         echo "<th>$field</th>";
                                     }
-                                    echo "</tr></thead>";
-                                    
-                                    
+                                    echo "</tr></thead></tbody>";
                                 }
 
-                                echo "<tbody><tr>";
+                                echo "<tr>";
                                 foreach ($value as $key_row=>$row) {
                                     echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
                                     $group_pusat[$key_row][]=$row;
                                 }
-                                echo "</tr></tbody>";
+                                echo "</tr>";
                             }
+                            echo "</tbody>";
                         }else{
-                            echo "<thead><tr><td>Data Not Found</td></tr></thead>";
+                            echo "<thead class='table-primary'>";
+                            echo "<tr><th>Data Not Found</th></tr>";
+                            echo "</thead>";
+                            echo "<tbody>";
+                            echo "</tbody>";;
                         }
 
 
@@ -94,28 +98,34 @@
                         <?php
                         if ($data_summary_daerah!=null) {
                             $group_daerah[$key_row][]=$row;
+                            echo "<thead class='table-primary'>";
                             foreach ($data_summary_daerah as $key => $value) {
                             
                                 if ($key==0) {
-                                    echo "<thead class='table-primary'><tr>";
+                                    echo "<tr>";
                                     foreach (array_keys($value) as $field) {
                                         echo "<th>$field</th>";
                                     }
-                                    echo "</tr></thead>";
+                                    echo "</tr></thead><tbody>";
                                     
                                     
                                 }
 
-                                echo "<tbody><tr>";
+                                echo "<tr>";
                                 foreach ($value as $key_row=>$row) {
                                     echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
                                     $group_daerah[$key_row][]=$row;
 
                                 }
-                                echo "</tr></tbody>";
+                                echo "</tr>";
                             }
+                            echo "</tbody>";
                         }else{
-                            echo "<thead><tr><td>Data Not Found</td></tr></thead>";
+                            echo "<thead class='table-primary'>";
+                            echo "<tr><th>Data Not Found</th></tr>";
+                            echo "</thead>";
+                            echo "<tbody>";
+                            echo "</tbody>";
                         }
 
 
@@ -147,28 +157,34 @@
                         <?php
                         if ($data_summary_gabungan!=null) {
                             $group_gabungan[$key_row][]=$row;
+                            echo "<thead class='table-primary'>";
                             foreach ($data_summary_gabungan as $key => $value) {
                             
                                 if ($key==0) {
-                                    echo "<thead class='table-primary'><tr>";
+                                    echo "<tr>";
                                     foreach (array_keys($value) as $field) {
                                         echo "<th>$field</th>";
                                     }
-                                    echo "</tr></thead>";
+                                    echo "</tr></thead><tbody>";
                                     
                                     
                                 }
 
-                                echo "<tbody><tr>";
+                                echo "<tr>";
                                 foreach ($value as $key_row=>$row) {
                                     echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
                                     $group_gabungan[$key_row][]=$row;
 
                                 }
-                                echo "</tr></tbody>";
+                                echo "</tr>";
                             }
+                            echo "</tbody>";
                         }else{
-                            echo "<thead><tr><td>Data Not Found</td></tr></thead>";
+                            echo "<thead class='table-primary'>";
+                            echo "<tr><th>Data Not Found</th></tr>";
+                            echo "</thead>";
+                            echo "<tbody>";
+                            echo "</tbody>";
                         }
 
 

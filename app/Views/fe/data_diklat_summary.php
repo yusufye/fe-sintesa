@@ -43,27 +43,31 @@
                             <?php
                         $group_pendidikan=array();
                         if ($data_summary_pendidikan!=null) {
+                            echo "<thead class='table-primary'>";
                             foreach ($data_summary_pendidikan as $key => $value) {
                                 
                                 if ($key==0) {
-                                    echo "<thead class='table-primary'><tr>";
+                                    echo "<tr>";
                                     foreach (array_keys($value) as $field) {
                                         echo "<th>$field</th>";
                                     }
-                                    echo "</tr></thead>";
-                                    
-                                    
+                                    echo "</tr></thead><tbody>";
                                 }
 
-                                echo "<tbody><tr>";
+                                echo "<tr>";
                                 foreach ($value as $key_row=>$row) {
                                     echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
                                     $group_pendidikan[$key_row][]=$row;
                                 }
-                                echo "</tr></tbody>";
+                                echo "</tr>";
                             }
+                            echo "</tbody>";
                         }else{
-                            echo "<tr><td>Data Not Found</td></tr>";
+                            echo "<thead class='table-primary'>";
+                            echo "<tr><th>Data Not Found</th></tr>";
+                            echo "</thead>";
+                            echo "<tbody>";
+                            echo "</tbody>";
                         }
 
 
@@ -97,28 +101,29 @@
                             <?php
                         if ($data_summary_pelatihan!=null) {
                             $group_pelatihan[$key_row][]=$row;
+                            echo "<thead class='table-primary'>";
                             foreach ($data_summary_pelatihan as $key => $value) {
                             
                                 if ($key==0) {
-                                    echo "<thead class='table-primary'><tr>";
+                                    echo "<tr>";
                                     foreach (array_keys($value) as $field) {
                                         echo "<th>$field</th>";
                                     }
-                                    echo "</tr></thead>";
-                                    
-                                    
+                                    echo "</tr></thead><tbody>";
                                 }
-
-                                echo "<tbody><tr>";
                                 foreach ($value as $key_row=>$row) {
                                     echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
                                     $group_pelatihan[$key_row][]=$row;
-
                                 }
-                                echo "</tr></tbody>";
+                                echo "</tr>";
                             }
+                            echo "</tbody>";
                         }else{
-                            echo "<tr><td>Data Not Found</td></tr>";
+                            echo "<thead class='table-primary'>";
+                            echo "<tr><th>Data Not Found</th></tr>";
+                            echo "</thead>";
+                            echo "<tbody>";
+                            echo "</tbody>";
                         }
 
 
@@ -152,28 +157,33 @@
                             <?php
                         if ($data_summary_gabungan!=null) {
                             $group_gabungan[$key_row][]=$row;
+                            echo "<thead class='table-primary'>";
                             foreach ($data_summary_gabungan as $key => $value) {
-                            
+                                
                                 if ($key==0) {
-                                    echo "<thead class='table-primary'><tr>";
+                                    echo "<tr>";
                                     foreach (array_keys($value) as $field) {
                                         echo "<th>$field</th>";
                                     }
-                                    echo "</tr></thead>";
-                                    
-                                    
+                                    echo "</tr></thead><tbody>";
                                 }
 
-                                echo "<tbody><tr>";
+                                echo "<tr>";
                                 foreach ($value as $key_row=>$row) {
                                     echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
                                     $group_gabungan[$key_row][]=$row;
 
                                 }
-                                echo "</tr></tbody>";
+                                echo "</tr>";
                             }
+                            echo "</tbody>";
                         }else{
-                            echo "<tr><td>Data Not Found</td></tr>";
+                            echo "<thead class='table-primary'>";
+                            echo "<tr><th>Data Not Found</th></tr>";
+                            echo "</thead>";
+                            echo "<tbody>";
+                            echo "</tbody>";
+                            
                         }
 
 
