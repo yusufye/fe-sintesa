@@ -1,6 +1,5 @@
-CREATE 
-VIEW `vw_penempatan_pelatihan` AS
-    SELECT 
+CREATE OR REPLACE VIEW `vw_penempatan_pelatihan` AS
+SELECT 
         `td`.`nama` AS `nama`,
         `td`.`gender` AS `gender`,
         `td`.`wilayah` AS `wilayah`,
@@ -9,6 +8,8 @@ VIEW `vw_penempatan_pelatihan` AS
         `td`.`nama_inst` AS `nama_inst`,
         `td`.`pnddkn` AS `pnddkn`,
         `td`.`jurusan` AS `jurusan`,
+        td.email,
+        td.prop_inst,
         `tp`.`penempatan` AS `penempatan`,
         `tp`.`pstat` AS `pstat`,
         `ts`.`tahun` AS `tahun`,
@@ -20,6 +21,7 @@ VIEW `vw_penempatan_pelatihan` AS
     WHERE
         ((`ts`.`nama` LIKE 'DIKLAT NON%')
             AND (`tp`.`delstat` = 'a')
-            AND (`tp`.`penempatan` <> '') and `tp`.`penempatan` <> '')
+            AND (`tp`.`penempatan` <> '')
+            AND (`tp`.`penempatan` <> ''))
     GROUP BY `tp`.`id_peserta`
-    ORDER BY `ts`.`tahun` DESC;
+    ORDER BY `ts`.`tahun` DESC

@@ -1,5 +1,4 @@
-CREATE 
-VIEW `vw_pelamar_pelatihan` AS
+CREATE OR REPLACE VIEW `vw_pelamar_pelatihan` AS
     SELECT 
         `td`.`nama` AS `nama`,
         `td`.`gender` AS `gender`,
@@ -9,6 +8,8 @@ VIEW `vw_pelamar_pelatihan` AS
         `td`.`nama_inst` AS `nama_inst`,
         `td`.`pnddkn` AS `pnddkn`,
         `td`.`jurusan` AS `jurusan`,
+        td.email,
+        td.prop_inst,
         `tp`.`penempatan` AS `penempatan`,
         `tp`.`pstat` AS `pstat`,
         `ts`.`tahun` AS `tahun`,
@@ -18,6 +19,6 @@ VIEW `vw_pelamar_pelatihan` AS
         LEFT JOIN `t_datadiri` `td` ON ((`tp`.`id_datadiri` = `td`.`id_datadiri`)))
         LEFT JOIN `t_seleksi` `ts` ON ((`tp`.`id_seleksi` = `ts`.`id_seleksi`)))
     WHERE
-       `tp`.`delstat` = 'a'
+        (`tp`.`delstat` = 'a')
     GROUP BY `tp`.`id_peserta`
     ORDER BY `ts`.`tahun` DESC

@@ -1,5 +1,5 @@
- CREATE OR REPLACE VIEW `vw_pelamar_gabungan` AS
- SELECT 
+CREATE OR REPLACE VIEW `vw_alumni_gabungan` AS
+SELECT 
         `td`.`nama` AS `nama`,
         `td`.`gender` AS `gender`,
         `td`.`wilayah` AS `wilayah`,
@@ -19,6 +19,8 @@
         LEFT JOIN `t_datadiri` `td` ON ((`tp`.`id_datadiri` = `td`.`id_datadiri`)))
         LEFT JOIN `t_seleksi` `ts` ON ((`tp`.`id_seleksi` = `ts`.`id_seleksi`)))
     WHERE
-        (`tp`.`delstat` = 'a')
+        ((`ts`.`nama` LIKE '%GELAR%')
+            AND (`tp`.`delstat` = 'a')
+            AND (`tp`.`penempatan` <> ''))
     GROUP BY `tp`.`id_peserta`
     ORDER BY `ts`.`tahun` DESC

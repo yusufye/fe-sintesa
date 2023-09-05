@@ -51,9 +51,11 @@
             <thead class="table-primary">
                 <tr>
                     <th>Nama</th>
+                    <th>Email</th>
                     <th>Gender</th>
                     <th>Wilayah</th>
                     <th>Instansi</th>
+                    <th>Provinsi</th>
                     <th>Pendidikan</th>
                     <th>Jurusan</th>
                     <th>Penempatan</th>
