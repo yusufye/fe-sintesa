@@ -46,6 +46,9 @@ class Web extends BaseController
 			$send_type='count';
 		}elseif ($type=='summary' ) { 
 			$send_type='summary';
+			if (!session('login')) {
+				return redirect()->to(base_url('/login'));
+			}
 		}elseif ($type=='detail' ) { 
 			if (!session('login')) {
 				return redirect()->to(base_url('/login'));
@@ -238,6 +241,9 @@ class Web extends BaseController
 			$send_type='count';
 		}elseif ($type=='summary' ) { 
 			$send_type='summary';
+			if (!session('login')) {
+				return redirect()->to(base_url('/login'));
+			}
 		}elseif ($type=='detail' ) { 
 			if (!session('login')) {
 				return redirect()->to(base_url('/login'));
