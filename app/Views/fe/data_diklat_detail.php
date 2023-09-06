@@ -50,6 +50,7 @@
         <table id="tableDetailPendidikan" class="table  dataTable table-striped">
             <thead class="table-primary">
                 <tr>
+                    <th>No</th>
                     <th>Nama</th>
                     <th>Email</th>
                     <th>Gender</th>
