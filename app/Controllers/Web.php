@@ -279,6 +279,9 @@ class Web extends BaseController
 
 	public function data_administratif_biodata_narasumber() 
 	{
+		if (!session('login')) {
+			return redirect()->to(base_url('/login'));
+		}
         $data_administratif_model = new Data_administratif_model();
 		
 		$data['menu_title']   			= 'Data Administratif';
@@ -306,6 +309,10 @@ class Web extends BaseController
 	
 	public function data_administratif_kegiatan() 
 	{
+		if (!session('login')) {
+			return redirect()->to(base_url('/login'));
+		}
+
         $data_administratif_model = new Data_administratif_model();
 		
 		$data['menu_title']   			= 'Data Administratif';
@@ -331,6 +338,10 @@ class Web extends BaseController
 
 	public function data_administratif_lkj() 
 	{
+		if (!session('login')) {
+			return redirect()->to(base_url('/login'));
+		}
+
         $data_administratif_model = new Data_administratif_model();
 		
 		$data['menu_title']   			= 'Data Administratif';
@@ -432,6 +443,9 @@ class Web extends BaseController
 	}
 
 	function data_administratif_kerjasama($sub2=null,$type=null) {
+		if (!session('login')) {
+			return redirect()->to(base_url('/login'));
+		}
 		$data_administratif_model = new Data_administratif_model();
 		// $list_sub=['data-kerjasama'];
 		
