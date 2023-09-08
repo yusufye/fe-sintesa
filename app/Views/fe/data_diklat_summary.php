@@ -5,6 +5,15 @@
 ?>
 <section id="services" class="services">
     <div class="container" data-aos="fade-up">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="d-flex justify-content-end pb-4">
+                    <a class="btn btn-secondary btn-sm" alt="Print Page" onclick="window.print();"><i class="fa fa-print"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
                 <!-- <a class="nav-link active" id="pendidikan" data-toggle="tab" href="#home" role="tab" aria-controls="pendidikan" aria-selected="true">Pendidikan</a> -->
@@ -210,6 +219,7 @@
             </div>
         </div>
 
+    </div>
     </div>
 </section>
 

@@ -5,6 +5,13 @@
 <section id="services" class="services">
     <div class="container" data-aos="fade-up">
         <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="d-flex justify-content-end pb-4">
+                    <a class="btn btn-secondary btn-sm" title="Print Page" onclick="window.print();"><i class="fa fa-print"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-sm-3">
                 <label>Nama</label>
                 <input class="form-control form-control-sm Globalfilters Perencanafilters" data-filtername="name"
