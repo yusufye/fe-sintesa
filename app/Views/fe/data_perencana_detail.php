@@ -95,11 +95,14 @@
             <table id="tableDetailPendidikan" class="table dataTable table-striped">
                 <thead class="table-primary">
                     <tr>
+                        <td>No</td>
                         <td>Nama</td>
+                        <td>Email</td>
                         <td>Jenis Kelamin</td>
                         <td>Golongan</td>
                         <td>Nama Instansi</td>
                         <td>Unit Kerja</td>
+                        <td>Provinsi</td>
                         <td>Jabatan</td>
                         <td>Periode</td>
                     </tr>
