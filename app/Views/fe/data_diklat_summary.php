@@ -58,6 +58,23 @@
                                 if ($key==0) {
                                     echo "<tr>";
                                     foreach (array_keys($value) as $field) {
+                                        if (is_numeric($field)) {
+                                            if ($field<0) {
+                                                $field="< ".date('Y')-4;
+                                            }elseif ($field==0) {
+                                                $field=date('Y');
+                                            }elseif ($field==1) {
+                                                $field=date('Y')-1;
+                                            }elseif ($field==2) {
+                                                $field=date('Y')-2;
+                                            }elseif ($field==3) {
+                                                $field=date('Y')-3;
+                                            }elseif ($field==4) {
+                                                $field=date('Y')-4;
+                                            }elseif ($field==5) {
+                                                $field=date('Y')-5;
+                                            }
+                                        }
                                         echo "<th>$field</th>";
                                     }
                                     echo "</tr></thead><tbody>";
@@ -116,6 +133,23 @@
                                 if ($key==0) {
                                     echo "<tr>";
                                     foreach (array_keys($value) as $field) {
+                                        if (is_numeric($field)) {
+                                            if ($field<0) {
+                                                $field="< ".date('Y')-4;
+                                            }elseif ($field==0) {
+                                                $field=date('Y');
+                                            }elseif ($field==1) {
+                                                $field=date('Y')-1;
+                                            }elseif ($field==2) {
+                                                $field=date('Y')-2;
+                                            }elseif ($field==3) {
+                                                $field=date('Y')-3;
+                                            }elseif ($field==4) {
+                                                $field=date('Y')-4;
+                                            }elseif ($field==5) {
+                                                $field=date('Y')-5;
+                                            }
+                                        }
                                         echo "<th>$field</th>";
                                     }
                                     echo "</tr></thead><tbody>";
@@ -172,6 +206,24 @@
                                 if ($key==0) {
                                     echo "<tr>";
                                     foreach (array_keys($value) as $field) {
+                                        if (is_numeric($field)) {
+                                            if ($field<0) {
+                                                $field="< ".date('Y')-4;
+                                            }elseif ($field==0) {
+                                                $field=date('Y');
+                                            }elseif ($field==1) {
+                                                $field=date('Y')-1;
+                                            }elseif ($field==2) {
+                                                $field=date('Y')-2;
+                                            }elseif ($field==3) {
+                                                $field=date('Y')-3;
+                                            }elseif ($field==4) {
+                                                $field=date('Y')-4;
+                                            }elseif ($field==5) {
+                                                $field=date('Y')-5;
+                                            }
+                                        }
+                                        
                                         echo "<th>$field</th>";
                                     }
                                     echo "</tr></thead><tbody>";
@@ -227,10 +279,28 @@
 <?php 
         $chart_data_pendidikan=array();
         foreach ($group_pendidikan as $key => $value) {
-            if ($key=='Pendidikan') {
+            if (is_numeric($key)) {
+                if ($key<0) {
+                    $key="< ".date('Y')-4;
+                }elseif ($key==0) {
+                    $key=date('Y');
+                }elseif ($key==1) {
+                    $key=date('Y')-1;
+                }elseif ($key==2) {
+                    $key=date('Y')-2;
+                }elseif ($key==3) {
+                    $key=date('Y')-3;
+                }elseif ($key==4) {
+                    $key=date('Y')-4;
+                }elseif ($key==5) {
+                    $key=date('Y')-5;
+                }
+            }
+
+            if ($key=='Program') {
                 $chart_data_pendidikan['label']=$value;
             }
-            if (!in_array($key,array('Pendidikan','total'))) {
+            if (!in_array($key,array('Program','total'))) {
                 $chart_data_pendidikan['dataset'][]=array(
                     'label'                     => strval($key),
                     'data'                      => $value,
@@ -243,10 +313,28 @@
 
         $chart_data_pelatihan=array();
         foreach ($group_pelatihan as $key => $value) {
-            if ($key=='Pendidikan') {
+            if (is_numeric($key)) {
+                if ($key<0) {
+                    $key="< ".date('Y')-4;
+                }elseif ($key==0) {
+                    $key=date('Y');
+                }elseif ($key==1) {
+                    $key=date('Y')-1;
+                }elseif ($key==2) {
+                    $key=date('Y')-2;
+                }elseif ($key==3) {
+                    $key=date('Y')-3;
+                }elseif ($key==4) {
+                    $key=date('Y')-4;
+                }elseif ($key==5) {
+                    $key=date('Y')-5;
+                }
+            }
+
+            if ($key=='Program') {
                 $chart_data_pelatihan['label']=$value;
             }
-            if (!in_array($key,array('Pendidikan','total'))) {
+            if (!in_array($key,array('Program','total'))) {
                 $chart_data_pelatihan['dataset'][]=array(
                     'label'                     => strval($key),
                     'data'                      => $value,
@@ -259,10 +347,28 @@
 
         $chart_data_gabungan=array();
         foreach ($group_gabungan as $key => $value) {
-            if ($key=='Pendidikan') {
+            if (is_numeric($key)) {
+                if ($key<0) {
+                    $key="< ".date('Y')-4;
+                }elseif ($key==0) {
+                    $key=date('Y');
+                }elseif ($key==1) {
+                    $key=date('Y')-1;
+                }elseif ($key==2) {
+                    $key=date('Y')-2;
+                }elseif ($key==3) {
+                    $key=date('Y')-3;
+                }elseif ($key==4) {
+                    $key=date('Y')-4;
+                }elseif ($key==5) {
+                    $key=date('Y')-5;
+                }
+            }
+
+            if ($key=='Program') {
                 $chart_data_gabungan['label']=$value;
             }
-            if (!in_array($key,array('Pendidikan','total'))) {
+            if (!in_array($key,array('Program','total'))) {
                 $chart_data_gabungan['dataset'][]=array(
                     'label'                     => strval($key),
                     'data'                      => $value,
