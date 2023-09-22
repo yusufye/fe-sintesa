@@ -63,6 +63,8 @@ class Model_datatable extends Model
                         $this->dt->where($row_filter['field']." >=",$row_filter['value']);
                     }elseif ($row_filter['type']=='date_range_end') {
                         $this->dt->where($row_filter['field']." <=",$row_filter['value']);
+                    }elseif ($row_filter['type']=='less_than') {
+                        $this->dt->where($row_filter['field']." <",$row_filter['value']);
                     }elseif ($row_filter['type']=='equal_to') {
                         $this->dt->where($row_filter['field']." =",$row_filter['value']);
                     }else{

@@ -1,4 +1,5 @@
-CREATE OR REPLACE VIEW `vw_pelamar_pelatihan` AS
+CREATE OR REPLACE
+VIEW `vw_pelamar_pelatihan` AS
     SELECT 
         `td`.`nama` AS `nama`,
         `td`.`gender` AS `gender`,
@@ -8,11 +9,12 @@ CREATE OR REPLACE VIEW `vw_pelamar_pelatihan` AS
         `td`.`nama_inst` AS `nama_inst`,
         `td`.`pnddkn` AS `pnddkn`,
         `td`.`jurusan` AS `jurusan`,
-        td.email,
-        td.prop_inst,
+        `td`.`email` AS `email`,
+        `td`.`prop_inst` AS `prop_inst`,
         `tp`.`penempatan` AS `penempatan`,
         `tp`.`pstat` AS `pstat`,
         `ts`.`tahun` AS `tahun`,
+         tp.kode_program,
         COUNT(`tp`.`id_peserta`) AS `Jumlah`
     FROM
         ((`t_peserta` `tp`

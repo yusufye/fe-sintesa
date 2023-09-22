@@ -1,5 +1,6 @@
-create or replace VIEW `vw_pelamar_pendidikan` AS
-SELECT 
+CREATE OR REPLACE
+VIEW `vw_pelamar_pendidikan` AS
+    SELECT 
         `td`.`nama` AS `nama`,
         `td`.`gender` AS `gender`,
         `td`.`wilayah` AS `wilayah`,
@@ -9,11 +10,12 @@ SELECT
         `td`.`unit_kerja` AS `unit_kerja`,
         `td`.`pnddkn` AS `pnddkn`,
         `td`.`jurusan` AS `jurusan`,
-        td.email,
-        td.prop_inst,
+        `td`.`email` AS `email`,
+        `td`.`prop_inst` AS `prop_inst`,
         `tp`.`penempatan` AS `penempatan`,
         `tp`.`pstat` AS `pstat`,
         `ts`.`tahun` AS `tahun`,
+        tp.kode_program,
         COUNT(`tp`.`id_peserta`) AS `Jumlah`
     FROM
         ((`t_peserta` `tp`

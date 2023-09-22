@@ -21,7 +21,10 @@ class Web extends BaseController
     
 	public function data_diklat($sub=null,$sub2=null,$type=null)
 	{
-        $data_diklat_model = new Data_diklat_model();
+		$request           = Services::request();
+		$filtersGET	   	   = $request->getGet();
+		
+		$data_diklat_model = new Data_diklat_model();
 		$list_sub=['data-pelamar','data-penempatan','data-alumni'];
 		$list_sub_summary=['summary-pendidikan','summary-pelatihan','summary-gabungan'];
 		
@@ -62,6 +65,8 @@ class Web extends BaseController
 			$data['init_global_dttable_js'] = true;
 			$data['list_instansi'] 			= $data_diklat_model->get_list_instansi($sub);
 			$data['list_periode']	 		= $data_diklat_model->get_list_periode($sub);
+			$data['list_program']	 		= $data_diklat_model->get_list_program($sub);
+			$data['filtersGET']		 		= $filtersGET;
 
 		}
 		if ($send_type!='detail') {

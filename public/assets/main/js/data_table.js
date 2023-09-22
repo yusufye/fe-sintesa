@@ -45,6 +45,15 @@ function generateGlobalFilters() {
 }
  
 $(document).ready(function () {
+    var checkGlogalFilters = $('.Globalfilters').filter(function() {
+        return this.value != ''
+      });
+
+      if (checkGlogalFilters.length != 0) {
+        generateGlobalFilters()
+      }
+
+
     $('#example').DataTable({
         data: dataSet,
         columns: [

@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-sm-3">
                 <label>Nama</label>
-                <input class="form-control form-control-sm Globalfilters Diklatfilters" data-filtername="name"
+                <input class="form-control form-control-sm Globalfilters Diklatfilters" data-filtername="nama"
                     type="text" placeholder="Nama">
             </div>
             <div class="col-sm-3">
@@ -41,12 +41,67 @@
 
             <div class="col-sm-3">
                 <label>Periode</label>
-                <select class="form-control form-control-sm Globalfilters Diklatfilters" data-filtertype="equal_to"
+                <select id="FilterPeriodID" class="form-control form-control-sm Globalfilters Diklatfilters" data-filtertype="<?php echo (isset($filtersGET['operator_tahun'])?'less_than':'equal_to');?>"
                     data-filtername="tahun" type="text" placeholder="periode">
                     <option value="">- Select Periode -</option>
                     <?php
-                        foreach ($list_periode as $row) {
-                            echo "<option value='".$row['tahun']."'>".$row['tahun']."</option>";
+                        $list_set_periode=array(
+                            "<".date('Y')-4,
+                            date('Y')-4,
+                            date('Y')-3,
+                            date('Y')-2,
+                            date('Y')-1,
+                            date('Y')
+                        );
+                        foreach ($list_set_periode as $row) {
+                            // $period_selected=false;
+                            // if (isset($filtersGET['tahun'])) {
+                            //     if ($filtersGET['tahun']==$row['tahun']) {
+                            //         $period_selected=true;
+                            //     }
+                            // }
+                            // echo "<option value='".$row['tahun']."'".($period_selected?'selected':'')." >".$row['tahun']."</option>";
+
+                            $period_selected=false;
+                            if (isset($filtersGET['tahun'])) {
+                                if (isset($filtersGET['operator_tahun'])) {
+                                    if (substr($row,0,1)==$filtersGET['operator_tahun']) {
+                                        $period_selected=true;
+                                    }
+                                }else{
+                                    if ($filtersGET['tahun']==$row) {
+                                        $period_selected=true;
+                                    }
+                                }
+                            }
+                            $period_attr='';
+                            $select_val=$row;
+                            $select_label=$row;
+                            if (!is_numeric(substr($row,0,1))) {
+                                $period_attr='data-operator="true"';
+                                $select_val=ltrim($row,substr($row,0,1));
+                            }
+                            echo "<option ".$period_attr." value='".$select_val."'".($period_selected?'selected':'')." >".$select_label."</option>";
+                        }
+                    ?>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <label>Program</label>
+                <select class="form-control form-control-sm Globalfilters Diklatfilters" data-filtertype="equal_to"
+                    data-filtername="kode_program" type="text" placeholder="Kode Program">
+                    <option value="">- Select Program -</option>
+                    <?php
+                        foreach ($list_program as $row) {
+                            $program_selected=false;
+                            if (isset($filtersGET['kode_program'])) {
+                                if ($filtersGET['kode_program']==$row['kode_program']) {
+                                    $program_selected=true;
+                                }
+                            }
+                            echo "<option value='".$row['kode_program']."'".($program_selected?'selected':'').">".$row['kode_program']."</option>";
                         }
                     ?>
                 </select>

@@ -200,6 +200,8 @@ class Data_diklat_model extends Model {
                         $return->where($row_filter['field']." >=",$row_filter['value']);
                     }elseif ($row_filter['type']=='date_range_end') {
                         $return->where($row_filter['field']." <=",$row_filter['value']);
+                    }elseif ($row_filter['type']=='less_than') {
+                        $return->where($row_filter['field']." <",$row_filter['value']);
                     }elseif ($row_filter['type']=='equal_to') {
                         $return->where($row_filter['field']."=",$row_filter['value']);
                     }else{
@@ -264,6 +266,34 @@ class Data_diklat_model extends Model {
             ->select('tahun')
             ->getCompiledSelect().' UNION '.$this->db->table('vw_alumni_gabungan')
             ->select('tahun')
+            ->getCompiledSelect())->getResultArray();
+        }
+    }
+
+    function get_list_program($sub){
+        if ($sub=='data-pelamar') {
+            return $this->db->query($this->db->table('vw_pelamar_pendidikan')
+            ->select('kode_program')
+            ->getCompiledSelect().' UNION '.$this->db->table('vw_pelamar_pelatihan')
+            ->select('kode_program')
+            ->getCompiledSelect().' UNION '.$this->db->table('vw_pelamar_gabungan')
+            ->select('kode_program')
+            ->getCompiledSelect())->getResultArray();
+        }elseif ($sub=='data-penempatan') {
+            return $this->db->query($this->db->table('vw_penempatan_pendidikan')
+            ->select('kode_program')
+            ->getCompiledSelect().' UNION '.$this->db->table('vw_penempatan_pelatihan')
+            ->select('kode_program')
+            ->getCompiledSelect().' UNION '.$this->db->table('vw_penempatan_gabungan')
+            ->select('kode_program')
+            ->getCompiledSelect())->getResultArray();
+        }elseif ($sub=='data-alumni') {
+            return $this->db->query($this->db->table('vw_alumni_pendidikan')
+            ->select('kode_program')
+            ->getCompiledSelect().' UNION '.$this->db->table('vw_alumni_pelatihan')
+            ->select('kode_program')
+            ->getCompiledSelect().' UNION '.$this->db->table('vw_alumni_gabungan')
+            ->select('kode_program')
             ->getCompiledSelect())->getResultArray();
         }
     }
