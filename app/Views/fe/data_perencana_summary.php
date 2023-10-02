@@ -52,16 +52,41 @@
                             foreach ($data_summary_pusat as $key => $value) {
                             
                                 if ($key==0) {
+                                    $define_col=0;
                                     echo "<tr>";
                                     foreach (array_keys($value) as $field) {
+                                        ${"col_".$define_col}=$field;
+                                        $define_col+=1;
                                         echo "<th>$field</th>";
                                     }
                                     echo "</tr></thead></tbody>";
                                 }
 
                                 echo "<tr>";
+                                $define_row=0;
                                 foreach ($value as $key_row=>$row) {
-                                    echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
+                                    $set_attr_col=${"col_".$define_row};
+
+                                    if ($define_row>0) {
+                                        $get_param=[];
+                                        if (!empty($set_attr_col) && $set_attr_col<>'total') {
+                                            $get_param[]='jabatan='.urlencode($set_attr_col);
+                                        }
+                                        if (!empty($set_attr_row)) {
+                                            $get_param[]='program='.$set_attr_row;
+                                        }
+
+                                        $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
+
+                                        $url='/data-perencana/'.$orig_title.'/pusat/detail'.$send_get_param;
+                                        echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
+                                    }else{
+                                        echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
+                                        $set_attr_row=$row;
+                                    }
+                                    $define_row+=1;
+
+                                    
                                     $group_pusat[$key_row][]=$row;
                                 }
                                 echo "</tr>";
@@ -101,27 +126,49 @@
                     </div>
 
                     <table id="tableCountDaerah" class="table table-striped">
-                        <?php
+                    <?php
+                        $group_daerah=array();
                         if ($data_summary_daerah!=null) {
-                            $group_daerah[$key_row][]=$row;
                             echo "<thead class='table-primary'>";
                             foreach ($data_summary_daerah as $key => $value) {
                             
                                 if ($key==0) {
+                                    $define_col=0;
                                     echo "<tr>";
                                     foreach (array_keys($value) as $field) {
+                                        ${"col_".$define_col}=$field;
+                                        $define_col+=1;
                                         echo "<th>$field</th>";
                                     }
-                                    echo "</tr></thead><tbody>";
-                                    
-                                    
+                                    echo "</tr></thead></tbody>";
                                 }
 
                                 echo "<tr>";
+                                $define_row=0;
                                 foreach ($value as $key_row=>$row) {
-                                    echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
-                                    $group_daerah[$key_row][]=$row;
+                                    $set_attr_col=${"col_".$define_row};
 
+                                    if ($define_row>0) {
+                                        $get_param=[];
+                                        if (!empty($set_attr_col) && $set_attr_col<>'total') {
+                                            $get_param[]='jabatan='.urlencode($set_attr_col);
+                                        }
+                                        if (!empty($set_attr_row)) {
+                                            $get_param[]='program='.$set_attr_row;
+                                        }
+
+                                        $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
+
+                                        $url='/data-perencana/'.$orig_title.'/daerah/detail'.$send_get_param;
+                                        echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
+                                    }else{
+                                        echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
+                                        $set_attr_row=$row;
+                                    }
+                                    $define_row+=1;
+
+                                    
+                                    $group_daerah[$key_row][]=$row;
                                 }
                                 echo "</tr>";
                             }
@@ -131,7 +178,7 @@
                             echo "<tr><th>Data Not Found</th></tr>";
                             echo "</thead>";
                             echo "<tbody>";
-                            echo "</tbody>";
+                            echo "</tbody>";;
                         }
 
 
@@ -162,27 +209,49 @@
                     </div>
 
                     <table id="tableCountGabungan" class="table table-striped">
-                        <?php
+                    <?php
+                        $group_gabungan=array();
                         if ($data_summary_gabungan!=null) {
-                            $group_gabungan[$key_row][]=$row;
                             echo "<thead class='table-primary'>";
                             foreach ($data_summary_gabungan as $key => $value) {
                             
                                 if ($key==0) {
+                                    $define_col=0;
                                     echo "<tr>";
                                     foreach (array_keys($value) as $field) {
+                                        ${"col_".$define_col}=$field;
+                                        $define_col+=1;
                                         echo "<th>$field</th>";
                                     }
-                                    echo "</tr></thead><tbody>";
-                                    
-                                    
+                                    echo "</tr></thead></tbody>";
                                 }
 
                                 echo "<tr>";
+                                $define_row=0;
                                 foreach ($value as $key_row=>$row) {
-                                    echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
-                                    $group_gabungan[$key_row][]=$row;
+                                    $set_attr_col=${"col_".$define_row};
 
+                                    if ($define_row>0) {
+                                        $get_param=[];
+                                        if (!empty($set_attr_col) && $set_attr_col<>'total') {
+                                            $get_param[]='jabatan='.urlencode($set_attr_col);
+                                        }
+                                        if (!empty($set_attr_row)) {
+                                            $get_param[]='program='.$set_attr_row;
+                                        }
+
+                                        $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
+
+                                        $url='/data-perencana/'.$orig_title.'/gabungan/detail'.$send_get_param;
+                                        echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
+                                    }else{
+                                        echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
+                                        $set_attr_row=$row;
+                                    }
+                                    $define_row+=1;
+
+                                    
+                                    $group_gabungan[$key_row][]=$row;
                                 }
                                 echo "</tr>";
                             }
@@ -192,7 +261,7 @@
                             echo "<tr><th>Data Not Found</th></tr>";
                             echo "</thead>";
                             echo "<tbody>";
-                            echo "</tbody>";
+                            echo "</tbody>";;
                         }
 
 

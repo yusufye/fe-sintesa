@@ -275,20 +275,30 @@ if (typeof(method_type)!='undefined') {
 
   function generate_chart(result){
     console.log(result);
-    dataAreaGender.labels=  result.gender.bar.label;
-    dataAreaGender.datasets=  result.gender.bar.dataset;
-    ChartGenderArea.update();
+    dataAreaGender.labels   = [];
+    dataAreaGender.datasets = [];
+    dataPieGender.labels    = [];
+    dataPieGender.datasets  = [];
+    dataAreaPeriod.labels   = [];
+    dataAreaPeriod.datasets = [];
+    dataPiePeriod.labels    = [];
+    dataPiePeriod.datasets  = [];
 
-    dataPieGender.labels=  result.gender.pie.label;
-    dataPieGender.datasets=  result.gender.pie.dataset;
-    ChartGenderPie.update();
+    if (Object.keys(result).length !== 0) {
+    dataAreaGender.labels   = result.gender.bar.label;
+    dataAreaGender.datasets = result.gender.bar.dataset;
+    dataPieGender.labels    = result.gender.pie.label;
+    dataPieGender.datasets  = result.gender.pie.dataset;
+    dataAreaPeriod.labels   = result.period.label;
+    dataAreaPeriod.datasets = result.period.dataset;
+    dataPiePeriod.labels    = result.period.pie.label;
+    dataPiePeriod.datasets  = result.period.pie.dataset;
+      
+    }
     
-    dataAreaPeriod.labels=  result.period.label;
-    dataAreaPeriod.datasets=  result.period.dataset;
+    ChartGenderArea.update();
+    ChartGenderPie.update();
     ChartPeriodArea.update();
-
-    dataPiePeriod.labels=  result.period.pie.label;
-    dataPiePeriod.datasets=  result.period.pie.dataset;
     ChartPeriodPie.update();
     
 
@@ -298,8 +308,8 @@ if (typeof(method_type)!='undefined') {
   $('.Globalfilters').change(function (e) {
     generatePerencanaFilters(function(result){
       console.log(result);
+      generate_chart(result)
       if (Object.keys(result).length !== 0) {
-        generate_chart(result)
       }
     })
   });

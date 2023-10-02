@@ -134,6 +134,12 @@ class Data_perencana_model extends Model {
                         $return->where($row_filter['field']." <=",$row_filter['value']);
                     }elseif ($row_filter['type']=='equal_to') {
                         $return->where($row_filter['field']."=",$row_filter['value']);
+                    }elseif ($row_filter['type']=='perencana_program') {
+                        if ($row_filter['value']=='pusat') {
+                            $return->where($row_filter['field']."<=",1);
+                        }elseif ($row_filter['value']=='daerah') {
+                            $return->where($row_filter['field'].">=",2);
+                        }
                     }else{
                         $return->like($row_filter['field'],$row_filter['value'],'both');
                     }

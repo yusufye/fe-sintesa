@@ -9,6 +9,7 @@ SELECT
         `ep`.`periode` AS `periode`,
         p.provinsi,
 		u.email,
+        u.kemcategory,
         COUNT(`u`.`id`) AS `Jumlah`
     FROM
         (((`user` `u`

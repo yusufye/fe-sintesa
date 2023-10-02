@@ -72,7 +72,7 @@
                     <option value="">- Select Jabatan -</option>
                     <?php
                         foreach ($list_jabatan as $row) {
-                            echo "<option value='".$row['jabatan']."'>".$row['jabatan']."</option>";
+                            echo "<option value='".$row['jabatan']."'".(isset($filtersGET['jabatan']) && strtolower($filtersGET['jabatan'])==strtolower($row['jabatan'])?'selected':'').">".$row['jabatan']."</option>";
                         }
                     ?>
                 </select>
@@ -87,6 +87,15 @@
                             echo "<option value='".$row['periode']."'>".$row['periode']."</option>";
                         }
                     ?>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label>Program</label>
+                <select class="form-control form-control-sm Globalfilters Perencanafilters" data-filtertype="perencana_program"
+                    data-filtername="kemcategory" type="text" placeholder="kemcategory">
+                    <option value="">- Select Program -</option>
+                    <option value="pusat" <?php echo (isset($filtersGET['program']) && strtolower($filtersGET['program'])=='pusat'?'selected':''); ?> >Pusat</option>
+                    <option value="daerah" <?php echo (isset($filtersGET['program']) &&  strtolower($filtersGET['program'])=='daerah'?'selected':''); ?>>Daerah</option>
                 </select>
             </div>
         </div>

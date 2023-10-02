@@ -221,6 +221,9 @@ class Web extends BaseController
 
 	public function data_perencana($sub=null,$sub2=null,$type=null)
 	{
+		$request           = Services::request();
+		$filtersGET	   	   = $request->getGet();
+
         $data_perencana_model = new Data_perencana_model();
 		$list_sub=['data-perencana','data-tim-penilai'];
 		$list_sub_summary=['summary-pusat','summary-daerah','summary-gabungan'];
@@ -241,6 +244,7 @@ class Web extends BaseController
 		$data['model_init']     = 'Data_perencana_model';
 		$data['init_datatable'] = true;
 		$data['init_chart'] 	= true;
+		$data['filtersGET']		= $filtersGET;
 		
 		if ($type==null) { //count all
 			$send_type='count';

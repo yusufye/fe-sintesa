@@ -9,6 +9,7 @@ CREATE OR REPLACE VIEW `vw_perencana_gabungan` AS
         `ep`.`periode` AS `periode`,
         p.provinsi,
 		u.email,
+        u.kemcategory,
         COUNT(`u`.`id`) AS `Jumlah`
     FROM
         (((`user` `u`
