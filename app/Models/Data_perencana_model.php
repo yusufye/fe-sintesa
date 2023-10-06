@@ -14,10 +14,10 @@ class Data_perencana_model extends Model {
 
             }elseif ($type=='detail') {
                 return array(
-                'query'         => $this->db->table('vw_perencana_pusat'),
-                'column_order'  => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode'),
+                'query'         => $this->db->table('vw_perencana_pusat')->select('"",name,email,gender, golongan, kementrian_name, unit_kerja,provinsi, jabatan, periode'),
+                'column_order'  => array('','name','email','gender', 'golongan', 'kementrian_name', 'unit_kerja','provinsi', 'jabatan', 'periode'),
                 'order'         => array('name' => 'asc'),
-                'column_search' => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode')
+                'column_search' => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode','provinsi','email')
                 );
             }
         }elseif ($param=='daerah') {
@@ -27,10 +27,10 @@ class Data_perencana_model extends Model {
                 $db=$this->db->table('vw_perencana_daerah_summary')->select('Program, `Perencana Ahli Pertama`, `Perencana Ahli Muda`, `Perencana Ahli Madya`, `Perencana Ahli Utama`, total', false);
             }elseif ($type=='detail') {
                 return array(
-                    'query'         => $this->db->table('vw_perencana_daerah'),
-                    'column_order'  => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode'),
+                    'query'         => $this->db->table('vw_perencana_daerah')->select('"",name,email,gender, golongan, kementrian_name, unit_kerja,provinsi, jabatan, periode'),
+                    'column_order'  => array('','name','email','gender', 'golongan', 'kementrian_name', 'unit_kerja','provinsi', 'jabatan', 'periode'),
                     'order'         => array('name' => 'asc'),
-                    'column_search' => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode')
+                    'column_search' => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode','provinsi','email')
                     );
             }
         }elseif ($param=='gabungan') {
@@ -40,10 +40,10 @@ class Data_perencana_model extends Model {
                 $db=$this->db->table('vw_perencana_gabungan_summary')->select('Program, `Perencana Ahli Pertama`, `Perencana Ahli Muda`, `Perencana Ahli Madya`, `Perencana Ahli Utama`, total', false);
             }elseif ($type=='detail') {
                 return array(
-                    'query'         => $this->db->table('vw_perencana_gabungan'),
-                    'column_order'  => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode'),
+                    'query'         => $this->db->table('vw_perencana_gabungan')->select('"",name,email,gender, golongan, kementrian_name, unit_kerja,provinsi, jabatan, periode'),
+                    'column_order'  => array('','name','email','gender', 'golongan', 'kementrian_name', 'unit_kerja','provinsi', 'jabatan', 'periode'),
                     'order'         => array('name' => 'asc'),
-                    'column_search' => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode')
+                    'column_search' => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode','provinsi','email')
                     );
             }
         }else{
@@ -66,10 +66,10 @@ class Data_perencana_model extends Model {
                 $db=$this->db->table('vw_penilai_pusat_summary')->select('Program, `Perencana Ahli Pertama`, `Perencana Ahli Muda`, `Perencana Ahli Madya`, `Perencana Ahli Utama`, total', false);
             }elseif ($type=='detail') {
                 return array(
-                'query'         => $this->db->table('vw_penilai_pusat'),
-                'column_order'  => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode'),
+                'query'         => $this->db->table('vw_penilai_pusat')->select('"",name,email,gender, golongan, kementrian_name, unit_kerja,provinsi, jabatan, periode'),
+                'column_order'  => array('','name','email','gender', 'golongan', 'kementrian_name', 'unit_kerja','provinsi', 'jabatan', 'periode'),
                 'order'         => array('name' => 'asc'),
-                'column_search' => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode')
+                'column_search' => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode','provinsi','email')
                 );
             }
         }elseif ($param=='daerah') {
@@ -79,10 +79,10 @@ class Data_perencana_model extends Model {
                 $db=$this->db->table('vw_penilai_daerah_summary')->select('Program, `Perencana Ahli Pertama`, `Perencana Ahli Muda`, `Perencana Ahli Madya`, `Perencana Ahli Utama`, total', false);
             }elseif ($type=='detail') {
                 return array(
-                    'query'         => $this->db->table('vw_penilai_daerah'),
-                    'column_order'  => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode'),
+                    'query'         => $this->db->table('vw_penilai_daerah')->select('"",name,email,gender, golongan, kementrian_name, unit_kerja,provinsi, jabatan, periode'),
+                    'column_order'  => array('','name','email','gender', 'golongan', 'kementrian_name', 'unit_kerja','provinsi', 'jabatan', 'periode'),
                     'order'         => array('name' => 'asc'),
-                    'column_search' => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode')
+                    'column_search' => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode','provinsi','email')
                     );
             }
         }elseif ($param=='gabungan') {
@@ -92,10 +92,10 @@ class Data_perencana_model extends Model {
                 $db=$this->db->table('vw_penilai_gabungan_summary')->select('Program, `Perencana Ahli Pertama`, `Perencana Ahli Muda`, `Perencana Ahli Madya`, `Perencana Ahli Utama`, total', false);
             }elseif ($type=='detail') {
                 return array(
-                    'query'         => $this->db->table('vw_penilai_gabungan'),
-                    'column_order'  => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode'),
+                    'query'         => $this->db->table('vw_penilai_gabungan')->select('"",name,email,gender, golongan, kementrian_name, unit_kerja,provinsi, jabatan, periode'),
+                    'column_order'  => array('','name','email','gender', 'golongan', 'kementrian_name', 'unit_kerja','provinsi', 'jabatan', 'periode'),
                     'order'         => array('name' => 'asc'),
-                    'column_search' => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode')
+                    'column_search' => array('name', 'gender', 'golongan', 'kementrian_name', 'unit_kerja', 'jabatan', 'periode','provinsi','email')
                     );
             }
         }else{
@@ -134,6 +134,12 @@ class Data_perencana_model extends Model {
                         $return->where($row_filter['field']." <=",$row_filter['value']);
                     }elseif ($row_filter['type']=='equal_to') {
                         $return->where($row_filter['field']."=",$row_filter['value']);
+                    }elseif ($row_filter['type']=='perencana_program') {
+                        if ($row_filter['value']=='pusat') {
+                            $return->where($row_filter['field']."<=",1);
+                        }elseif ($row_filter['value']=='daerah') {
+                            $return->where($row_filter['field'].">=",2);
+                        }
                     }else{
                         $return->like($row_filter['field'],$row_filter['value'],'both');
                     }

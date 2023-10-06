@@ -21,7 +21,10 @@ class Web extends BaseController
     
 	public function data_diklat($sub=null,$sub2=null,$type=null)
 	{
-        $data_diklat_model = new Data_diklat_model();
+		$request           = Services::request();
+		$filtersGET	   	   = $request->getGet();
+		
+		$data_diklat_model = new Data_diklat_model();
 		$list_sub=['data-pelamar','data-penempatan','data-alumni'];
 		$list_sub_summary=['summary-pendidikan','summary-pelatihan','summary-gabungan'];
 		
@@ -46,6 +49,9 @@ class Web extends BaseController
 			$send_type='count';
 		}elseif ($type=='summary' ) { 
 			$send_type='summary';
+			if (!session('login')) {
+				return redirect()->to(base_url('/login'));
+			}
 		}elseif ($type=='detail' ) { 
 			if (!session('login')) {
 				return redirect()->to(base_url('/login'));
@@ -59,6 +65,8 @@ class Web extends BaseController
 			$data['init_global_dttable_js'] = true;
 			$data['list_instansi'] 			= $data_diklat_model->get_list_instansi($sub);
 			$data['list_periode']	 		= $data_diklat_model->get_list_periode($sub);
+			$data['list_program']	 		= $data_diklat_model->get_list_program($sub);
+			$data['filtersGET']		 		= $filtersGET;
 
 		}
 		if ($send_type!='detail') {
@@ -213,6 +221,9 @@ class Web extends BaseController
 
 	public function data_perencana($sub=null,$sub2=null,$type=null)
 	{
+		$request           = Services::request();
+		$filtersGET	   	   = $request->getGet();
+
         $data_perencana_model = new Data_perencana_model();
 		$list_sub=['data-perencana','data-tim-penilai'];
 		$list_sub_summary=['summary-pusat','summary-daerah','summary-gabungan'];
@@ -233,11 +244,15 @@ class Web extends BaseController
 		$data['model_init']     = 'Data_perencana_model';
 		$data['init_datatable'] = true;
 		$data['init_chart'] 	= true;
+		$data['filtersGET']		= $filtersGET;
 		
 		if ($type==null) { //count all
 			$send_type='count';
 		}elseif ($type=='summary' ) { 
 			$send_type='summary';
+			if (!session('login')) {
+				return redirect()->to(base_url('/login'));
+			}
 		}elseif ($type=='detail' ) { 
 			if (!session('login')) {
 				return redirect()->to(base_url('/login'));
@@ -273,6 +288,9 @@ class Web extends BaseController
 
 	public function data_administratif_biodata_narasumber() 
 	{
+		if (!session('login')) {
+			return redirect()->to(base_url('/login'));
+		}
         $data_administratif_model = new Data_administratif_model();
 		
 		$data['menu_title']   			= 'Data Administratif';
@@ -300,6 +318,10 @@ class Web extends BaseController
 	
 	public function data_administratif_kegiatan() 
 	{
+		if (!session('login')) {
+			return redirect()->to(base_url('/login'));
+		}
+
         $data_administratif_model = new Data_administratif_model();
 		
 		$data['menu_title']   			= 'Data Administratif';
@@ -325,6 +347,10 @@ class Web extends BaseController
 
 	public function data_administratif_lkj() 
 	{
+		if (!session('login')) {
+			return redirect()->to(base_url('/login'));
+		}
+
         $data_administratif_model = new Data_administratif_model();
 		
 		$data['menu_title']   			= 'Data Administratif';
@@ -426,6 +452,9 @@ class Web extends BaseController
 	}
 
 	function data_administratif_kerjasama($sub2=null,$type=null) {
+		if (!session('login')) {
+			return redirect()->to(base_url('/login'));
+		}
 		$data_administratif_model = new Data_administratif_model();
 		// $list_sub=['data-kerjasama'];
 		

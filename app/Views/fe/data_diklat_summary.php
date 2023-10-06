@@ -5,6 +5,15 @@
 ?>
 <section id="services" class="services">
     <div class="container" data-aos="fade-up">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="d-flex justify-content-end pb-4">
+                    <a class="btn btn-secondary btn-sm" alt="Print Page" onclick="window.print();"><i class="fa fa-print"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
                 <!-- <a class="nav-link active" id="pendidikan" data-toggle="tab" href="#home" role="tab" aria-controls="pendidikan" aria-selected="true">Pendidikan</a> -->
@@ -48,15 +57,73 @@
                                 
                                 if ($key==0) {
                                     echo "<tr>";
+                                    $define_col=0;
                                     foreach (array_keys($value) as $field) {
+                                        
+                                        if (is_numeric($field)) {
+                                            if ($field<0) {
+                                                $field="<".date('Y')-4;
+                                            }elseif ($field==0) {
+                                                $field=date('Y');
+                                            }elseif ($field==1) {
+                                                $field=date('Y')-1;
+                                            }elseif ($field==2) {
+                                                $field=date('Y')-2;
+                                            }elseif ($field==3) {
+                                                $field=date('Y')-3;
+                                            }elseif ($field==4) {
+                                                $field=date('Y')-4;
+                                            }elseif ($field==5) {
+                                                $field=date('Y')-5;
+                                            }
+                                        }
+                                        
+                                        ${"col_".$define_col}=$field;
+                                        $define_col+=1;
                                         echo "<th>$field</th>";
                                     }
                                     echo "</tr></thead><tbody>";
                                 }
 
                                 echo "<tr>";
+                                $define_row=0;
+                                
                                 foreach ($value as $key_row=>$row) {
-                                    echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
+                                    
+                                    if($define_row==$define_col){
+                                        
+
+                                    }
+                                    $define_operator='';
+                                    $set_attr_col=${"col_".$define_row};
+                                    if (!is_numeric(substr($set_attr_col,0,1)) && is_numeric(substr($set_attr_col,1,1))) {
+                                        $define_operator=substr($set_attr_col,0,1);
+                                        $set_attr_col=ltrim($set_attr_col,substr($set_attr_col,0,1));
+                                    }
+                                    
+                                    if ($define_row>0) {
+                                        $get_param=[];
+                                        if (!empty($set_attr_col)) {
+                                            if (is_numeric($set_attr_col)) {
+                                                $get_param[]='tahun='.$set_attr_col;
+                                            }
+                                        }
+                                        if (!empty($set_attr_row)) {
+                                            $get_param[]='kode_program='.$set_attr_row;
+                                        }
+                                        if (!empty($define_operator)) {
+                                            $get_param[]='operator_tahun='.$define_operator;
+                                        }
+
+                                        $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
+
+                                        $url='/data-diklat/'.$orig_title.'/pendidikan/detail'.$send_get_param;
+                                        echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
+                                    }else{
+                                        echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
+                                        $set_attr_row=$row;
+                                    }
+                                    $define_row+=1;
                                     $group_pendidikan[$key_row][]=$row;
                                 }
                                 echo "</tr>";
@@ -106,13 +173,72 @@
                             
                                 if ($key==0) {
                                     echo "<tr>";
+                                    $define_col_pelatihan=0;
                                     foreach (array_keys($value) as $field) {
+                                        if (is_numeric($field)) {
+                                            if ($field<0) {
+                                                $field="<".date('Y')-4;
+                                            }elseif ($field==0) {
+                                                $field=date('Y');
+                                            }elseif ($field==1) {
+                                                $field=date('Y')-1;
+                                            }elseif ($field==2) {
+                                                $field=date('Y')-2;
+                                            }elseif ($field==3) {
+                                                $field=date('Y')-3;
+                                            }elseif ($field==4) {
+                                                $field=date('Y')-4;
+                                            }elseif ($field==5) {
+                                                $field=date('Y')-5;
+                                            }
+                                        }
+
+                                        ${"col_".$define_col_pelatihan}=$field;
+                                        $define_col_pelatihan+=1;
                                         echo "<th>$field</th>";
                                     }
                                     echo "</tr></thead><tbody>";
                                 }
+
+                                echo "<tr>";
+                                $define_row_pelatihan=0;
+
                                 foreach ($value as $key_row=>$row) {
-                                    echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
+                                    
+                                    if($define_row_pelatihan==$define_col_pelatihan){
+                                        
+
+                                    }
+                                    $define_operator_pelatihan='';
+                                    $set_attr_col=${"col_".$define_row_pelatihan};
+                                    if (!is_numeric(substr($set_attr_col,0,1)) && is_numeric(substr($set_attr_col,1,1))) {
+                                        $define_operator_pelatihan=substr($set_attr_col,0,1);
+                                        $set_attr_col=ltrim($set_attr_col,substr($set_attr_col,0,1));
+                                    }
+                                    
+                                    if ($define_row_pelatihan>0) {
+                                        $get_param=[];
+                                        if (!empty($set_attr_col)) {
+                                            if (is_numeric($set_attr_col)) {
+                                                $get_param[]='tahun='.$set_attr_col;
+                                            }
+                                        }
+                                        if (!empty($set_attr_row)) {
+                                            $get_param[]='kode_program='.$set_attr_row;
+                                        }
+                                        if (!empty($define_operator_pelatihan)) {
+                                            $get_param[]='operator_tahun='.$define_operator_pelatihan;
+                                        }
+
+                                        $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
+
+                                        $url='/data-diklat/'.$orig_title.'/pelatihan/detail'.$send_get_param;
+                                        echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
+                                    }else{
+                                        echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
+                                        $set_attr_row=$row;
+                                    }
+                                    $define_row_pelatihan+=1;
                                     $group_pelatihan[$key_row][]=$row;
                                 }
                                 echo "</tr>";
@@ -162,17 +288,73 @@
                                 
                                 if ($key==0) {
                                     echo "<tr>";
+                                    $define_col_pelatihan=0;
                                     foreach (array_keys($value) as $field) {
+                                        if (is_numeric($field)) {
+                                            if ($field<0) {
+                                                $field="<".date('Y')-4;
+                                            }elseif ($field==0) {
+                                                $field=date('Y');
+                                            }elseif ($field==1) {
+                                                $field=date('Y')-1;
+                                            }elseif ($field==2) {
+                                                $field=date('Y')-2;
+                                            }elseif ($field==3) {
+                                                $field=date('Y')-3;
+                                            }elseif ($field==4) {
+                                                $field=date('Y')-4;
+                                            }elseif ($field==5) {
+                                                $field=date('Y')-5;
+                                            }
+                                        }
+
+                                        ${"col_".$define_col_pelatihan}=$field;
+                                        $define_col_pelatihan+=1;
                                         echo "<th>$field</th>";
                                     }
                                     echo "</tr></thead><tbody>";
                                 }
 
+                                
                                 echo "<tr>";
+                                $define_row_pelatihan=0;
                                 foreach ($value as $key_row=>$row) {
-                                    echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
-                                    $group_gabungan[$key_row][]=$row;
+                                    
+                                    if($define_row_pelatihan==$define_col_pelatihan){
+                                        
 
+                                    }
+                                    $define_operator_pelatihan='';
+                                    $set_attr_col=${"col_".$define_row_pelatihan};
+                                    if (!is_numeric(substr($set_attr_col,0,1)) && is_numeric(substr($set_attr_col,1,1))) {
+                                        $define_operator_pelatihan=substr($set_attr_col,0,1);
+                                        $set_attr_col=ltrim($set_attr_col,substr($set_attr_col,0,1));
+                                    }
+                                    
+                                    if ($define_row_pelatihan>0) {
+                                        $get_param=[];
+                                        if (!empty($set_attr_col)) {
+                                            if (is_numeric($set_attr_col)) {
+                                                $get_param[]='tahun='.$set_attr_col;
+                                            }
+                                        }
+                                        if (!empty($set_attr_row)) {
+                                            $get_param[]='kode_program='.$set_attr_row;
+                                        }
+                                        if (!empty($define_operator_pelatihan)) {
+                                            $get_param[]='operator_tahun='.$define_operator_pelatihan;
+                                        }
+
+                                        $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
+
+                                        $url='/data-diklat/'.$orig_title.'/gabungan/detail'.$send_get_param;
+                                        echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
+                                    }else{
+                                        echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
+                                        $set_attr_row=$row;
+                                    }
+                                    $define_row_pelatihan+=1;
+                                    $group_gabungan[$key_row][]=$row;
                                 }
                                 echo "</tr>";
                             }
@@ -211,16 +393,35 @@
         </div>
 
     </div>
+    </div>
 </section>
 
 <script>
 <?php 
         $chart_data_pendidikan=array();
         foreach ($group_pendidikan as $key => $value) {
-            if ($key=='Pendidikan') {
+            if (is_numeric($key)) {
+                if ($key<0) {
+                    $key="< ".date('Y')-4;
+                }elseif ($key==0) {
+                    $key=date('Y');
+                }elseif ($key==1) {
+                    $key=date('Y')-1;
+                }elseif ($key==2) {
+                    $key=date('Y')-2;
+                }elseif ($key==3) {
+                    $key=date('Y')-3;
+                }elseif ($key==4) {
+                    $key=date('Y')-4;
+                }elseif ($key==5) {
+                    $key=date('Y')-5;
+                }
+            }
+
+            if ($key=='Program') {
                 $chart_data_pendidikan['label']=$value;
             }
-            if (!in_array($key,array('Pendidikan','total'))) {
+            if (!in_array($key,array('Program','total'))) {
                 $chart_data_pendidikan['dataset'][]=array(
                     'label'                     => strval($key),
                     'data'                      => $value,
@@ -233,10 +434,28 @@
 
         $chart_data_pelatihan=array();
         foreach ($group_pelatihan as $key => $value) {
-            if ($key=='Pendidikan') {
+            if (is_numeric($key)) {
+                if ($key<0) {
+                    $key="< ".date('Y')-4;
+                }elseif ($key==0) {
+                    $key=date('Y');
+                }elseif ($key==1) {
+                    $key=date('Y')-1;
+                }elseif ($key==2) {
+                    $key=date('Y')-2;
+                }elseif ($key==3) {
+                    $key=date('Y')-3;
+                }elseif ($key==4) {
+                    $key=date('Y')-4;
+                }elseif ($key==5) {
+                    $key=date('Y')-5;
+                }
+            }
+
+            if ($key=='Program') {
                 $chart_data_pelatihan['label']=$value;
             }
-            if (!in_array($key,array('Pendidikan','total'))) {
+            if (!in_array($key,array('Program','total'))) {
                 $chart_data_pelatihan['dataset'][]=array(
                     'label'                     => strval($key),
                     'data'                      => $value,
@@ -249,10 +468,28 @@
 
         $chart_data_gabungan=array();
         foreach ($group_gabungan as $key => $value) {
-            if ($key=='Pendidikan') {
+            if (is_numeric($key)) {
+                if ($key<0) {
+                    $key="< ".date('Y')-4;
+                }elseif ($key==0) {
+                    $key=date('Y');
+                }elseif ($key==1) {
+                    $key=date('Y')-1;
+                }elseif ($key==2) {
+                    $key=date('Y')-2;
+                }elseif ($key==3) {
+                    $key=date('Y')-3;
+                }elseif ($key==4) {
+                    $key=date('Y')-4;
+                }elseif ($key==5) {
+                    $key=date('Y')-5;
+                }
+            }
+
+            if ($key=='Program') {
                 $chart_data_gabungan['label']=$value;
             }
-            if (!in_array($key,array('Pendidikan','total'))) {
+            if (!in_array($key,array('Program','total'))) {
                 $chart_data_gabungan['dataset'][]=array(
                     'label'                     => strval($key),
                     'data'                      => $value,

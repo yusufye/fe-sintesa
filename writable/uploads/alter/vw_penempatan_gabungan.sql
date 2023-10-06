@@ -1,6 +1,5 @@
-CREATE 
-VIEW `vw_penempatan_gabungan` AS
-    SELECT 
+CREATE OR REPLACE VIEW `vw_penempatan_gabungan` AS
+SELECT 
         `td`.`nama` AS `nama`,
         `td`.`gender` AS `gender`,
         `td`.`wilayah` AS `wilayah`,
@@ -9,9 +8,12 @@ VIEW `vw_penempatan_gabungan` AS
         `td`.`nama_inst` AS `nama_inst`,
         `td`.`pnddkn` AS `pnddkn`,
         `td`.`jurusan` AS `jurusan`,
+        td.email,
+        td.prop_inst,
         `tp`.`penempatan` AS `penempatan`,
         `tp`.`pstat` AS `pstat`,
         `ts`.`tahun` AS `tahun`,
+        `tp`.`kode_program` AS `kode_program`,
         COUNT(`tp`.`id_peserta`) AS `Jumlah`
     FROM
         ((`t_peserta` `tp`
@@ -22,4 +24,4 @@ VIEW `vw_penempatan_gabungan` AS
             AND (`tp`.`delstat` = 'a')
             AND (`tp`.`penempatan` <> ''))
     GROUP BY `tp`.`id_peserta`
-    ORDER BY `ts`.`tahun` DESC;
+    ORDER BY `ts`.`tahun` DESC

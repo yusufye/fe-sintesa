@@ -5,6 +5,13 @@
 <section id="services" class="services">
     <div class="container" data-aos="fade-up">
         <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="d-flex justify-content-end pb-4">
+                    <a class="btn btn-secondary btn-sm" title="Print Page" onclick="window.print();"><i class="fa fa-print"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-sm-3">
                 <label>Nama</label>
                 <input class="form-control form-control-sm Globalfilters Perencanafilters" data-filtername="name"
@@ -65,7 +72,7 @@
                     <option value="">- Select Jabatan -</option>
                     <?php
                         foreach ($list_jabatan as $row) {
-                            echo "<option value='".$row['jabatan']."'>".$row['jabatan']."</option>";
+                            echo "<option value='".$row['jabatan']."'".(isset($filtersGET['jabatan']) && strtolower($filtersGET['jabatan'])==strtolower($row['jabatan'])?'selected':'').">".$row['jabatan']."</option>";
                         }
                     ?>
                 </select>
@@ -82,17 +89,29 @@
                     ?>
                 </select>
             </div>
+            <div class="col-sm-3">
+                <label>Program</label>
+                <select class="form-control form-control-sm Globalfilters Perencanafilters" data-filtertype="perencana_program"
+                    data-filtername="kemcategory" type="text" placeholder="kemcategory">
+                    <option value="">- Select Program -</option>
+                    <option value="pusat" <?php echo (isset($filtersGET['program']) && strtolower($filtersGET['program'])=='pusat'?'selected':''); ?> >Pusat</option>
+                    <option value="daerah" <?php echo (isset($filtersGET['program']) &&  strtolower($filtersGET['program'])=='daerah'?'selected':''); ?>>Daerah</option>
+                </select>
+            </div>
         </div>
         <br>
         <div class='table-responsive'>
             <table id="tableDetailPendidikan" class="table dataTable table-striped">
                 <thead class="table-primary">
                     <tr>
+                        <td>No</td>
                         <td>Nama</td>
+                        <td>Email</td>
                         <td>Jenis Kelamin</td>
                         <td>Golongan</td>
                         <td>Nama Instansi</td>
                         <td>Unit Kerja</td>
+                        <td>Provinsi</td>
                         <td>Jabatan</td>
                         <td>Periode</td>
                     </tr>

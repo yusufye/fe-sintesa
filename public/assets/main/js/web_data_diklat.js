@@ -1,4 +1,20 @@
+function setPeriodAttr(el) {
+  var selectedOption = $(el).find('option:selected');
+  var hasOperator = selectedOption.data('operator');
+  if (hasOperator) {
+    $(el).data('filtertype', 'less_than');
+  }else{
+    $(el).data('filtertype', 'equal_to');
+  }
+}
+
 $(document).ready(function () {
+
+  $('#FilterPeriodID').change(function (e) { 
+    setPeriodAttr(this)
+  });
+
+
   $("#tableCountPendidikan").DataTable(
     {
       searching: false,ordering: false,
@@ -296,10 +312,11 @@ if (typeof(method_type)!='undefined') {
   }
   
   $('.Globalfilters').change(function (e) {
+    if ($(this).prop('id')=='FilterPeriodID') {
+      setPeriodAttr(this)
+    }
     generateDiklatFilters(function(result){
-      console.log(result);
       if (Object.keys(result).length !== 0) {
-        console.log('run here');
         generate_chart(result)
       }
     })

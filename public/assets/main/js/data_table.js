@@ -45,6 +45,15 @@ function generateGlobalFilters() {
 }
  
 $(document).ready(function () {
+    var checkGlogalFilters = $('.Globalfilters').filter(function() {
+        return this.value != ''
+      });
+
+      if (checkGlogalFilters.length != 0) {
+        generateGlobalFilters()
+      }
+
+
     $('#example').DataTable({
         data: dataSet,
         columns: [
@@ -122,6 +131,22 @@ $(document).ready(function () {
                 "orderable": false,
                 "width": 5
             }],
+            
+            "drawCallback": function(settings) {
+                var api = this.api();
+                var startIndex = api.context[0]._iDisplayStart;
+                var firstColumnTitle = table.column(0).header().innerHTML;
+                
+                api.column(0, {search: 'applied', order: 'applied'}).nodes().each(function(cell, i) {
+                    if (firstColumnTitle === "No") {
+                        cell.innerHTML = api.cell({ row: i, column: 0 }).data();
+                        cell.innerHTML = startIndex + i + 1;
+                    } else {
+                        // Jika kolom pertama bukan "Nomor", tampilkan data biasa
+                        cell.innerHTML = api.cell({row: i, column: 0}).data();
+                    }
+                });
+            }
         
         });
         
