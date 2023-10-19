@@ -50,10 +50,14 @@ class Web extends BaseController
 		}elseif ($type=='summary' ) { 
 			$send_type='summary';
 			if (!session('login')) {
+				$get_uri=uri_string();
+				session()->set('requested_uri',$get_uri);
 				return redirect()->to(base_url('/login'));
 			}
 		}elseif ($type=='detail' ) { 
 			if (!session('login')) {
+				$get_uri=uri_string();
+				session()->set('requested_uri',$get_uri);
 				return redirect()->to(base_url('/login'));
 			}
 			$send_type='detail';
@@ -251,10 +255,14 @@ class Web extends BaseController
 		}elseif ($type=='summary' ) { 
 			$send_type='summary';
 			if (!session('login')) {
+				$get_uri=uri_string();
+				session()->set('requested_uri',$get_uri);
 				return redirect()->to(base_url('/login'));
 			}
 		}elseif ($type=='detail' ) { 
 			if (!session('login')) {
+				$get_uri=uri_string();
+				session()->set('requested_uri',$get_uri);
 				return redirect()->to(base_url('/login'));
 			}
 			$send_type='detail';
@@ -289,6 +297,8 @@ class Web extends BaseController
 	public function data_administratif_biodata_narasumber() 
 	{
 		if (!session('login')) {
+			$get_uri=uri_string();
+			session()->set('requested_uri',$get_uri);
 			return redirect()->to(base_url('/login'));
 		}
         $data_administratif_model = new Data_administratif_model();
@@ -319,6 +329,8 @@ class Web extends BaseController
 	public function data_administratif_kegiatan() 
 	{
 		if (!session('login')) {
+			$get_uri=uri_string();
+			session()->set('requested_uri',$get_uri);
 			return redirect()->to(base_url('/login'));
 		}
 
@@ -348,6 +360,8 @@ class Web extends BaseController
 	public function data_administratif_lkj() 
 	{
 		if (!session('login')) {
+			$get_uri=uri_string();
+			session()->set('requested_uri',$get_uri);
 			return redirect()->to(base_url('/login'));
 		}
 
@@ -453,6 +467,8 @@ class Web extends BaseController
 
 	function data_administratif_kerjasama($sub2=null,$type=null) {
 		if (!session('login')) {
+			$get_uri=uri_string();
+			session()->set('requested_uri',$get_uri);
 			return redirect()->to(base_url('/login'));
 		}
 		$data_administratif_model = new Data_administratif_model();
@@ -479,6 +495,8 @@ class Web extends BaseController
 			$send_type='summary';
 		}elseif ($type=='detail' ) { 
 			if (!session('login')) {
+				$get_uri=uri_string();
+				session()->set('requested_uri',$get_uri);
 				return redirect()->to(base_url('/login'));
 			}
 			$send_type='detail';
