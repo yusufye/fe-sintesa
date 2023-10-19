@@ -11,6 +11,7 @@ VIEW `vw_penilai_pusat` AS
         p.provinsi,
 		u.email,
         u.kemcategory,
+        d.pt as universitas,
         COUNT(`u`.`id`) AS `Jumlah`
     FROM
         (((`user` `u`
@@ -18,6 +19,7 @@ VIEW `vw_penilai_pusat` AS
         LEFT JOIN `jabatans` `j` ON ((`u`.`jabatan` = `j`.`tingkat_jabatan`)))
         LEFT JOIN `kementrians` `k` ON ((`u`.`id_kementrian` = `k`.`id`)))
         LEFT JOIN `provinsis` `p` ON `p`.`id` = `ep`.`idprov`
+        LEFT JOIN t_datadiri d on CONVERT(d.nip USING utf8mb4) = CONVERT(u.nip USING utf8mb4)
     WHERE
         ((`u`.`level` = 'pp')
             AND ((`u`.`approved` = 0)

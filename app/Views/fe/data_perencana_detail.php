@@ -108,6 +108,7 @@
                         <td>Nama</td>
                         <td>Email</td>
                         <td>Jenis Kelamin</td>
+                        <td>Universitas</td>
                         <td>Golongan</td>
                         <td>Nama Instansi</td>
                         <td>Unit Kerja</td>
