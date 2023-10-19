@@ -26,12 +26,13 @@
             <table id="tableDetailPendidikan" class="table tablex table-stripped">
                 <thead class="table-primary">
                     <tr>
+                        <th style="width:5%">No</th>
                         <th style="width:20%">Nama Narasumber</th>
                         <th style="width:20%">Jabatan</th>
                         <th style="width:20%">Nama Instansi</th>
                         <th style="width:10%">Foto</th>
                         <th style="width:20%">Tanggal Update</th>
-                        <th style="width:10%">Details</th>
+                        <th style="width:5%">Details</th>
                     </tr>
                 </thead>
             </table>

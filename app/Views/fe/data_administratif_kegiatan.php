@@ -27,7 +27,8 @@
             <table id="tableDetailKegiatan" class="table table-stripped">
                 <thead class="table-primary">
                     <tr>
-                        <th style="width: 50%">Nama Kegiatan</th>
+                        <th style="width: 5%">No</th>
+                        <th style="width: 45%">Nama Kegiatan</th>
                         <th style="width: 20%">Paparan Narasumber</th>
                         <th style="width: 10%">Narasumber</th>
                         <th style="width: 5%">Tanggal Kegiatan</th>

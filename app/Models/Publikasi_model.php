@@ -12,7 +12,7 @@ class Publikasi_model extends Model {
                 $db=$this->db->table('bankdata')->select('nama_kegiatan, nama_bankdata, tgl_upload, tgl_update, file_url, video_url,kategorivideo_id,tgl_kegiatan' )->where('kategorivideo_id','1');
             }else{
                 return array(
-                    'query'         => $this->db->table('bankdata')->select('nama_kegiatan,tgl_kegiatan,nama_bankdata, tgl_upload, tgl_update, file_url as btn_download,bankdata_id as btn_detail,"Kebijakan Diklat" as btn_detail_source' ),
+                    'query'         => $this->db->table('bankdata')->select('"",nama_kegiatan,tgl_kegiatan,nama_bankdata, tgl_upload, tgl_update, file_url as btn_download,bankdata_id as btn_detail,"Kebijakan Diklat" as btn_detail_source' ),
                     'column_order'  => array('nama_kegiatan','tgl_kegiatan','nama_bankdata', 'tgl_upload', 'tgl_update','btn_download','btn_detail'),
                     'order'         => array('nama_kegiatan' => 'asc'),
                     'column_search' => array('nama_kegiatan'),
@@ -34,7 +34,7 @@ class Publikasi_model extends Model {
                 $db=$this->db->table('bankdata')->select('nama_kegiatan, nama_bankdata, tgl_upload, tgl_update, file_url, video_url,kategorivideo_id,tgl_kegiatan' )->where('kategorivideo_id','2');
             }else{
                 return array(
-                    'query'         => $this->db->table('bankdata')->select('nama_kegiatan,tgl_kegiatan,nama_bankdata, tgl_upload, tgl_update, file_url as btn_download,bankdata_id as btn_detail,"Kebijakan JFP" as btn_detail_source' ),
+                    'query'         => $this->db->table('bankdata')->select('"",nama_kegiatan,tgl_kegiatan,nama_bankdata, tgl_upload, tgl_update, file_url as btn_download,bankdata_id as btn_detail,"Kebijakan JFP" as btn_detail_source' ),
                     'column_order'  => array('nama_kegiatan','tgl_kegiatan','nama_bankdata', 'tgl_upload', 'tgl_update','btn_download','btn_detail'),
                     'order'         => array('nama_kegiatan' => 'asc'),
                     'column_search' => array('nama_kegiatan'),
@@ -57,7 +57,7 @@ class Publikasi_model extends Model {
                 $db=$this->db->table('bankdata')->select('nama_kegiatan, nama_bankdata, tgl_upload, tgl_update, file_url, video_url,kategorivideo_id,tgl_kegiatan' )->where('kategorivideo_id',3);
             }else{
                 return array(
-                    'query'         => $this->db->table('bankdata')->select('nama_kegiatan,tgl_kegiatan,nama_bankdata, tgl_upload, tgl_update, file_url as btn_download,bankdata_id as btn_detail,"Kebijakan Umum" as btn_detail_source' ),
+                    'query'         => $this->db->table('bankdata')->select('"",nama_kegiatan,tgl_kegiatan,nama_bankdata, tgl_upload, tgl_update, file_url as btn_download,bankdata_id as btn_detail,"Kebijakan Umum" as btn_detail_source' ),
                     'column_order'  => array('nama_kegiatan','tgl_kegiatan','nama_bankdata', 'tgl_upload', 'tgl_update','btn_download','btn_detail'),
                     'order'         => array('nama_kegiatan' => 'asc'),
                     'column_search' => array('nama_kegiatan'),

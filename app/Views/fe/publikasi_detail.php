@@ -29,7 +29,8 @@
             <table id="tablePaparan" class="table dataTable table-striped">
                 <thead class="table-primary">
                     <tr>
-                        <th style="width:40%">Nama Kegiatan</th>
+                        <th style="width:4%">No</th>
+                        <th style="width:35%">Nama Kegiatan</th>
                         <th style="width:10%">Tanggal Kegiatan</th>
                         <th style="width:20%">Paparan</th>
                         <th style="width:10%">Tanggal Upload</th>
