@@ -158,14 +158,14 @@
                 <canvas id="chartPiePeriod"></canvas>
             </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col col-md-3">
-                <?php button_chart_export('tablePeriod',true); ?>
+                <?php //button_chart_export('tablePeriod',true); ?>
                 <br>
                 <label for="tablePeriod">Table Berdasarkan Tahun</label>
                 <div id="tablePeriod"></div>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 
