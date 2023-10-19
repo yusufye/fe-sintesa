@@ -65,7 +65,8 @@
                             $period_selected=false;
                             if (isset($filtersGET['tahun'])) {
                                 if (isset($filtersGET['operator_tahun'])) {
-                                    if (substr($row,0,1)==$filtersGET['operator_tahun']) {
+                                    $opt_thn="<";
+                                    if (substr($row,0,1)==$opt_thn) {
                                         $period_selected=true;
                                     }
                                 }else{
