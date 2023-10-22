@@ -30,7 +30,7 @@
     echo '<link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">';
   }
   ?>
-  <link href="<?php echo base_url();?>public/assets/bizland/assets/css/style.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>public/assets/bizland/assets/css/style.css?v="<?php echo time();?> rel="stylesheet">
 
   
 

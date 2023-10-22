@@ -15,7 +15,7 @@ class Data_administratif_model extends Model {
                 pegawai_id');
             }elseif ($type=='detail') {
                 return array(
-                'query'         => $this->db->table('pegawai')->select('nama, jabatan, instansi, gambar, tgl_update, pegawai_id as btn_detail,"biodata_narasumber" as btn_detail_source'),
+                'query'         => $this->db->table('pegawai')->select('"",nama, jabatan, instansi, gambar, tgl_update, pegawai_id as btn_detail,"biodata_narasumber" as btn_detail_source'),
                 'column_order'  => array('nama','jabatan','instansi','gambar','tgl_update','pegawai_id'),
                 'order'         => array('nama' => 'asc'),
                 'column_search' => array('nama','jabatan','instansi')
@@ -44,6 +44,7 @@ class Data_administratif_model extends Model {
             }elseif ($type=='detail') {
                 return array(
                 'query'         => $this->db->table('vw_kegiatan')->select('
+                    "",
                     nama_kegiatan,
                     nama_bankdata,
                     nama,
@@ -86,7 +87,7 @@ class Data_administratif_model extends Model {
         }elseif ($type=='detail') {
             if ($param=='prodi') {
                 return array(
-                    'query'         => $this->db->table('kerjasama')->select('kategori, nama_kerjasama, deskripsi, durasi, start_date, end_date, file_url as btn_download, input_date, modify_date' ),
+                    'query'         => $this->db->table('kerjasama')->select('"",kategori, nama_kerjasama, deskripsi, durasi, start_date, end_date, file_url as btn_download, input_date, modify_date' ),
                     'column_order'  => array('kategori','nama_kerjasama','deskripsi','durasi','start_date','end_date','btn_download','input_date','modify_date'),
                     'order'         => array('nama_kerjasama' => 'asc'),
                     'column_search' => array('nama_kerjasama'),
@@ -94,7 +95,7 @@ class Data_administratif_model extends Model {
                 );
             }elseif($param=='pusat'){
                 return array(
-                    'query'         => $this->db->table('kerjasama')->select('kategori, nama_kerjasama, deskripsi, durasi, start_date, end_date, file_url as btn_download, input_date, modify_date' ),
+                    'query'         => $this->db->table('kerjasama')->select('"",kategori, nama_kerjasama, deskripsi, durasi, start_date, end_date, file_url as btn_download, input_date, modify_date' ),
                     'column_order'  => array('kategori','nama_kerjasama','deskripsi','durasi','start_date','end_date','btn_download','input_date','modify_date'),
                     'order'         => array('nama_kerjasama' => 'asc'),
                     'column_search' => array('nama_kerjasama'),
@@ -102,7 +103,7 @@ class Data_administratif_model extends Model {
                 );
             }elseif ($param=='daerah') {
                 return array(
-                    'query'         => $this->db->table('kerjasama')->select('kategori, nama_kerjasama, deskripsi, durasi, start_date, end_date, file_url as btn_download, input_date, modify_date' ),
+                    'query'         => $this->db->table('kerjasama')->select('"",kategori, nama_kerjasama, deskripsi, durasi, start_date, end_date, file_url as btn_download, input_date, modify_date' ),
                     'column_order'  => array('kategori','nama_kerjasama','deskripsi','durasi','start_date','end_date','btn_download','input_date','modify_date'),
                     'order'         => array('nama_kerjasama' => 'asc'),
                     'column_search' => array('nama_kerjasama'),

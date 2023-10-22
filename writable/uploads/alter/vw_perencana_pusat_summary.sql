@@ -1,5 +1,5 @@
 CREATE OR REPLACE
-VIEW `vw_perencana_daerah_summary` AS
+VIEW `vw_perencana_pusat_summary` AS
     SELECT 
         (CASE
             WHEN
@@ -58,6 +58,6 @@ VIEW `vw_perencana_daerah_summary` AS
         ((`u`.`level` = 'mm')
             AND (`u`.`approved` = 1)
             AND (`u`.`status` = 1)
-            AND ((`u`.`kemcategory` = 2)
-            OR (`u`.`kemcategory` = 3)))
+            AND ((`u`.`kemcategory` = 0)
+            OR (`u`.`kemcategory` = 1)))
     GROUP BY `u`.`kemcategory`

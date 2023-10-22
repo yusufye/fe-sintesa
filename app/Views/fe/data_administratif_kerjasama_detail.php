@@ -36,6 +36,7 @@
             <table id="tableDetailKerjasama" class="table table-stripped">
                 <thead class="table-primary">
                     <tr>
+                        <th>No</th>
                         <th>Kategori</th>
                         <th>Nama Kerjasama</th>
                         <th>Deskripsi</th>

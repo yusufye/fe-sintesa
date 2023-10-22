@@ -243,6 +243,8 @@ h6 {
   white-space: nowrap;
   transition: 0.3s;
   position: relative;
+  font-weight: bold;
+
 }
 
 .navbar a i,
@@ -301,6 +303,8 @@ h6 {
 .navbar .dropdown ul a {
   padding: 10px 20px;
   font-weight: 400;
+  font-weight: bold;
+
 }
 
 .navbar .dropdown ul a i {

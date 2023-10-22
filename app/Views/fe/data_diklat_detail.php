@@ -46,7 +46,7 @@
                     <option value="">- Select Periode -</option>
                     <?php
                         $list_set_periode=array(
-                            "<".date('Y')-4,
+                            "<".((int)date('Y')-4),
                             date('Y')-4,
                             date('Y')-3,
                             date('Y')-2,
@@ -65,7 +65,8 @@
                             $period_selected=false;
                             if (isset($filtersGET['tahun'])) {
                                 if (isset($filtersGET['operator_tahun'])) {
-                                    if (substr($row,0,1)==$filtersGET['operator_tahun']) {
+                                    $opt_thn="<";
+                                    if (substr($row,0,1)==$opt_thn) {
                                         $period_selected=true;
                                     }
                                 }else{
@@ -158,14 +159,14 @@
                 <canvas id="chartPiePeriod"></canvas>
             </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col col-md-3">
-                <?php button_chart_export('tablePeriod',true); ?>
+                <?php //button_chart_export('tablePeriod',true); ?>
                 <br>
                 <label for="tablePeriod">Table Berdasarkan Tahun</label>
                 <div id="tablePeriod"></div>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 

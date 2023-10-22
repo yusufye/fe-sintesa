@@ -232,6 +232,7 @@ class Login extends BaseController
 
                             // $this->session->set($simpan_session);
                             session()->set($simpan_session);
+                            session()->remove('requested_uri');
                             
                             $msg = [
                                 'sukses' => [

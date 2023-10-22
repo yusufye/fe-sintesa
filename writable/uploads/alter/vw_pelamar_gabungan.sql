@@ -21,6 +21,12 @@ VIEW `vw_pelamar_gabungan` AS
         LEFT JOIN `t_datadiri` `td` ON ((`tp`.`id_datadiri` = `td`.`id_datadiri`)))
         LEFT JOIN `t_seleksi` `ts` ON ((`tp`.`id_seleksi` = `ts`.`id_seleksi`)))
     WHERE
-        (`tp`.`delstat` = 'a')
+        ((`tp`.`penempatan` = '')
+            AND (`tp`.`delstat` = 'a')
+            AND ((`ts`.`nama` LIKE '%NON GELAR%')
+            OR (`ts`.`nama` LIKE '%NONGELAR%')
+            OR ((NOT ((`ts`.`nama` LIKE '%NON GELAR%')))
+            AND (NOT ((`ts`.`nama` LIKE '%NONGELAR%')))
+            AND (`ts`.`nama` LIKE '%GELAR%'))))
     GROUP BY `tp`.`id_peserta`
     ORDER BY `ts`.`tahun` DESC

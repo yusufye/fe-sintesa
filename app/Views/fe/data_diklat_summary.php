@@ -62,7 +62,7 @@
                                         
                                         if (is_numeric($field)) {
                                             if ($field<0) {
-                                                $field="<".date('Y')-4;
+                                                $field="<".((int)date('Y')-4);
                                             }elseif ($field==0) {
                                                 $field=date('Y');
                                             }elseif ($field==1) {
@@ -97,7 +97,7 @@
                                     $define_operator='';
                                     $set_attr_col=${"col_".$define_row};
                                     if (!is_numeric(substr($set_attr_col,0,1)) && is_numeric(substr($set_attr_col,1,1))) {
-                                        $define_operator=substr($set_attr_col,0,1);
+                                        $define_operator='less_than';
                                         $set_attr_col=ltrim($set_attr_col,substr($set_attr_col,0,1));
                                     }
                                     
@@ -112,7 +112,7 @@
                                             $get_param[]='kode_program='.$set_attr_row;
                                         }
                                         if (!empty($define_operator)) {
-                                            $get_param[]='operator_tahun='.$define_operator;
+                                            $get_param[]='operator_tahun='.urlencode($define_operator);
                                         }
 
                                         $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
@@ -177,7 +177,7 @@
                                     foreach (array_keys($value) as $field) {
                                         if (is_numeric($field)) {
                                             if ($field<0) {
-                                                $field="<".date('Y')-4;
+                                                $field="<".((int)date('Y')-4);
                                             }elseif ($field==0) {
                                                 $field=date('Y');
                                             }elseif ($field==1) {
@@ -212,7 +212,7 @@
                                     $define_operator_pelatihan='';
                                     $set_attr_col=${"col_".$define_row_pelatihan};
                                     if (!is_numeric(substr($set_attr_col,0,1)) && is_numeric(substr($set_attr_col,1,1))) {
-                                        $define_operator_pelatihan=substr($set_attr_col,0,1);
+                                        $define_operator_pelatihan='less_than';
                                         $set_attr_col=ltrim($set_attr_col,substr($set_attr_col,0,1));
                                     }
                                     
@@ -227,7 +227,7 @@
                                             $get_param[]='kode_program='.$set_attr_row;
                                         }
                                         if (!empty($define_operator_pelatihan)) {
-                                            $get_param[]='operator_tahun='.$define_operator_pelatihan;
+                                            $get_param[]='operator_tahun='.urlencode($define_operator_pelatihan);
                                         }
 
                                         $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
@@ -292,7 +292,7 @@
                                     foreach (array_keys($value) as $field) {
                                         if (is_numeric($field)) {
                                             if ($field<0) {
-                                                $field="<".date('Y')-4;
+                                                $field="<".((int)date('Y')-4);
                                             }elseif ($field==0) {
                                                 $field=date('Y');
                                             }elseif ($field==1) {
@@ -327,7 +327,7 @@
                                     $define_operator_pelatihan='';
                                     $set_attr_col=${"col_".$define_row_pelatihan};
                                     if (!is_numeric(substr($set_attr_col,0,1)) && is_numeric(substr($set_attr_col,1,1))) {
-                                        $define_operator_pelatihan=substr($set_attr_col,0,1);
+                                        $define_operator_pelatihan='less_than';
                                         $set_attr_col=ltrim($set_attr_col,substr($set_attr_col,0,1));
                                     }
                                     
@@ -342,7 +342,7 @@
                                             $get_param[]='kode_program='.$set_attr_row;
                                         }
                                         if (!empty($define_operator_pelatihan)) {
-                                            $get_param[]='operator_tahun='.$define_operator_pelatihan;
+                                            $get_param[]='operator_tahun='.urlencode($define_operator_pelatihan);
                                         }
 
                                         $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
@@ -402,7 +402,7 @@
         foreach ($group_pendidikan as $key => $value) {
             if (is_numeric($key)) {
                 if ($key<0) {
-                    $key="< ".date('Y')-4;
+                    $key="< ".((int)date('Y')-4);
                 }elseif ($key==0) {
                     $key=date('Y');
                 }elseif ($key==1) {
@@ -436,7 +436,7 @@
         foreach ($group_pelatihan as $key => $value) {
             if (is_numeric($key)) {
                 if ($key<0) {
-                    $key="< ".date('Y')-4;
+                    $key="< ".((int)date('Y')-4);
                 }elseif ($key==0) {
                     $key=date('Y');
                 }elseif ($key==1) {
@@ -470,7 +470,7 @@
         foreach ($group_gabungan as $key => $value) {
             if (is_numeric($key)) {
                 if ($key<0) {
-                    $key="< ".date('Y')-4;
+                    $key="< ".((int)date('Y')-4);
                 }elseif ($key==0) {
                     $key=date('Y');
                 }elseif ($key==1) {

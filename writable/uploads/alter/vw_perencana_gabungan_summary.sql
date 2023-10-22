@@ -1,5 +1,5 @@
-CREATE OR REPLACE 
-VIEW vw_perencana_gabungan_summary as
+CREATE OR REPLACE
+VIEW `vw_perencana_gabungan_summary` AS
     SELECT 
         (CASE
             WHEN
@@ -14,39 +14,39 @@ VIEW vw_perencana_gabungan_summary as
                 'Daerah'
         END) AS `Program`,
         SUM((CASE
-            WHEN (`ep`.`jabatan_user` = '1') THEN 1
+            WHEN (`u`.`jabatan` = '1') THEN 1
             ELSE 0
         END)) AS `Perencana Ahli Pertama`,
         SUM((CASE
-            WHEN (`ep`.`jabatan_user` = '2') THEN 1
+            WHEN (`u`.`jabatan` = '2') THEN 1
             ELSE 0
         END)) AS `Perencana Ahli Muda`,
         SUM((CASE
-            WHEN (`ep`.`jabatan_user` = '3') THEN 1
+            WHEN (`u`.`jabatan` = '3') THEN 1
             ELSE 0
         END)) AS `Perencana Ahli Madya`,
         SUM((CASE
-            WHEN (`ep`.`jabatan_user` = '4') THEN 1
+            WHEN (`u`.`jabatan` = '4') THEN 1
             ELSE 0
         END)) AS `Perencana Ahli Utama`,
         SUM((CASE
-            WHEN (`ep`.`jabatan_user` = '5') THEN 1
+            WHEN (`u`.`jabatan` = '5') THEN 1
             ELSE 0
         END)) AS `Administrator`,
         ((((SUM((CASE
-            WHEN (`ep`.`jabatan_user` = '1') THEN 1
+            WHEN (`u`.`jabatan` = '1') THEN 1
             ELSE 0
         END)) + SUM((CASE
-            WHEN (`ep`.`jabatan_user` = '2') THEN 1
+            WHEN (`u`.`jabatan` = '2') THEN 1
             ELSE 0
         END))) + SUM((CASE
-            WHEN (`ep`.`jabatan_user` = '3') THEN 1
+            WHEN (`u`.`jabatan` = '3') THEN 1
             ELSE 0
         END))) + SUM((CASE
-            WHEN (`ep`.`jabatan_user` = '4') THEN 1
+            WHEN (`u`.`jabatan` = '4') THEN 1
             ELSE 0
         END))) + SUM((CASE
-            WHEN (`ep`.`jabatan_user` = '5') THEN 1
+            WHEN (`u`.`jabatan` = '5') THEN 1
             ELSE 0
         END))) AS `total`
     FROM

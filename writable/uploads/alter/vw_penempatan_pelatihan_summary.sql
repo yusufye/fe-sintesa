@@ -1,120 +1,42 @@
-CREATE 
+CREATE OR REPLACE
 VIEW `vw_penempatan_pelatihan_summary` AS
     SELECT 
-        `td`.`pnddkn` AS `Pendidikan`,
+        `tp`.`kode_program` AS `Program`,
         SUM((CASE
-            WHEN (`ts`.`tahun` <= '2014') THEN 1
+            WHEN (`ts`.`tahun` < (YEAR(CURDATE()) - 4)) THEN 1
             ELSE 0
-        END)) AS `2005-2014`,
+        END)) AS `-1`,
         SUM((CASE
-            WHEN (`ts`.`tahun` = '2015') THEN 1
+            WHEN (`ts`.`tahun` = (YEAR(CURDATE()) - 4)) THEN 1
             ELSE 0
-        END)) AS `2015`,
+        END)) AS `4`,
         SUM((CASE
-            WHEN (`ts`.`tahun` = '2016') THEN 1
+            WHEN (`ts`.`tahun` = (YEAR(CURDATE()) - 3)) THEN 1
             ELSE 0
-        END)) AS `2016`,
+        END)) AS `3`,
         SUM((CASE
-            WHEN (`ts`.`tahun` = '2017') THEN 1
+            WHEN (`ts`.`tahun` = (YEAR(CURDATE()) - 2)) THEN 1
             ELSE 0
-        END)) AS `2017`,
+        END)) AS `2`,
         SUM((CASE
-            WHEN (`ts`.`tahun` = '2018') THEN 1
+            WHEN (`ts`.`tahun` = (YEAR(CURDATE()) - 1)) THEN 1
             ELSE 0
-        END)) AS `2018`,
+        END)) AS `1`,
         SUM((CASE
-            WHEN (`ts`.`tahun` = '2019') THEN 1
+            WHEN (`ts`.`tahun` = YEAR(CURDATE())) THEN 1
             ELSE 0
-        END)) AS `2019`,
+        END)) AS `0`,
         SUM((CASE
-            WHEN (`ts`.`tahun` = '2020') THEN 1
+            WHEN (`ts`.`tahun` <= (YEAR(CURDATE()) - 4)) THEN 1
             ELSE 0
-        END)) AS `2020`,
-        SUM((CASE
-            WHEN (`ts`.`tahun` = '2021') THEN 1
-            ELSE 0
-        END)) AS `2021`,
-        SUM((CASE
-            WHEN (`ts`.`tahun` = '2022') THEN 1
-            ELSE 0
-        END)) AS `2022`,
-        ((((((((SUM((CASE
-            WHEN (`ts`.`tahun` = '2015') THEN 1
-            ELSE 0
-        END)) + SUM((CASE
-            WHEN (`ts`.`tahun` <= '2014') THEN 1
-            ELSE 0
-        END))) + SUM((CASE
-            WHEN (`ts`.`tahun` = '2016') THEN 1
-            ELSE 0
-        END))) + SUM((CASE
-            WHEN (`ts`.`tahun` = '2017') THEN 1
-            ELSE 0
-        END))) + SUM((CASE
-            WHEN (`ts`.`tahun` = '2018') THEN 1
-            ELSE 0
-        END))) + SUM((CASE
-            WHEN (`ts`.`tahun` = '2019') THEN 1
-            ELSE 0
-        END))) + SUM((CASE
-            WHEN (`ts`.`tahun` = '2020') THEN 1
-            ELSE 0
-        END))) + SUM((CASE
-            WHEN (`ts`.`tahun` = '2021') THEN 1
-            ELSE 0
-        END))) + SUM((CASE
-            WHEN (`ts`.`tahun` = '2022') THEN 1
-            ELSE 0
-        END))) AS `total`
+        END)) AS `total`
     FROM
         ((`t_peserta` `tp`
         LEFT JOIN `t_datadiri` `td` ON ((`tp`.`id_datadiri` = `td`.`id_datadiri`)))
         LEFT JOIN `t_seleksi` `ts` ON ((`tp`.`id_seleksi` = `ts`.`id_seleksi`)))
     WHERE
-        (((`ts`.`nama` LIKE '%DIKLAT NON%')
-            OR (`ts`.`nama` LIKE '%NON%'))
-            AND (`tp`.`delstat` = 'a') AND (`tp`.`delstat` = 'a'))
-    GROUP BY `td`.`pnddkn`
-
-    -- group by program, hanya menampilkan 5 tahun terakhir dan yang dibawah 5 tahun digabung jadi 1 kolom
-    CREATE OR REPLACE VIEW vw_penempatan_pelatihan_summary AS
-    SELECT 
-       `tp`.`kode_program` AS `Program`,
-    SUM((CASE
-        WHEN (`ts`.`tahun` < YEAR(CURDATE()) - 4) THEN 1
-        ELSE 0
-    END)) AS `-1`,
-    SUM((CASE
-        WHEN (`ts`.`tahun` = YEAR(CURDATE()) - 4) THEN 1
-        ELSE 0
-    END)) AS `4`,
-    SUM((CASE
-        WHEN (`ts`.`tahun` = YEAR(CURDATE()) - 3) THEN 1
-        ELSE 0
-    END)) AS `3`,
-    SUM((CASE
-        WHEN (`ts`.`tahun` = YEAR(CURDATE()) - 2) THEN 1
-        ELSE 0
-    END)) AS `2`,
-    SUM((CASE
-        WHEN (`ts`.`tahun` = YEAR(CURDATE()) - 1) THEN 1
-        ELSE 0
-    END)) AS `1`,
-    SUM((CASE
-        WHEN (`ts`.`tahun` = YEAR(CURDATE()) ) THEN 1
-        ELSE 0
-    END)) AS `0`,
-    SUM((CASE
-        WHEN (`ts`.`tahun` <= YEAR(CURDATE()) - 4) THEN 1
-        ELSE 0
-    END)) AS `total`
-    FROM
-        ((`t_peserta` `tp`
-        LEFT JOIN `t_datadiri` `td` ON ((`tp`.`id_datadiri` = `td`.`id_datadiri`)))
-        LEFT JOIN `t_seleksi` `ts` ON ((`tp`.`id_seleksi` = `ts`.`id_seleksi`)))
-    WHERE
-        (((`ts`.`nama` LIKE '%DIKLAT NON%')
-            OR (`ts`.`nama` LIKE '%NON%'))
-            AND (`tp`.`delstat` = 'a')
-            AND (`tp`.`delstat` = 'a'))
-    GROUP BY `tP`.`kode_program`
+        ((`tp`.`penempatan` <> '')
+            AND (`tp`.`pstat` = 1)
+            AND ((`ts`.`nama` LIKE '%NON GELAR%')
+            OR (`ts`.`nama` LIKE '%NONGELAR%')))
+    GROUP BY `tp`.`kode_program`

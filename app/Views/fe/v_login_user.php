@@ -153,7 +153,7 @@
                     }
 
                     if (response.sukses) {
-                        window.location = '<?= base_url() ?>';
+                        window.location = '<?= base_url((!session('requested_uri'))?'':session('requested_uri')); ?>';
                     }
 
                     if (response.nonactive) {
@@ -379,7 +379,7 @@
                             timer: 3550
                              }).then(function() {
 
-                            window.location = '<?= base_url('') ?>';
+                            window.location = '<?= base_url((!session('requested_uri'))?'':session('requested_uri')); ?>';
                             });
                             //$('#modalregister').modal('hide');
                        
