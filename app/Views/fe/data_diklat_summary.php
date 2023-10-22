@@ -117,7 +117,7 @@
 
                                         $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
 
-                                        $url='/data-diklat/'.$orig_title.'/pendidikan/detail'.$send_get_param;
+                                        $url=base_url().'/data-diklat/'.$orig_title.'/pendidikan/detail'.$send_get_param;
                                         echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
                                     }else{
                                         echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
@@ -232,7 +232,7 @@
 
                                         $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
 
-                                        $url='/data-diklat/'.$orig_title.'/pelatihan/detail'.$send_get_param;
+                                        $url=base_url().'/data-diklat/'.$orig_title.'/pelatihan/detail'.$send_get_param;
                                         echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
                                     }else{
                                         echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
@@ -347,7 +347,7 @@
 
                                         $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
 
-                                        $url='/data-diklat/'.$orig_title.'/gabungan/detail'.$send_get_param;
+                                        $url=base_url().'/data-diklat/'.$orig_title.'/gabungan/detail'.$send_get_param;
                                         echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
                                     }else{
                                         echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";

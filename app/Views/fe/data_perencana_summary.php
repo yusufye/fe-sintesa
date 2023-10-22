@@ -79,7 +79,7 @@
 
                                         $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
 
-                                        $url='/data-perencana/'.$orig_title.'/pusat/detail'.$send_get_param;
+                                        $url=base_url().'/data-perencana/'.$orig_title.'/pusat/detail'.$send_get_param;
                                         echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
                                     }else{
                                         echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
@@ -161,7 +161,7 @@
 
                                         $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
 
-                                        $url='/data-perencana/'.$orig_title.'/daerah/detail'.$send_get_param;
+                                        $url=base_url().'/data-perencana/'.$orig_title.'/daerah/detail'.$send_get_param;
                                         echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
                                     }else{
                                         echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
@@ -242,7 +242,7 @@
 
                                         $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
 
-                                        $url='/data-perencana/'.$orig_title.'/gabungan/detail'.$send_get_param;
+                                        $url=base_url().'/data-perencana/'.$orig_title.'/gabungan/detail'.$send_get_param;
                                         echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
                                     }else{
                                         echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
