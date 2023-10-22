@@ -46,7 +46,7 @@
                     <option value="">- Select Periode -</option>
                     <?php
                         $list_set_periode=array(
-                            "<".date('Y')-4,
+                            "<".((int)date('Y')-4),
                             date('Y')-4,
                             date('Y')-3,
                             date('Y')-2,

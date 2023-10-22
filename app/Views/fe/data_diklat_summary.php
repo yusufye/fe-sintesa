@@ -62,7 +62,7 @@
                                         
                                         if (is_numeric($field)) {
                                             if ($field<0) {
-                                                $field="<".date('Y')-4;
+                                                $field="<".((int)date('Y')-4);
                                             }elseif ($field==0) {
                                                 $field=date('Y');
                                             }elseif ($field==1) {
@@ -177,7 +177,7 @@
                                     foreach (array_keys($value) as $field) {
                                         if (is_numeric($field)) {
                                             if ($field<0) {
-                                                $field="<".date('Y')-4;
+                                                $field="<".((int)date('Y')-4);
                                             }elseif ($field==0) {
                                                 $field=date('Y');
                                             }elseif ($field==1) {
@@ -292,7 +292,7 @@
                                     foreach (array_keys($value) as $field) {
                                         if (is_numeric($field)) {
                                             if ($field<0) {
-                                                $field="<".date('Y')-4;
+                                                $field="<".((int)date('Y')-4);
                                             }elseif ($field==0) {
                                                 $field=date('Y');
                                             }elseif ($field==1) {
@@ -402,7 +402,7 @@
         foreach ($group_pendidikan as $key => $value) {
             if (is_numeric($key)) {
                 if ($key<0) {
-                    $key="< ".date('Y')-4;
+                    $key="< ".((int)date('Y')-4);
                 }elseif ($key==0) {
                     $key=date('Y');
                 }elseif ($key==1) {
@@ -436,7 +436,7 @@
         foreach ($group_pelatihan as $key => $value) {
             if (is_numeric($key)) {
                 if ($key<0) {
-                    $key="< ".date('Y')-4;
+                    $key="< ".((int)date('Y')-4);
                 }elseif ($key==0) {
                     $key=date('Y');
                 }elseif ($key==1) {
@@ -470,7 +470,7 @@
         foreach ($group_gabungan as $key => $value) {
             if (is_numeric($key)) {
                 if ($key<0) {
-                    $key="< ".date('Y')-4;
+                    $key="< ".((int)date('Y')-4);
                 }elseif ($key==0) {
                     $key=date('Y');
                 }elseif ($key==1) {
