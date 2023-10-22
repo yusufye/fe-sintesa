@@ -8,22 +8,21 @@ VIEW `vw_penilai_pusat` AS
         `u`.`unit_kerja` AS `unit_kerja`,
         `j`.`jabatan` AS `jabatan`,
         `ep`.`periode` AS `periode`,
-        p.provinsi,
-		u.email,
-        u.kemcategory,
-        d.pt as universitas,
+        `p`.`provinsi` AS `provinsi`,
+        `u`.`email` AS `email`,
+        CONVERT(`d`.`pt` USING UTF8MB4) AS `universitas`,
+        `d`.`pt` AS `universitas`,
         COUNT(`u`.`id`) AS `Jumlah`
     FROM
-        (((`user` `u`
+        (((((`user` `u`
         LEFT JOIN `edupak_periodes` `ep` ON ((`u`.`id` = `ep`.`iduser`)))
         LEFT JOIN `jabatans` `j` ON ((`u`.`jabatan` = `j`.`tingkat_jabatan`)))
         LEFT JOIN `kementrians` `k` ON ((`u`.`id_kementrian` = `k`.`id`)))
-        LEFT JOIN `provinsis` `p` ON `p`.`id` = `ep`.`idprov`
-        LEFT JOIN t_datadiri d on CONVERT(d.nip USING utf8mb4) = CONVERT(u.nip USING utf8mb4)
+        LEFT JOIN `provinsis` `p` ON ((`p`.`id` = `ep`.`idprov`)))
+        LEFT JOIN `t_datadiri` `d` ON ((CONVERT( `d`.`nip` USING UTF8MB4) = CONVERT( `u`.`nip` USING UTF8MB4))))
     WHERE
         ((`u`.`level` = 'pp')
-            AND ((`u`.`approved` = 0)
-            OR (`u`.`approved` = 1))
+            AND (`u`.`approved` = 1)
             AND (`u`.`status` = 1)
             AND ((`u`.`kemcategory` = 0)
             OR (`u`.`kemcategory` = 1)))

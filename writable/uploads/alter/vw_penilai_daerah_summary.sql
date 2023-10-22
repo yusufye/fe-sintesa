@@ -1,15 +1,15 @@
 CREATE OR REPLACE
-VIEW `vw_perencana_daerah_summary` AS
+VIEW `vw_penilai_daerah_summary` AS
     SELECT 
         (CASE
             WHEN
-                ((`u`.`kemcategory` = '0')
-                    OR (`u`.`kemcategory` = '1'))
+                ((`u`.`kemcategory` = 0)
+                    OR (`u`.`kemcategory` = 1))
             THEN
                 'Pusat'
             WHEN
-                ((`u`.`kemcategory` = '1')
-                    OR (`u`.`kemcategory` = '2'))
+                ((`u`.`kemcategory` = 2)
+                    OR (`u`.`kemcategory` = 3))
             THEN
                 'Daerah'
         END) AS `Program`,
@@ -55,7 +55,7 @@ VIEW `vw_perencana_daerah_summary` AS
         LEFT JOIN `jabatans` `j` ON ((`u`.`jabatan` = `j`.`tingkat_jabatan`)))
         LEFT JOIN `kementrians` `k` ON ((`u`.`id_kementrian` = `k`.`id`)))
     WHERE
-        ((`u`.`level` = 'mm')
+        ((`u`.`level` = 'pp')
             AND (`u`.`approved` = 1)
             AND (`u`.`status` = 1)
             AND ((`u`.`kemcategory` = 2)

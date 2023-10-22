@@ -10,21 +10,21 @@ VIEW `vw_perencana_pusat` AS
         `ep`.`periode` AS `periode`,
         `p`.`provinsi` AS `provinsi`,
         `u`.`email` AS `email`,
-        u.kemcategory,
-        d.pt as universitas,
+        `u`.`kemcategory` AS `kemcategory`,
+        CONVERT( `d`.`pt` USING UTF8MB4) AS `universitas`,
         COUNT(`u`.`id`) AS `Jumlah`
     FROM
-        ((((`user` `u`
+        (((((`user` `u`
         LEFT JOIN `edupak_periodes` `ep` ON ((`u`.`id` = `ep`.`iduser`)))
         LEFT JOIN `jabatans` `j` ON ((`u`.`jabatan` = `j`.`tingkat_jabatan`)))
         LEFT JOIN `kementrians` `k` ON ((`u`.`id_kementrian` = `k`.`id`)))
         LEFT JOIN `provinsis` `p` ON ((`p`.`id` = `ep`.`idprov`)))
-        LEFT JOIN t_datadiri d on CONVERT(d.nip USING utf8mb4) = CONVERT(u.nip USING utf8mb4)
+        LEFT JOIN `t_datadiri` `d` ON ((CONVERT( `d`.`nip` USING UTF8MB4) = CONVERT( `u`.`nip` USING UTF8MB4))))
     WHERE
-        (((`u`.`level` = 'mm')
+        ((`u`.`level` = 'mm')
             AND (`u`.`approved` = 1)
             AND (`u`.`status` = 1)
-            AND (`u`.`kemcategory` = 0))
-            OR (`u`.`kemcategory` = 1))
+            AND ((`u`.`kemcategory` = 0)
+            OR (`u`.`kemcategory` = 1)))
     GROUP BY `u`.`id` , `ep`.`periode`
     ORDER BY `ep`.`periode` DESC
