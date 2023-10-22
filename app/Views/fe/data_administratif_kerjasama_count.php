@@ -19,32 +19,34 @@
                     <a href="<?php echo base_url()."/data-administratif/$orig_title/prodi/detail" ?>"
                         class="btn btn-warning"><i class='bx bx-right-arrow-circle'></i> Info Detail</i></a>
                 </div>
+            </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-4" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="icon-box">
-                        <div class="icon"><i class="fa-solid fa-users-viewfinder"></i></div>
-                        <h4><a href="">Pusat</a></h4>
-                        <p>
-                        <h5><span data-purecounter-start="0"
-                                data-purecounter-end="<?php echo $count[$model_name]['pusat'][0]['total']; ?>"
-                                data-purecounter-duration="1" class="purecounter"></span> Data</h5>
-                        </p>
-                        <a href="<?php echo base_url()."/data-administratif/$orig_title/pusat/detail" ?>"
-                            class="btn btn-warning"><i class="bx bx-right-arrow-circle"></i> Info Detail</i></a>
-                    </div>
+            <div class="col-lg-4 col-md-4 col-sm-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="fa-solid fa-users-viewfinder"></i></div>
+                    <h4><a href="">Pusat</a></h4>
+                    <p>
+                    <h5><span data-purecounter-start="0"
+                            data-purecounter-end="<?php echo $count[$model_name]['pusat'][0]['total']; ?>"
+                            data-purecounter-duration="1" class="purecounter"></span> Data</h5>
+                    </p>
+                    <a href="<?php echo base_url()."/data-administratif/$orig_title/pusat/detail" ?>"
+                        class="btn btn-warning"><i class="bx bx-right-arrow-circle"></i> Info Detail</i></a>
+                </div>
+            </div>
 
-                    <div class="col-lg-4 col-md-4 col-sm-4" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="icon-box">
-                            <div class="icon"><i class="fa-solid fa-users-rays"></i></div>
-                            <h4><a href="">Daerah</a></h4>
-                            <p>
-                            <h5><span data-purecounter-start="0"
-                                    data-purecounter-end="<?php echo $count[$model_name]['daerah'][0]['total']; ?>"
-                                    data-purecounter-duration="1" class="purecounter"></span> Data</h5>
-                            </p>
-                            <a href="<?php echo base_url()."/data-administratif/$orig_title/daerah/detail" ?>"
-                                class="btn btn-warning"><i class="bx bx-right-arrow-circle"></i> Info Detail</i></a>
-                        </div>
+            <div class="col-lg-4 col-md-4 col-sm-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div class="icon"><i class="fa-solid fa-users-rays"></i></div>
+                    <h4><a href="">Daerah</a></h4>
+                    <p>
+                    <h5><span data-purecounter-start="0"
+                            data-purecounter-end="<?php echo $count[$model_name]['daerah'][0]['total']; ?>"
+                            data-purecounter-duration="1" class="purecounter"></span> Data</h5>
+                    </p>
+                    <a href="<?php echo base_url()."/data-administratif/$orig_title/daerah/detail" ?>"
+                        class="btn btn-warning"><i class="bx bx-right-arrow-circle"></i> Info Detail</i></a>
+                </div>
 
-                    </div>
+            </div>
 </section>
