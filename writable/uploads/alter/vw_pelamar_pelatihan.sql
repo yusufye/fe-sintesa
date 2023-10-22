@@ -14,13 +14,16 @@ VIEW `vw_pelamar_pelatihan` AS
         `tp`.`penempatan` AS `penempatan`,
         `tp`.`pstat` AS `pstat`,
         `ts`.`tahun` AS `tahun`,
-         tp.kode_program,
+        `tp`.`kode_program` AS `kode_program`,
         COUNT(`tp`.`id_peserta`) AS `Jumlah`
     FROM
         ((`t_peserta` `tp`
         LEFT JOIN `t_datadiri` `td` ON ((`tp`.`id_datadiri` = `td`.`id_datadiri`)))
         LEFT JOIN `t_seleksi` `ts` ON ((`tp`.`id_seleksi` = `ts`.`id_seleksi`)))
     WHERE
-        (`tp`.`delstat` = 'a')
+        ((`tp`.`penempatan` = '')
+            AND (`tp`.`delstat` = 'a')
+            AND ((`ts`.`nama` LIKE '%NON GELAR%')
+            OR (`ts`.`nama` LIKE '%NONGELAR%')))
     GROUP BY `tp`.`id_peserta`
     ORDER BY `ts`.`tahun` DESC

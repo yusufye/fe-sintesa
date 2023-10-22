@@ -1,5 +1,6 @@
-CREATE OR REPLACE VIEW `vw_penempatan_pendidikan` AS
-SELECT 
+CREATE OR REPLACE
+VIEW `vw_penempatan_pendidikan` AS
+    SELECT 
         `td`.`nama` AS `nama`,
         `td`.`gender` AS `gender`,
         `td`.`wilayah` AS `wilayah`,
@@ -9,21 +10,20 @@ SELECT
         `td`.`unit_kerja` AS `unit_kerja`,
         `td`.`pnddkn` AS `pnddkn`,
         `td`.`jurusan` AS `jurusan`,
-         td.email,
-         td.prop_inst,
+        `td`.`email` AS `email`,
+        `td`.`prop_inst` AS `prop_inst`,
         `tp`.`penempatan` AS `penempatan`,
         `tp`.`pstat` AS `pstat`,
         `ts`.`tahun` AS `tahun`,
-        `tp`.`kode_program` AS `kode_program`,
-        COUNT(`tp`.`id_peserta`) AS `Jumlah`
+        `tp`.`kode_program` AS `kode_program`
     FROM
         ((`t_peserta` `tp`
         LEFT JOIN `t_datadiri` `td` ON ((`tp`.`id_datadiri` = `td`.`id_datadiri`)))
         LEFT JOIN `t_seleksi` `ts` ON ((`tp`.`id_seleksi` = `ts`.`id_seleksi`)))
     WHERE
-        ((`ts`.`nama` LIKE 'DIKLAT GELAR%')
-            AND (`tp`.`delstat` = 'a')
-            AND (`tp`.`penempatan` <> '')
-            AND (`tp`.`penempatan` <> ''))
-    GROUP BY `tp`.`id_peserta`
+        ((`tp`.`penempatan` <> '')
+            AND (`tp`.`pstat` = 1)
+            AND (NOT ((`ts`.`nama` LIKE '%NON GELAR%')))
+            AND (NOT ((`ts`.`nama` LIKE '%NONGELAR%')))
+            AND (`ts`.`nama` LIKE '%GELAR%'))
     ORDER BY `ts`.`tahun` DESC
