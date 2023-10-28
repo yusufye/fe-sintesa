@@ -69,7 +69,7 @@
 
       <!-- <h1 class="logo"><a href="index.html">BizLand<span>.</span></a></h1> -->
       <!-- Uncomment below if you prefer to use an image logo -->
-      <a href="/" class="logo"><img src="<?php echo base_url();?>/public/assets/main/logo-sintesa-new-220x45.png" alt="Sintesa"></a>
+      <a href="" class="logo"><img src="<?php echo base_url();?>/public/assets/main/logo-sintesa-new-220x45.png" alt="Sintesa"></a>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -78,35 +78,35 @@
           
           <li class="dropdown"><a class="<?php echo ($menu_title=='Data Diklat'?'active':''); ?>" href="#"><span>DATA DIKLAT</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="/data-diklat/data-pelamar">Data Pelamar</a></li>
-              <li><a href="/data-diklat/data-penempatan">Data Penempatan</a></li>
-              <li><a href="/data-diklat/data-alumni">Data Alumni</a></li>
+              <li><a href="data-diklat/data-pelamar">Data Pelamar</a></li>
+              <li><a href="data-diklat/data-penempatan">Data Penempatan</a></li>
+              <li><a href="data-diklat/data-alumni">Data Alumni</a></li>
             </ul>
           </li>
           
           <li class="dropdown"><a class="<?php echo ($menu_title=='Data Perencana'?'active':''); ?>" href="#"><span>DATA PERENCANA</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="/data-perencana/data-perencana">Data Perencana</a></li>
-              <li><a href="/data-perencana/data-tim-penilai">Data Tim Penilai</a></li>
+              <li><a href="data-perencana/data-perencana">Data Perencana</a></li>
+              <li><a href="data-perencana/data-tim-penilai">Data Tim Penilai</a></li>
             </ul>
           </li>
 
           <li class="dropdown"><a class="<?php echo ($menu_title=='Data Administratif'?'active':''); ?>" href="#"><span>DATA ADMINISTRATIF</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="/data-administratif/biodata-narasumber">Data Biodata Narasumber</a></li>
-              <li><a href="/data-administratif/data-kegiatan">Data Kegiatan</a></li>
-              <li><a href="/data-administratif/data-lkj">Data LKJ</a></li>
-              <li><a href="/data-administratif/data-kerjasama">Data Kerjasama</a></li>
+              <li><a href="data-administratif/biodata-narasumber">Data Biodata Narasumber</a></li>
+              <li><a href="data-administratif/data-kegiatan">Data Kegiatan</a></li>
+              <li><a href="data-administratif/data-lkj">Data LKJ</a></li>
+              <li><a href="data-administratif/data-kerjasama">Data Kerjasama</a></li>
             </ul>
           </li>
 
           <li class="dropdown"><a href="#"><span>PUBLIKASI</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="/publikasi/kebijakan-diklat">Kebijakan Diklat</a></li>
-              <li><a href="/publikasi/kebijakan-jfp">Kebijakan JFP</a></li>
-              <li><a href="/publikasi/kebijakan-umum">Kebijakan Umum</a></li>
+              <li><a href="publikasi/kebijakan-diklat">Kebijakan Diklat</a></li>
+              <li><a href="publikasi/kebijakan-jfp">Kebijakan JFP</a></li>
+              <li><a href="publikasi/kebijakan-umum">Kebijakan Umum</a></li>
               <li><a href="http://pusbindiklatren.bappenas.go.id/direktori_tesis_disertasi.html">Katalog Tesis/Disertasi</a></li>
-              <li><a href="/publikasi/kurikulum-pelatihan">Kurikulum Pelatihan</a></li>
+              <li><a href="publikasi/kurikulum-pelatihan">Kurikulum Pelatihan</a></li>
 
             </ul>
           </li>
