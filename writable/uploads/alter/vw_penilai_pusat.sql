@@ -10,8 +10,7 @@ VIEW `vw_penilai_pusat` AS
         `ep`.`periode` AS `periode`,
         `p`.`provinsi` AS `provinsi`,
         `u`.`email` AS `email`,
-        CONVERT(`d`.`pt` USING UTF8MB4) AS `universitas`,
-        `d`.`pt` AS `universitas`,
+        `d`.`pt`  AS `universitas`,
         COUNT(`u`.`id`) AS `Jumlah`
     FROM
         (((((`user` `u`
@@ -19,7 +18,7 @@ VIEW `vw_penilai_pusat` AS
         LEFT JOIN `jabatans` `j` ON ((`u`.`jabatan` = `j`.`tingkat_jabatan`)))
         LEFT JOIN `kementrians` `k` ON ((`u`.`id_kementrian` = `k`.`id`)))
         LEFT JOIN `provinsis` `p` ON ((`p`.`id` = `ep`.`idprov`)))
-        LEFT JOIN `t_datadiri` `d` ON ((CONVERT( `d`.`nip` USING UTF8MB4) = CONVERT( `u`.`nip` USING UTF8MB4))))
+        LEFT JOIN `t_datadiri` `d` ON (( `d`.`nip`  =  `u`.`nip` )))
     WHERE
         ((`u`.`level` = 'pp')
             AND (`u`.`approved` = 1)

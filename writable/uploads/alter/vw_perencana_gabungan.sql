@@ -11,7 +11,7 @@ VIEW `vw_perencana_gabungan` AS
         `p`.`provinsi` AS `provinsi`,
         `u`.`email` AS `email`,
         `u`.`kemcategory` AS `kemcategory`,
-        CONVERT( `d`.`pt` USING UTF8MB4) AS `universitas`,
+        `d`.`pt`  AS `universitas`,
         COUNT(`u`.`id`) AS `Jumlah`
     FROM
         (((((`user` `u`
@@ -19,7 +19,7 @@ VIEW `vw_perencana_gabungan` AS
         LEFT JOIN `jabatans` `j` ON ((`u`.`jabatan` = `j`.`tingkat_jabatan`)))
         LEFT JOIN `kementrians` `k` ON ((`u`.`id_kementrian` = `k`.`id`)))
         LEFT JOIN `provinsis` `p` ON ((`p`.`id` = `ep`.`idprov`)))
-        LEFT JOIN `t_datadiri` `d` ON ((CONVERT( `d`.`nip` USING UTF8MB4) = CONVERT( `u`.`nip` USING UTF8MB4))))
+        LEFT JOIN `t_datadiri` `d` ON ((`d`.`nip`  = `u`.`nip` )))
     WHERE
         ((`u`.`level` = 'mm')
             AND (`u`.`approved` = 1)
