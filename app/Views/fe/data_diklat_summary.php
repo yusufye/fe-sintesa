@@ -398,7 +398,8 @@
 
 <script>
 <?php 
-        $chart_data_pendidikan=array();
+    $chart_data_pendidikan=array();
+    if (!empty($group_pendidikan)) {
         foreach ($group_pendidikan as $key => $value) {
             if (is_numeric($key)) {
                 if ($key<0) {
@@ -431,8 +432,10 @@
                 );
             }
         }
+    }
 
-        $chart_data_pelatihan=array();
+    $chart_data_pelatihan=array();
+    if (!empty($group_pelatihan)) {
         foreach ($group_pelatihan as $key => $value) {
             if (is_numeric($key)) {
                 if ($key<0) {
@@ -465,8 +468,10 @@
                 );
             }
         }
+    }
 
-        $chart_data_gabungan=array();
+    $chart_data_gabungan=array();
+    if (!empty($group_gabungan)) {
         foreach ($group_gabungan as $key => $value) {
             if (is_numeric($key)) {
                 if ($key<0) {
@@ -499,6 +504,7 @@
                 );
             }
         }
+    }
    ?>
 var datasetPendidikan = <?php echo json_encode($chart_data_pendidikan) ?>;
 var datasetPelatihan = <?php echo json_encode($chart_data_pelatihan) ?>;
