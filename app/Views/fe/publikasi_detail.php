@@ -120,7 +120,7 @@
               echo '<div class="member">';
                 echo '<div class="member-img">';
                   echo '<div class="social"><a href="'.$row['video_url'].'" class="glightbox"><i class="fa fa-play"></i></a></div>';
-                  echo '<img src="'.base_url().'public/assets/main/video-thumbnail.jpg" class="img-fluid" alt="">';
+                  echo '<img src="'.base_url().'/public/assets/main/video-thumbnail.jpg" class="img-fluid" alt="">';
                 echo '</div>';
                 echo '<div class="member-info">';
                   echo '<h4>Diklat Pusbindiklatren Bappenas</h4>';

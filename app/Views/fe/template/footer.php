@@ -24,17 +24,17 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
-<script src="<?php echo base_url();?>public/assets/bizland/assets/vendor/purecounter/purecounter_vanilla.js"></script>
-<script src="<?php echo base_url();?>public/assets/bizland/assets/vendor/aos/aos.js"></script>
-<script src="<?php echo base_url();?>public/assets/bizland/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="<?php echo base_url();?>public/assets/bizland/assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="<?php echo base_url();?>public/assets/bizland/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="<?php echo base_url();?>public/assets/bizland/assets/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="<?php echo base_url();?>public/assets/bizland/assets/vendor/waypoints/noframework.waypoints.js"></script>
-<script src="<?php echo base_url();?>public/assets/bizland/assets/vendor/php-email-form/validate.js"></script>
+<script src="<?php echo base_url();?>/public/assets/bizland/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="<?php echo base_url();?>/public/assets/bizland/assets/vendor/aos/aos.js"></script>
+<script src="<?php echo base_url();?>/public/assets/bizland/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo base_url();?>/public/assets/bizland/assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="<?php echo base_url();?>/public/assets/bizland/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="<?php echo base_url();?>/public/assets/bizland/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="<?php echo base_url();?>/public/assets/bizland/assets/vendor/waypoints/noframework.waypoints.js"></script>
+<script src="<?php echo base_url();?>/public/assets/bizland/assets/vendor/php-email-form/validate.js"></script>
 <script src="https://kit.fontawesome.com/04af257788.js" crossorigin="anonymous"></script>
 <!-- Template Main JS File -->
-<script src="<?php echo base_url();?>public/assets/bizland/assets/js/main.js"></script>
+<script src="<?php echo base_url();?>/public/assets/bizland/assets/js/main.js"></script>
 <script>
   var baseUrl='<?php echo base_url(); ?>';
   var siteUrl='<?php echo site_url(); ?>';
@@ -43,32 +43,32 @@
   if(isset($init_datatable)){
     // echo '<script src="https://code.jquery.com/jquery-3.5.1.js"></script>';
     // echo '<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>';
-    echo '<script src="'.base_url().'public/assets/bizland/assets/vendor/datatable/jquery-3.7.0.js"></script>';
-    echo '<script src="'.base_url().'public/assets/bizland/assets/vendor/datatable/jquery.dataTables.min.js"></script>';
-    echo '<script src="'.base_url().'public/assets/bizland/assets/vendor/datatable/dataTables.buttons.min.js"></script>';
-    echo '<script src="'.base_url().'public/assets/bizland/assets/vendor/datatable/jszip.min.js"></script>';
-    echo '<script src="'.base_url().'public/assets/bizland/assets/vendor/datatable/pdfmake.min.js"></script>';
-    echo '<script src="'.base_url().'public/assets/bizland/assets/vendor/datatable/vfs_fonts.js"></script>';
-    echo '<script src="'.base_url().'public/assets/bizland/assets/vendor/datatable/buttons.html5.min.js"></script>';
-    echo '<script src="'.base_url().'public/assets/bizland/assets/vendor/datatable/buttons.print.min.js"></script>';
+    echo '<script src="'.base_url().'/public/assets/bizland/assets/vendor/datatable/jquery-3.7.0.js"></script>';
+    echo '<script src="'.base_url().'/public/assets/bizland/assets/vendor/datatable/jquery.dataTables.min.js"></script>';
+    echo '<script src="'.base_url().'/public/assets/bizland/assets/vendor/datatable/dataTables.buttons.min.js"></script>';
+    echo '<script src="'.base_url().'/public/assets/bizland/assets/vendor/datatable/jszip.min.js"></script>';
+    echo '<script src="'.base_url().'/public/assets/bizland/assets/vendor/datatable/pdfmake.min.js"></script>';
+    echo '<script src="'.base_url().'/public/assets/bizland/assets/vendor/datatable/vfs_fonts.js"></script>';
+    echo '<script src="'.base_url().'/public/assets/bizland/assets/vendor/datatable/buttons.html5.min.js"></script>';
+    echo '<script src="'.base_url().'/public/assets/bizland/assets/vendor/datatable/buttons.print.min.js"></script>';
   }
 
   if (isset($init_global_dttable_js)) {
-    echo '<script src="'.base_url().'public/assets/main/js/data_table.js'.'?v='.time().'"></script>';
+    echo '<script src="'.base_url().'/public/assets/main/js/data_table.js'.'?v='.time().'"></script>';
   }
 
   if (isset($init_chart)) {
     echo '<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>';
     echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>';
     echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>';
-    echo '<script src="'.base_url().'public/assets/main/js/export_chart.js"></script>';
+    echo '<script src="'.base_url().'/public/assets/main/js/export_chart.js"></script>';
 
   }
 
   $controller  = strtolower(class_basename(service('router')->controllerName()));
   $method = strtolower(service('router')->methodName());
   if (file_exists(FCPATH."assets\main\js\web_data_diklat.js")){
-    echo '<script src="'.base_url("public/assets/main/js/{$controller}_{$method}.js").'?v='.time().'"></script>';
+    echo '<script src="'.base_url("/public/assets/main/js/{$controller}_{$method}.js").'?v='.time().'"></script>';
   }
   
 ?>

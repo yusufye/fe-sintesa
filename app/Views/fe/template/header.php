@@ -10,19 +10,19 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="<?php echo base_url();?>public/assets/main/sintesa_icon.png" rel="icon">
-  <link href="<?php echo base_url();?>public/assets/main/sintesa_icon.png" rel="apple-touch-icon">
+  <link href="<?php echo base_url();?>/public/assets/main/sintesa_icon.png" rel="icon">
+  <link href="<?php echo base_url();?>/public/assets/main/sintesa_icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="<?php echo base_url();?>public/assets/bizland/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="<?php echo base_url();?>public/assets/bizland/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="<?php echo base_url();?>public/assets/bizland/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="<?php echo base_url();?>public/assets/bizland/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="<?php echo base_url();?>public/assets/bizland/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="<?php echo base_url();?>public/assets/bizland/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>/public/assets/bizland/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>/public/assets/bizland/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>/public/assets/bizland/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>/public/assets/bizland/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>/public/assets/bizland/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>/public/assets/bizland/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <?php
@@ -30,7 +30,7 @@
     echo '<link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet">';
   }
   ?>
-  <link href="<?php echo base_url();?>public/assets/bizland/assets/css/style.css?v="<?php echo time();?> rel="stylesheet">
+  <link href="<?php echo base_url();?>/public/assets/bizland/assets/css/style.css?v="<?php echo time();?> rel="stylesheet">
 
   
 
@@ -69,12 +69,12 @@
 
       <!-- <h1 class="logo"><a href="index.html">BizLand<span>.</span></a></h1> -->
       <!-- Uncomment below if you prefer to use an image logo -->
-      <a href="/" class="logo"><img src="<?php echo base_url();?>public/assets/main/logo-sintesa-new-220x45.png" alt="Sintesa"></a>
+      <a href="/" class="logo"><img src="<?php echo base_url();?>/public/assets/main/logo-sintesa-new-220x45.png" alt="Sintesa"></a>
 
       <nav id="navbar" class="navbar">
         <ul>
             
-          <li><a class="nav-link scrollto <?php echo ($menu_title=='Home'?'active':''); ?>" href="<?php echo base_url();?>">HOME</a></li>
+          <li><a class="nav-link scrollto <?php echo ($menu_title=='Home'?'active':''); ?>" href="<?php echo base_url();?>/">HOME</a></li>
           
           <li class="dropdown"><a class="<?php echo ($menu_title=='Data Diklat'?'active':''); ?>" href="#"><span>DATA DIKLAT</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -115,6 +115,6 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="index.html" class="logo d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block d-lg-none d-xl-block"><img src="<?php echo base_url();?>public/assets/main/logo_pusbindiklatren-removebg-260x40.png" alt="pusbindiklatren"></a>
+      <a href="index.html" class="logo d-none d-sm-block d-sm-none d-md-block d-md-none d-lg-block d-lg-none d-xl-block"><img src="<?php echo base_url();?>/public/assets/main/logo_pusbindiklatren-removebg-260x40.png" alt="pusbindiklatren"></a>
     </div>
   </header><!-- End Header -->
