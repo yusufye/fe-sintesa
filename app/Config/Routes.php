@@ -34,6 +34,35 @@ $routes->post('/web/globalDtTable/(:any)/(:any)/(:any)/(:any)', 'Web::globalDtTa
 $routes->get('/data-diklat/(:any)', 'Web::data_diklat/$1');
 $routes->get('/data-diklat/(:any)/(:any)', 'Web::data_diklat/$1/$2');
 $routes->get('/data-diklat/(:any)/(:any)/(:any)', 'Web::data_diklat/$1/$2/$3');
+$routes->post('web/get_chart_diklat_detail', 'Web::get_chart_diklat_detail');
+
+//data perencana
+$routes->get('/data-perencana/(:any)', 'Web::data_perencana/$1');
+$routes->get('/data-perencana/(:any)/(:any)', 'Web::data_perencana/$1/$2');
+$routes->get('/data-perencana/(:any)/(:any)/(:any)', 'Web::data_perencana/$1/$2/$3');
+$routes->post('/web/get_chart_perencana_pusat_detail', 'Web::get_chart_perencana_pusat_detail');
+$routes->post('web/get_chart_perencana_detail', 'Web::get_chart_perencana_detail');
+//data administratif
+$routes->get('/data-administratif/biodata-narasumber', 'Web::data_administratif_biodata_narasumber');
+$routes->post('/web/detail_pegawai/(:any)', 'Web::detail_pegawai/$1');
+$routes->get('/data-administratif/data-kegiatan', 'Web::data_administratif_kegiatan');
+$routes->post('/web/detail_kegiatan/(:any)', 'Web::detail_kegiatan/$1');
+$routes->get('/data-administratif/data-lkj', 'Web::data_administratif_lkj');
+$routes->get('/data-administratif/data-kerjasama', 'Web::data_administratif_kerjasama');
+$routes->get('/data-administratif/data-kerjasama/(:any)', 'Web::data_administratif_kerjasama/$1');
+$routes->get('/data-administratif/data-kerjasama/(:any)/(:any)', 'Web::data_administratif_kerjasama/$1/$2');
+// $routes->get('/data-administratif/data-kerjasama/(:any)/(:any)/(:any)', 'Web::data_administratif_kerjasama/$1/$2/$3');
+//publikasi
+$routes->get('/publikasi/(:any)', 'Web::publikasi/$1');
+$routes->get('/publikasi/(:any)/(:any)', 'Web::publikasi/$1/$2');
+$routes->get('/publikasi/(:any)/(:any)/(:any)', 'Web::publikasi/$1/$2/$3');
+$routes->post('/web/detail_publikasi/(:any)', 'Web::detail_publikasi/$1');
+//auth
+$routes->get('/login', 'Login::index');
+$routes->post('/login/validasi', 'Login::validasi');
+$routes->get('/logout', 'Login::logout');
+
+
 
 /*
  * --------------------------------------------------------------------

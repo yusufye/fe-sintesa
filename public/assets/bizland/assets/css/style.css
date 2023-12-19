@@ -45,19 +45,25 @@ h6 {
   z-index: 9999;
   overflow: hidden;
   background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 #preloader:before {
-  content: "";
+  content: url("../../../main/sintesa-loader-sm.gif");
+}
+
+#ajax_loader {
+  background: #ffffff;
+  content: url("../../../main/sintesa-loader.gif");
   position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #106eea;
-  border-top-color: #e2eefd;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: animate-preloader 1s linear infinite;
+  top: 50%;
+  left: 20%;
+  display: none;
+  z-index: 9999;
+
 }
 
 @keyframes animate-preloader {
@@ -237,6 +243,8 @@ h6 {
   white-space: nowrap;
   transition: 0.3s;
   position: relative;
+  font-weight: bold;
+
 }
 
 .navbar a i,
@@ -295,6 +303,8 @@ h6 {
 .navbar .dropdown ul a {
   padding: 10px 20px;
   font-weight: 400;
+  font-weight: bold;
+
 }
 
 .navbar .dropdown ul a i {
@@ -1267,7 +1277,7 @@ section {
 .team .member .social {
   position: absolute;
   left: 0;
-  bottom: 30px;
+  bottom: 50%;
   right: 0;
   opacity: 0;
   transition: ease-in-out 0.3s;
@@ -1282,7 +1292,7 @@ section {
   border-radius: 4px;
   width: 36px;
   height: 36px;
-  background: rgba(16, 110, 234, 0.8);
+  background: rgba(206, 213, 221, 0.8);
   display: inline-block;
   transition: ease-in-out 0.3s;
   color: #fff;
@@ -1323,7 +1333,7 @@ section {
 
 .team .member:hover .social {
   opacity: 1;
-  bottom: 15px;
+  /* bottom: 15px; */
 }
 
 /*--------------------------------------------------------------
@@ -1631,14 +1641,24 @@ section {
 --------------------------------------------------------------*/
 #footer {
   background: #1F3BB1;
-  padding: 0 0 30px 0;
+  padding: 8px 0 2px 0;
   color: #ffffff;
   font-size: 14px;
   background: #1F3BB1;
+
+    /* height:55px;  */
+    width: 100%; 
+    /* background-image: none;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-position: 0% 0%; */
+    position: fixed;
+    bottom: 0pt;
+    left: 0pt;
 }
 
 #footer .footer-newsletter {
-  padding: 50px 0;
+  padding: 60px 0;
   background: #f1f6fe;
   text-align: center;
   font-size: 15px;
@@ -1804,5 +1824,105 @@ section {
     float: none;
     text-align: center;
     padding: 2px 0;
+    font-size: 11px;
   }
 }
+
+.table.dataTable  {
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 13px;
+}
+.modal-content  {
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 13px;
+}
+
+.dataTables_wrapper {
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 13px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current{
+  background: #0d6efd !important;
+  color: white !important;
+  border-radius: 4px;
+  border: 1px solid #828282;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+  background: none;
+  border-radius: 4px;
+  color: black !important;
+  border: 1px solid #1F3BB1;
+}
+
+.dataTables_wrapper .row  div.dt-buttons{
+  width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    float: none;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+
+.dt-buttons .buttons-collection,.buttons-print {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+  border: solid 1px #ebedf2;
+  background-color: #ffffff;
+  padding: 8px;
+  margin-right: 12px;
+  margin-bottom: 10px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal !important;
+  letter-spacing: normal;
+  outline: none;
+  color: #606266;
+  text-decoration: none;
+}
+
+div.dt-button-collection button.dt-button{
+  width: 100%;
+  position: absolute;
+  align-items: center;
+  height: 40px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+  border: solid 1px #ebedf2;
+  background-color: #ffffff;
+  padding: 8px;
+  margin-right: 12px;
+  margin-bottom: 10px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal !important;
+  letter-spacing: normal;
+  outline: none;
+  color: #606266;
+  text-decoration: none;
+} 
+
+div.dt-button-collection button.dt-button {
+  position: relative;
+  left: 0;
+  right: 0;
+  display: block;
+  margin-bottom: 4px;
+  margin-right: 0;
+}
+
+.dt-buttons div.dtb-b3{
+  margin-top: 0px !important;
+}
+

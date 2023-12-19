@@ -7,10 +7,11 @@ use CodeIgniter\Model;
  
 class Model_datatable extends Model
 {
-    protected $table         = "";
+    protected $query;
     protected $column_order  = array();
     protected $column_search = array();
     protected $order         = array();
+    protected $query_where   = array();
     protected $request;
     protected $db;
     protected $dt;
@@ -22,13 +23,14 @@ class Model_datatable extends Model
         $this->request = $request;
         
     }
-    public function set_table($table,$column_order,$order,$column_search)
+    public function set_table($query,$column_order,$order,$column_search,$query_where)
     {
-        $this->table         = $table;
+        $this->query         = $query;
         $this->column_order  = $column_order;
         $this->order         = $order;
         $this->column_search = $column_search;
-        $this->dt            = $this->db->table($this->table);
+        $this->query_where   = $query_where;
+        $this->dt            = $this->query;
     }
     private function _get_datatables_query()
     {
@@ -56,8 +58,31 @@ class Model_datatable extends Model
 
         if ($this->request->getPost('filters')) {
             foreach ($this->request->getPost('filters') as $row_filter) {
-                $this->dt->where($row_filter['field'],$row_filter['value']);
+                if (isset($row_filter['value']) && $row_filter['value']!='') {
+                    if ($row_filter['type']=='date_range_start') {
+                        $this->dt->where($row_filter['field']." >=",$row_filter['value']);
+                    }elseif ($row_filter['type']=='date_range_end') {
+                        $this->dt->where($row_filter['field']." <=",$row_filter['value']);
+                    }elseif ($row_filter['type']=='less_than') {
+                        $this->dt->where($row_filter['field']." <",$row_filter['value']);
+                    }elseif ($row_filter['type']=='equal_to') {
+                        $this->dt->where($row_filter['field']." =",$row_filter['value']);
+                    }elseif ($row_filter['type']=='perencana_program') {
+                        if ($row_filter['value']=='pusat') {
+                            $this->dt->where($row_filter['field']."<=",1);
+                        }elseif ($row_filter['value']=='daerah') {
+                            $this->dt->where($row_filter['field'].">=",2);
+                        }
+                    }
+                    else{
+                        $this->dt->like($row_filter['field'],$row_filter['value'],'both');
+                    }
+                }
             }
+        }
+
+        if (!empty($this->query_where)) {
+            $this->dt->where($this->query_where);
         }
     }
     function get_datatables()
@@ -75,7 +100,10 @@ class Model_datatable extends Model
     }
     public function count_all()
     {
-        $tbl_storage = $this->db->table($this->table);
+        $tbl_storage = $this->query;
+        if (!empty($this->query_where)) {
+            $this->dt->where($this->query_where);
+        }
         return $tbl_storage->countAllResults();
     }
 }

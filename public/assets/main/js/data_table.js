@@ -40,11 +40,20 @@ var dataSet = [
 var Globalfilters={};
 function generateGlobalFilters() {
     Globalfilters = $.map($('.Globalfilters'), function(el) {
-    return {field: $(el).data('filtername'), value:$(el).val()}
+    return {field: $(el).data('filtername'), value:$(el).val(), type:$(el).data('filtertype')??'like'}
 });
 }
  
 $(document).ready(function () {
+    var checkGlogalFilters = $('.Globalfilters').filter(function() {
+        return this.value != ''
+      });
+
+      if (checkGlogalFilters.length != 0) {
+        generateGlobalFilters()
+      }
+
+
     $('#example').DataTable({
         data: dataSet,
         columns: [
@@ -64,10 +73,36 @@ $(document).ready(function () {
             table.ajax.reload();
         });
             
-    console.log(); 
 
    
         table = $('#'+DtTableId).DataTable({
+            dom: "<'row'B>"+
+            "<'row' lfrtip>",
+            buttons: [
+                {
+                    extend:'print'
+                },
+                {
+                extend: 'collection',
+                className: "",
+                text: 'Export',
+                buttons:
+                [
+                    {
+                        extend: "copy", className: ""
+                    },
+                    {
+                        extend: "pdf", className: ""
+                    },
+                        {
+                        extend: "excel", className: ""
+                    },
+                        {
+                        extend: "csv", className: ""
+                    },
+                ],
+              }],
+            "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
             responsive: true,
             "destroy": true,
             "processing": true,
@@ -75,12 +110,19 @@ $(document).ready(function () {
             "order": [],
         
             "ajax": {
-                "url": "/web/globalDtTable/"+DtModelNaame+"/"+DtMethodName+"/"+DtMethodParam+"/"+DtMethodType,
+                "url": baseUrl+"/web/globalDtTable/"+DtModelNaame+"/"+DtMethodName+"/"+DtMethodParam+"/"+DtMethodType,
                 "type": "POST",
                 "dataType": 'json',
                 "data":function (d) { 
                     d.filters=Globalfilters; 
-                }
+                },
+                // "beforeSend": function() {
+                //     $("#ajax_loader").show();
+                //   },
+                //   "complete": function() {
+                //     $("#ajax_loader").hide();
+                //   }
+
             },
         
         
@@ -89,6 +131,22 @@ $(document).ready(function () {
                 "orderable": false,
                 "width": 5
             }],
+            
+            "drawCallback": function(settings) {
+                var api = this.api();
+                var startIndex = api.context[0]._iDisplayStart;
+                var firstColumnTitle = table.column(0).header().innerHTML;
+                
+                api.column(0, {search: 'applied', order: 'applied'}).nodes().each(function(cell, i) {
+                    if (firstColumnTitle === "No") {
+                        cell.innerHTML = api.cell({ row: i, column: 0 }).data();
+                        cell.innerHTML = startIndex + i + 1;
+                    } else {
+                        // Jika kolom pertama bukan "Nomor", tampilkan data biasa
+                        cell.innerHTML = api.cell({row: i, column: 0}).data();
+                    }
+                });
+            }
         
         });
         
