@@ -15,7 +15,7 @@
                                 data-purecounter-end="<?php echo $count[$model_name]['pusat'][0]['total']??0; ?>"
                                 data-purecounter-duration="1" class="purecounter"></span> Data</h5>
                         </p>
-                        <p><a href='<?php echo base_url()."/data-perencana/$orig_title/pusat/summary" ?>'
+                        <p><a href='<?php echo base_url()."data-perencana/$orig_title/pusat/summary" ?>'
                                 class="btn btn-warning"><i class='bx bx-right-arrow-circle'></i> Info Detail</i></a></p>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                                     data-purecounter-end="<?php echo $count[$model_name]['daerah'][0]['total']??0; ?>"
                                     data-purecounter-duration="1" class="purecounter"></span> Data</h5>
                             </p>
-                            <a href='<?php echo base_url()."/data-perencana/$orig_title/daerah/summary" ?>'
+                            <a href='<?php echo base_url()."data-perencana/$orig_title/daerah/summary" ?>'
                                 class="btn btn-warning"><i class="bx bx-right-arrow-circle"></i></i> Info Detail</i></a>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                                         data-purecounter-end="<?php echo $count[$model_name]['gabungan'][0]['total']??0; ?>"
                                         data-purecounter-duration="1" class="purecounter"></span> Data</h5>
                                 </p>
-                                <a href='<?php echo base_url()."/data-perencana/$orig_title/gabungan/summary" ?>'
+                                <a href='<?php echo base_url()."data-perencana/$orig_title/gabungan/summary" ?>'
                                     class="btn btn-warning"><i class="bx bx-right-arrow-circle"></i> Info Detail</i></a>
                             </div>
                         </div>

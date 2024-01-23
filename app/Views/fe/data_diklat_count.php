@@ -15,7 +15,7 @@
                             data-purecounter-end="<?php echo $count[$model_name]['pendidikan'][0]['total']??0; ?>"
                             data-purecounter-duration="1" class="purecounter"></span> Data</h5>
                     </p>
-                    <p><a href='<?php echo base_url()."/data-diklat/$orig_title/pendidikan/summary" ?>'
+                    <p><a href='<?php echo base_url()."data-diklat/$orig_title/pendidikan/summary" ?>'
                             class="btn btn-warning"><i class='bx bx-right-arrow-circle'></i> Info Detail</i></a></p>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                             data-purecounter-end="<?php echo $count[$model_name]['pelatihan'][0]['total']??0; ?>"
                             data-purecounter-duration="1" class="purecounter"></span> Data</h5>
                     </p>
-                    <a href='<?php echo base_url()."/data-diklat/$orig_title/pelatihan/summary" ?>'
+                    <a href='<?php echo base_url()."data-diklat/$orig_title/pelatihan/summary" ?>'
                         class="btn btn-warning"><i class="bx bx-right-arrow-circle"></i></i> Info Detail</i></a>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                             data-purecounter-end="<?php echo $count[$model_name]['gabungan'][0]['total']??0; ?>"
                             data-purecounter-duration="1" class="purecounter"></span> Data</h5>
                     </p>
-                    <a href='<?php echo base_url()."/data-diklat/$orig_title/gabungan/summary" ?>'
+                    <a href='<?php echo base_url()."data-diklat/$orig_title/gabungan/summary" ?>'
                         class="btn btn-warning"><i class="bx bx-right-arrow-circle"></i> Info Detail</i></a>
                 </div>
             </div>

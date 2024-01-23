@@ -42,7 +42,7 @@
 
 
                     <div class="d-flex justify-content-end py-4">
-                        <a href='<?php echo base_url()."/data-diklat/$orig_title/pendidikan/detail" ?>'
+                        <a href='<?php echo base_url()."data-diklat/$orig_title/pendidikan/detail" ?>'
                             class="btn btn-primary">Info
                             Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
@@ -117,7 +117,7 @@
 
                                         $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
 
-                                        $url=base_url().'/data-diklat/'.$orig_title.'/pendidikan/detail'.$send_get_param;
+                                        $url=base_url().'data-diklat/'.$orig_title.'/pendidikan/detail'.$send_get_param;
                                         echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
                                     }else{
                                         echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
@@ -159,7 +159,7 @@
                 aria-labelledby="nav-pelatihan-tab">
                 <div class="row">
                     <div class="d-flex justify-content-end py-4">
-                        <a href='<?php echo base_url()."/data-diklat/$orig_title/pelatihan/detail" ?>' class="btn btn-primary">Info
+                        <a href='<?php echo base_url()."data-diklat/$orig_title/pelatihan/detail" ?>' class="btn btn-primary">Info
                             Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
 
@@ -232,7 +232,7 @@
 
                                         $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
 
-                                        $url=base_url().'/data-diklat/'.$orig_title.'/pelatihan/detail'.$send_get_param;
+                                        $url=base_url().'data-diklat/'.$orig_title.'/pelatihan/detail'.$send_get_param;
                                         echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
                                     }else{
                                         echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
@@ -275,7 +275,7 @@
                 aria-labelledby="nav-gabungan-tab">
                 <div class="row">
                     <div class="d-flex justify-content-end py-4">
-                        <a href='<?php echo base_url()."/data-diklat/$orig_title/gabungan/detail" ?>' class="btn btn-primary">Info
+                        <a href='<?php echo base_url()."data-diklat/$orig_title/gabungan/detail" ?>' class="btn btn-primary">Info
                             Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
                     <div class='table-responsive'>
@@ -347,7 +347,7 @@
 
                                         $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
 
-                                        $url=base_url().'/data-diklat/'.$orig_title.'/gabungan/detail'.$send_get_param;
+                                        $url=base_url().'data-diklat/'.$orig_title.'/gabungan/detail'.$send_get_param;
                                         echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
                                     }else{
                                         echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";

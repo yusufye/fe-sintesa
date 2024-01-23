@@ -41,7 +41,7 @@
 
 
                     <div class="d-flex justify-content-end py-4">
-                        <a href='<?php echo base_url()."/data-perencana/$orig_title/pusat/detail" ?>'
+                        <a href='<?php echo base_url()."data-perencana/$orig_title/pusat/detail" ?>'
                             class="btn btn-primary">Info
                             Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
@@ -79,7 +79,7 @@
 
                                         $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
 
-                                        $url=base_url().'/data-perencana/'.$orig_title.'/pusat/detail'.$send_get_param;
+                                        $url=base_url().'data-perencana/'.$orig_title.'/pusat/detail'.$send_get_param;
                                         echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
                                     }else{
                                         echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
@@ -122,7 +122,7 @@
                 aria-labelledby="nav-daerah-tab">
                 <div class="row">
                     <div class="d-flex justify-content-end py-4">
-                        <a href='<?php echo base_url()."/data-perencana/$orig_title/daerah/detail" ?>'
+                        <a href='<?php echo base_url()."data-perencana/$orig_title/daerah/detail" ?>'
                             class="btn btn-primary">Info
                             Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
@@ -161,7 +161,7 @@
 
                                         $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
 
-                                        $url=base_url().'/data-perencana/'.$orig_title.'/daerah/detail'.$send_get_param;
+                                        $url=base_url().'data-perencana/'.$orig_title.'/daerah/detail'.$send_get_param;
                                         echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
                                     }else{
                                         echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
@@ -205,7 +205,7 @@
                 aria-labelledby="nav-gabungan-tab">
                 <div class="row">
                     <div class="d-flex justify-content-end py-4">
-                        <a href='<?php echo base_url()."/data-perencana/$orig_title/gabungan/detail" ?>' class="btn btn-primary">Info Detail <i class="fa-regular fa-circle-right"></i></a>
+                        <a href='<?php echo base_url()."data-perencana/$orig_title/gabungan/detail" ?>' class="btn btn-primary">Info Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
 
                     <table id="tableCountGabungan" class="table table-striped">
@@ -242,7 +242,7 @@
 
                                         $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
 
-                                        $url=base_url().'/data-perencana/'.$orig_title.'/gabungan/detail'.$send_get_param;
+                                        $url=base_url().'data-perencana/'.$orig_title.'/gabungan/detail'.$send_get_param;
                                         echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
                                     }else{
                                         echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
