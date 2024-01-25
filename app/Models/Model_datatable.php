@@ -55,7 +55,7 @@ class Model_datatable extends Model
             $order = $this->order;
             $this->dt->orderBy(key($order), $order[key($order)]);
         }
-
+     
         if ($this->request->getPost('filters')) {
             foreach ($this->request->getPost('filters') as $row_filter) {
                 if (isset($row_filter['value']) && $row_filter['value']!='') {

@@ -3,6 +3,7 @@
 ?>
 
 <section id="services" class="services">
+<input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" id="csrf_name" />
     <div class="container" data-aos="fade-up">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
@@ -169,6 +170,7 @@
         </div> -->
     </div>
 </section>
+<?= csrf_field(); ?>
 
 
 
@@ -180,4 +182,6 @@ var DtMethodParam = '<?php echo $method_param; ?>';
 var DtMethodType = '<?php echo $method_type; ?>';
 var type = '<?php echo $orig_title; ?>';
 var method_type = '<?php echo $method_type; ?>';
+var csrf_name = '<?php echo $csrf_name; ?>';
+var csrf_hash = '<?php echo $csrf_hash; ?>';
 </script>

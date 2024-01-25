@@ -73,7 +73,7 @@ class Web extends BaseController
 			$data['list_periode']	 		= $data_diklat_model->get_list_periode($sub);
 			$data['list_program']	 		= $data_diklat_model->get_list_program($sub);
 			$data['filtersGET']		 		= $send_filtersGET;
-
+			
 		}
 		if ($send_type!='detail') {
 			$data[$send_type][$model_name]['pendidikan']	=$data_diklat_model->{'get_diklat_'.$model_name}('pendidikan',$send_type);
@@ -82,8 +82,10 @@ class Web extends BaseController
 		}else{
 			$data[$send_type][$model_name][$sub2]	=$data_diklat_model->{'get_diklat_'.$model_name}($sub2,$send_type);
 		}
-		
-      
+
+		$data['csrf_name']		 		= csrf_token();
+		$data['csrf_hash']		 		= csrf_hash();
+
 		return view('fe/template/header',$data)
 		.view('fe/data_diklat_'.$send_type,$data)
 		.view('fe/template/footer',$data);
@@ -221,6 +223,7 @@ class Web extends BaseController
                 "recordsFiltered" => $datamodel->count_filtered(),
                 "data" => $data
             ];
+			$output[csrf_token()] = csrf_hash(); 
             echo json_encode($output);
         }
 	}
