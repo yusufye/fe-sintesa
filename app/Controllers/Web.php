@@ -21,8 +21,10 @@ class Web extends BaseController
     
 	public function data_diklat($sub=null,$sub2=null,$type=null)
 	{
-		$request           = Services::request();
-		$filtersGET	   	   = $request->getGet();
+		$request           		= Services::request();
+		$filtersGET	   	   		= $request->getGet('data');
+		$filtersGET_decrypted 	= json_decode(base64_decode($filtersGET), true);
+		$send_filtersGET		= (!empty($filtersGET))?call_user_func_array('array_merge_recursive', $filtersGET_decrypted):'';
 		
 		$data_diklat_model = new Data_diklat_model();
 		$list_sub=['data-pelamar','data-penempatan','data-alumni'];
@@ -70,7 +72,7 @@ class Web extends BaseController
 			$data['list_instansi'] 			= $data_diklat_model->get_list_instansi($sub);
 			$data['list_periode']	 		= $data_diklat_model->get_list_periode($sub);
 			$data['list_program']	 		= $data_diklat_model->get_list_program($sub);
-			$data['filtersGET']		 		= $filtersGET;
+			$data['filtersGET']		 		= $send_filtersGET;
 
 		}
 		if ($send_type!='detail') {
@@ -227,7 +229,9 @@ class Web extends BaseController
 	{
 		$request           = Services::request();
 		$filtersGET	   	   = $request->getGet();
-
+		echo '<pre>';print_r($filtersGET);echo'</pre>';
+// echo '<pre>';print_r();echo'</pre>';
+exit();
         $data_perencana_model = new Data_perencana_model();
 		$list_sub=['data-perencana','data-tim-penilai'];
 		$list_sub_summary=['summary-pusat','summary-daerah','summary-gabungan'];
