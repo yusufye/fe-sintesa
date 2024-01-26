@@ -208,7 +208,7 @@ function generatePerencanaFilters(callback) {
 
   $.ajax({
     type: "POST",
-    url: baseUrl+"/web/get_chart_perencana_detail",
+    url: baseUrl+"web/get_chart_perencana_detail",
     dataType: "json",
     data:{ 
       filters:Perencanafilters, 
