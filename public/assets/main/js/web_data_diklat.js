@@ -227,7 +227,7 @@ function generateDiklatFilters(callback) {
       filters:Diklatfilters, 
       param:DtMethodParam,
       type:type,
-      csrf_test_name:$('input[name=csrf_test_name]').val()
+      [csrf_name]:$('input[name='+csrf_name+']').val()
     },
     success:callback
   });

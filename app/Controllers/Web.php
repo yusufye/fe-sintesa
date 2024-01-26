@@ -9,7 +9,17 @@ use App\Models\Model_datatable;
 use Config\Services;
 class Web extends BaseController
 {
-    
+    protected $csrf;
+
+    public function __construct()
+    {
+
+        // Assign the model result to the badly named Class Property
+        $this->csrf['csrf_token']	=csrf_token();
+        $this->csrf['csrf_hash']	=csrf_hash();
+    }
+
+
     public function index()
     {
 		$data['menu_title']   			= 'Home';
@@ -83,8 +93,8 @@ class Web extends BaseController
 			$data[$send_type][$model_name][$sub2]	=$data_diklat_model->{'get_diklat_'.$model_name}($sub2,$send_type);
 		}
 
-		$data['csrf_name']		 		= csrf_token();
-		$data['csrf_hash']		 		= csrf_hash();
+		$data['csrf_name']		 		= $this->csrf['csrf_token'];
+		$data['csrf_hash']		 		= $this->csrf['csrf_hash'];
 
 		return view('fe/template/header',$data)
 		.view('fe/data_diklat_'.$send_type,$data)
@@ -293,6 +303,9 @@ class Web extends BaseController
 		}else{
 			$data[$send_type][$model_name][$sub2]	=$data_perencana_model->{'get_perencana_'.$model_name}($sub2,$send_type);
 		}
+
+		$data['csrf_name']		 		= $this->csrf['csrf_token'];
+		$data['csrf_hash']		 		= $this->csrf['csrf_hash'];
 		
 		
       

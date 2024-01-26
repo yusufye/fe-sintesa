@@ -214,6 +214,8 @@ function generatePerencanaFilters(callback) {
       filters:Perencanafilters, 
       param:DtMethodParam,
       type:type,
+      [csrf_name]:$('input[name='+csrf_name+']').val()
+
     },
     success:callback
   });
