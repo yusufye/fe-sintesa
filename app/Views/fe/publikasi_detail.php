@@ -1,4 +1,7 @@
-<?php if ($param<>'video'): ?>
+<?php 
+    echo csrf_field();
+    if ($param<>'video'): 
+?>
 <section id="services" class="services">
     <div class="container" data-aos="fade-up">
 
@@ -138,3 +141,8 @@
 <style>
 
 </style>
+
+<script>
+var csrf_name = '<?php echo $csrf_name; ?>';
+var csrf_hash = '<?php echo $csrf_hash; ?>';
+</script>

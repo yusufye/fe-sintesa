@@ -22,9 +22,9 @@ $(document).ready(function () {
 
 function showDetail(source,id,callback){
     if (source=='biodata_narasumber') {
-        to_url=baseUrl+"/web/detail_publikasi/"+id;
+        to_url=baseUrl+"web/detail_publikasi/"+id;
     }else{
-        to_url=baseUrl+"/web/detail_publikasi/"+id;
+        to_url=baseUrl+"web/detail_publikasi/"+id;
     }
 
     $.ajax({
@@ -32,6 +32,7 @@ function showDetail(source,id,callback){
         url: to_url,
         dataType: "json",
         success: callback,
+        data: {[csrf_name]:$('input[name='+csrf_name+']').val()},
         beforeSend: function() {
             $("#ajax_loader").show();
         },
