@@ -26,6 +26,7 @@ function showDetail(source,id,callback){
         type: "POST",
         url: to_url,
         dataType: "json",
+        data: {[csrf_name]:$('input[name='+csrf_name+']').val()},
         success: callback,
         beforeSend: function() {
             $("#ajax_loader").show();

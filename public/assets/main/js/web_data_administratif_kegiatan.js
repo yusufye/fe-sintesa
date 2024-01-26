@@ -19,7 +19,7 @@ $(document).ready(function () {
     })
 });
 
-function showDetail(source,id,qwe){  
+function showDetail(source,id,rtr){  
     if (source=='data_kegiatan') {
         to_url=baseUrl+"/web/detail_kegiatan/"+id;
     }else{
@@ -30,6 +30,7 @@ function showDetail(source,id,qwe){
         type: "POST",
         url: to_url,
         dataType: "json",
-        success: qwe
+        data: {[csrf_name]:$('input[name='+csrf_name+']').val()},
+        success: rtr
     });
 }

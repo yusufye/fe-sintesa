@@ -332,7 +332,8 @@ class Web extends BaseController
 		$data['method_param']           = 'biodata_narasumber';
 		$data['method_type']            = 'detail';
 		$data['init_global_dttable_js'] = true;
-		
+		$data['csrf_name']		 		= $this->csrf['csrf_token'];
+		$data['csrf_hash']		 		= $this->csrf['csrf_hash'];
       
 		return view('fe/template/header',$data)
 		.view('fe/data_administratif_narasumber',$data)
@@ -365,7 +366,9 @@ class Web extends BaseController
 		$data['method_param']           = 'data_kegiatan';
 		$data['method_type']            = 'detail';
 		$data['init_global_dttable_js'] = true;
-	
+		$data['csrf_name']		 		= $this->csrf['csrf_token'];
+		$data['csrf_hash']		 		= $this->csrf['csrf_hash'];
+
 		return view('fe/template/header',$data)
 		.view('fe/data_administratif_kegiatan',$data)
 		.view('fe/template/footer',$data);
@@ -396,7 +399,8 @@ class Web extends BaseController
 		$data['method_param']           = 'biodata_narasumber';
 		$data['method_type']            = 'detail';
 		$data['init_global_dttable_js'] = true;
-		
+		$data['csrf_name']		 		= $this->csrf['csrf_token'];
+		$data['csrf_hash']		 		= $this->csrf['csrf_hash'];
       
 		return view('fe/template/header',$data)
 		.view('fe/data_administratif_lkj',$data)
@@ -538,6 +542,10 @@ class Web extends BaseController
 		}else{
 			$data[$send_type]['data_kerjasama'][$sub2]		=$data_administratif_model->{'get_data_administratif_kerjasama'}($sub2,$send_type);
 		}
+
+		$data['csrf_name']		 		= $this->csrf['csrf_token'];
+		$data['csrf_hash']		 		= $this->csrf['csrf_hash'];
+		
 		return view('fe/template/header',$data)
 		.view('fe/data_administratif_kerjasama_'.$send_type,$data)
 		.view('fe/template/footer',$data);
