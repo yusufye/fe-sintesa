@@ -1,9 +1,9 @@
 <?php 
-        $data_detail_pendidikan=$detail[$model_name][$param];
+    echo csrf_field();
+    $data_detail_pendidikan=$detail[$model_name][$param];
 ?>
 
 <section id="services" class="services">
-<input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>" id="csrf_name" />
     <div class="container" data-aos="fade-up">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
