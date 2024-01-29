@@ -17,15 +17,16 @@ $(document).ready(function () {
 
 function showDetail(source,id,callback){
     if (source=='biodata_narasumber') {
-        to_url=baseUrl+"/web/detail_pegawai/"+id;
+        to_url=baseUrl+"web/detail_pegawai/"+id;
     }else{
-        to_url=baseUrl+"/web/detail_pegawai/"+id;
+        to_url=baseUrl+"web/detail_pegawai/"+id;
     }
 
     $.ajax({
         type: "POST",
         url: to_url,
         dataType: "json",
+        data: {[csrf_name]:$('input[name='+csrf_name+']').val()},
         success: callback,
         beforeSend: function() {
             $("#ajax_loader").show();

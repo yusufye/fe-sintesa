@@ -16,7 +16,7 @@
                                 data-purecounter-end="<?php echo $count[$model_name]['video'][0]['total']; ?>"
                                 data-purecounter-duration="1" class="purecounter"></span> Data</h5>
                         </p>
-                        <a href="<?php echo base_url()."/publikasi/$orig_title/video/detail" ?>" class="btn btn-warning"><i
+                        <a href="<?php echo base_url()."publikasi/$orig_title/video/detail" ?>" class="btn btn-warning"><i
                                 class='bx bx-right-arrow-circle'></i> Info Detail</i></a>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                                 data-purecounter-end="<?php echo $count[$model_name]['paparan'][0]['total']; ?>"
                                 data-purecounter-duration="1" class="purecounter"></span> Data</h5>
                         </p>
-                        <a href="<?php echo base_url()."/publikasi/$orig_title/paparan/detail" ?>"
+                        <a href="<?php echo base_url()."publikasi/$orig_title/paparan/detail" ?>"
                             class="btn btn-warning"><i class="bx bx-right-arrow-circle"></i> Info Detail</i></a>
                     </div>
                     </div>

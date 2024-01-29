@@ -16,7 +16,7 @@
                             data-purecounter-end="<?php echo $count[$model_name]['prodi'][0]['total']; ?>"
                             data-purecounter-duration="1" class="purecounter"></span> Data</h5>
                     </p>
-                    <a href="<?php echo base_url()."/data-administratif/$orig_title/prodi/detail" ?>"
+                    <a href="<?php echo base_url()."data-administratif/$orig_title/prodi/detail" ?>"
                         class="btn btn-warning"><i class='bx bx-right-arrow-circle'></i> Info Detail</i></a>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                             data-purecounter-end="<?php echo $count[$model_name]['pusat'][0]['total']; ?>"
                             data-purecounter-duration="1" class="purecounter"></span> Data</h5>
                     </p>
-                    <a href="<?php echo base_url()."/data-administratif/$orig_title/pusat/detail" ?>"
+                    <a href="<?php echo base_url()."data-administratif/$orig_title/pusat/detail" ?>"
                         class="btn btn-warning"><i class="bx bx-right-arrow-circle"></i> Info Detail</i></a>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                             data-purecounter-end="<?php echo $count[$model_name]['daerah'][0]['total']; ?>"
                             data-purecounter-duration="1" class="purecounter"></span> Data</h5>
                     </p>
-                    <a href="<?php echo base_url()."/data-administratif/$orig_title/daerah/detail" ?>"
+                    <a href="<?php echo base_url()."data-administratif/$orig_title/daerah/detail" ?>"
                         class="btn btn-warning"><i class="bx bx-right-arrow-circle"></i> Info Detail</i></a>
                 </div>
 

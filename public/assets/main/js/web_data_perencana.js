@@ -208,12 +208,14 @@ function generatePerencanaFilters(callback) {
 
   $.ajax({
     type: "POST",
-    url: baseUrl+"/web/get_chart_perencana_detail",
+    url: baseUrl+"web/get_chart_perencana_detail",
     dataType: "json",
     data:{ 
       filters:Perencanafilters, 
       param:DtMethodParam,
       type:type,
+      [csrf_name]:$('input[name='+csrf_name+']').val()
+
     },
     success:callback
   });

@@ -41,7 +41,7 @@
 
 
                     <div class="d-flex justify-content-end py-4">
-                        <a href='<?php echo base_url()."/data-perencana/$orig_title/pusat/detail" ?>'
+                        <a href='<?php echo base_url()."data-perencana/$orig_title/pusat/detail" ?>'
                             class="btn btn-primary">Info
                             Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
@@ -58,7 +58,7 @@
                                     foreach (array_keys($value) as $field) {
                                         ${"col_".$define_col}=$field;
                                         $define_col+=1;
-                                        echo "<th>$field</th>";
+                                        echo "<th>".ucfirst($field)."</th>";
                                     }
                                     echo "</tr></thead></tbody>";
                                 }
@@ -66,21 +66,22 @@
                                 echo "<tr>";
                                 $define_row=0;
                                 foreach ($value as $key_row=>$row) {
+                                    $get_param=[];
                                     $set_attr_col=${"col_".$define_row};
 
                                     if ($define_row>0) {
-                                        $get_param=[];
+                                        
                                         if (!empty($set_attr_col) && $set_attr_col<>'total') {
-                                            $get_param[]='jabatan='.urlencode($set_attr_col);
+                                            $get_param[]=array('jabatan'=>$set_attr_col);
                                         }
                                         if (!empty($set_attr_row)) {
-                                            $get_param[]='program='.$set_attr_row;
+                                            $get_param[]=array('program'=>$set_attr_row);
                                         }
 
-                                        $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
+                                        $send_get_param=(!empty($get_param))?'?data='.base64_encode(json_encode($get_param)):'';
 
-                                        $url=base_url().'/data-perencana/'.$orig_title.'/pusat/detail'.$send_get_param;
-                                        echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
+                                        $url=base_url().'data-perencana/'.$orig_title.'/pusat/detail'.$send_get_param;
+                                        echo "<td>".(is_null($row) || $row==''?'-':($row>0?'<a target="_blank" href="'.$url.'">'.$row.'</a> ':$row))."</td>";
                                     }else{
                                         echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
                                         $set_attr_row=$row;
@@ -122,7 +123,7 @@
                 aria-labelledby="nav-daerah-tab">
                 <div class="row">
                     <div class="d-flex justify-content-end py-4">
-                        <a href='<?php echo base_url()."/data-perencana/$orig_title/daerah/detail" ?>'
+                        <a href='<?php echo base_url()."data-perencana/$orig_title/daerah/detail" ?>'
                             class="btn btn-primary">Info
                             Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
@@ -140,7 +141,7 @@
                                     foreach (array_keys($value) as $field) {
                                         ${"col_".$define_col}=$field;
                                         $define_col+=1;
-                                        echo "<th>$field</th>";
+                                        echo "<th>".ucfirst($field)."</th>";
                                     }
                                     echo "</tr></thead></tbody>";
                                 }
@@ -153,16 +154,16 @@
                                     if ($define_row>0) {
                                         $get_param=[];
                                         if (!empty($set_attr_col) && $set_attr_col<>'total') {
-                                            $get_param[]='jabatan='.urlencode($set_attr_col);
+                                            $get_param[]=array('jabatan'=>$set_attr_col);
                                         }
                                         if (!empty($set_attr_row)) {
-                                            $get_param[]='program='.$set_attr_row;
+                                            $get_param[]=array('program'=>$set_attr_row);
                                         }
 
-                                        $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
+                                        $send_get_param=(!empty($get_param))?'?data='.base64_encode(json_encode($get_param)):'';
 
-                                        $url=base_url().'/data-perencana/'.$orig_title.'/daerah/detail'.$send_get_param;
-                                        echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
+                                        $url=base_url().'data-perencana/'.$orig_title.'/daerah/detail'.$send_get_param;
+                                        echo "<td>".(is_null($row) || $row==''?'-':($row>0?'<a target="_blank" href="'.$url.'">'.$row.'</a> ':$row))."</td>";
                                     }else{
                                         echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
                                         $set_attr_row=$row;
@@ -205,7 +206,7 @@
                 aria-labelledby="nav-gabungan-tab">
                 <div class="row">
                     <div class="d-flex justify-content-end py-4">
-                        <a href='<?php echo base_url()."/data-perencana/$orig_title/gabungan/detail" ?>' class="btn btn-primary">Info Detail <i class="fa-regular fa-circle-right"></i></a>
+                        <a href='<?php echo base_url()."data-perencana/$orig_title/gabungan/detail" ?>' class="btn btn-primary">Info Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
 
                     <table id="tableCountGabungan" class="table table-striped">
@@ -221,7 +222,7 @@
                                     foreach (array_keys($value) as $field) {
                                         ${"col_".$define_col}=$field;
                                         $define_col+=1;
-                                        echo "<th>$field</th>";
+                                        echo "<th>".ucfirst($field)."</th>";
                                     }
                                     echo "</tr></thead></tbody>";
                                 }
@@ -234,15 +235,15 @@
                                     if ($define_row>0) {
                                         $get_param=[];
                                         if (!empty($set_attr_col) && $set_attr_col<>'total') {
-                                            $get_param[]='jabatan='.urlencode($set_attr_col);
+                                            $get_param[]=array('jabatan'=>$set_attr_col);
                                         }
                                         if (!empty($set_attr_row)) {
-                                            $get_param[]='program='.$set_attr_row;
+                                            $get_param[]=array('program'=>$set_attr_row);
                                         }
 
-                                        $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
+                                        $send_get_param=(!empty($get_param))?'?data='.base64_encode(json_encode($get_param)):'';
 
-                                        $url=base_url().'/data-perencana/'.$orig_title.'/gabungan/detail'.$send_get_param;
+                                        $url=base_url().'data-perencana/'.$orig_title.'/gabungan/detail'.$send_get_param;
                                         echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
                                     }else{
                                         echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";

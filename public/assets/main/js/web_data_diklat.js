@@ -221,12 +221,13 @@ function generateDiklatFilters(callback) {
 
   $.ajax({
     type: "POST",
-    url: baseUrl+"/web/get_chart_diklat_detail",
+    url: baseUrl+"web/get_chart_diklat_detail",
     dataType: "json",
     data:{ 
       filters:Diklatfilters, 
       param:DtMethodParam,
       type:type,
+      [csrf_name]:$('input[name='+csrf_name+']').val()
     },
     success:callback
   });

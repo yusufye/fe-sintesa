@@ -17,9 +17,9 @@ $(document).ready(function () {
 
 function showDetail(source,id,callback){
     if (source=='biodata_narasumber') {
-        to_url=baseUrl+"/web/detail_pegawai/"+id;
+        to_url=baseUrl+"web/detail_pegawai/"+id;
     }else{
-        to_url=baseUrl+"/web/detail_pegawai/"+id;
+        to_url=baseUrl+"web/detail_pegawai/"+id;
     }
 
     $.ajax({
@@ -27,6 +27,7 @@ function showDetail(source,id,callback){
         url: to_url,
         dataType: "json",
         success: callback,
+        data: {[csrf_name]:$('input[name='+csrf_name+']').val()},
         beforeSend: function() {
             $("#ajax_loader").show();
         },

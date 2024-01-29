@@ -42,7 +42,7 @@
 
 
                     <div class="d-flex justify-content-end py-4">
-                        <a href='<?php echo base_url()."/data-diklat/$orig_title/pendidikan/detail" ?>'
+                        <a href='<?php echo base_url()."data-diklat/$orig_title/pendidikan/detail" ?>'
                             class="btn btn-primary">Info
                             Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
@@ -80,7 +80,7 @@
                                         
                                         ${"col_".$define_col}=$field;
                                         $define_col+=1;
-                                        echo "<th>$field</th>";
+                                        echo "<th>".ucfirst($field)."</th>";
                                     }
                                     echo "</tr></thead><tbody>";
                                 }
@@ -89,7 +89,7 @@
                                 $define_row=0;
                                 
                                 foreach ($value as $key_row=>$row) {
-                                    
+                                    $get_param=[];
                                     if($define_row==$define_col){
                                         
 
@@ -102,23 +102,22 @@
                                     }
                                     
                                     if ($define_row>0) {
-                                        $get_param=[];
+                                        
                                         if (!empty($set_attr_col)) {
                                             if (is_numeric($set_attr_col)) {
-                                                $get_param[]='tahun='.$set_attr_col;
+                                                $get_param[]=array('tahun'=>$set_attr_col);
                                             }
                                         }
                                         if (!empty($set_attr_row)) {
-                                            $get_param[]='kode_program='.$set_attr_row;
+                                            $get_param[]=array('kode_program'=>$set_attr_row);
                                         }
                                         if (!empty($define_operator)) {
-                                            $get_param[]='operator_tahun='.urlencode($define_operator);
+                                            $get_param[]=array('operator_tahun'=>urlencode($define_operator));
                                         }
+                                        $send_get_param=(!empty($get_param))?'?data='.base64_encode(json_encode($get_param)):'';
 
-                                        $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
-
-                                        $url=base_url().'/data-diklat/'.$orig_title.'/pendidikan/detail'.$send_get_param;
-                                        echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
+                                        $url=base_url().'data-diklat/'.$orig_title.'/pendidikan/detail'.$send_get_param;
+                                        echo "<td>".(is_null($row) || $row==''?'-':($row>0?'<a target="_blank" href="'.$url.'">'.$row.'</a> ':$row))."</td>";
                                     }else{
                                         echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
                                         $set_attr_row=$row;
@@ -159,7 +158,7 @@
                 aria-labelledby="nav-pelatihan-tab">
                 <div class="row">
                     <div class="d-flex justify-content-end py-4">
-                        <a href='<?php echo base_url()."/data-diklat/$orig_title/pelatihan/detail" ?>' class="btn btn-primary">Info
+                        <a href='<?php echo base_url()."data-diklat/$orig_title/pelatihan/detail" ?>' class="btn btn-primary">Info
                             Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
 
@@ -195,7 +194,7 @@
 
                                         ${"col_".$define_col_pelatihan}=$field;
                                         $define_col_pelatihan+=1;
-                                        echo "<th>$field</th>";
+                                        echo "<th>".ucfirst($field)."</th>";
                                     }
                                     echo "</tr></thead><tbody>";
                                 }
@@ -204,7 +203,7 @@
                                 $define_row_pelatihan=0;
 
                                 foreach ($value as $key_row=>$row) {
-                                    
+                                    $get_param=[];
                                     if($define_row_pelatihan==$define_col_pelatihan){
                                         
 
@@ -217,23 +216,22 @@
                                     }
                                     
                                     if ($define_row_pelatihan>0) {
-                                        $get_param=[];
+                                        
                                         if (!empty($set_attr_col)) {
                                             if (is_numeric($set_attr_col)) {
-                                                $get_param[]='tahun='.$set_attr_col;
+                                                $get_param[]=array('tahun'=>$set_attr_col);
                                             }
                                         }
                                         if (!empty($set_attr_row)) {
-                                            $get_param[]='kode_program='.$set_attr_row;
+                                            $get_param[]=array('kode_program'=>$set_attr_row);
                                         }
                                         if (!empty($define_operator_pelatihan)) {
-                                            $get_param[]='operator_tahun='.urlencode($define_operator_pelatihan);
+                                            $get_param[]=array('operator_tahun'=>urlencode($define_operator_pelatihan));
                                         }
+                                        $send_get_param=(!empty($get_param))?'?data='.base64_encode(json_encode($get_param)):'';
 
-                                        $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
-
-                                        $url=base_url().'/data-diklat/'.$orig_title.'/pelatihan/detail'.$send_get_param;
-                                        echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
+                                        $url=base_url().'data-diklat/'.$orig_title.'/pelatihan/detail'.$send_get_param;
+                                        echo "<td>".(is_null($row) || $row==''?'-':($row>0?'<a target="_blank" href="'.$url.'">'.$row.'</a> ':$row))."</td>";
                                     }else{
                                         echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
                                         $set_attr_row=$row;
@@ -275,7 +273,7 @@
                 aria-labelledby="nav-gabungan-tab">
                 <div class="row">
                     <div class="d-flex justify-content-end py-4">
-                        <a href='<?php echo base_url()."/data-diklat/$orig_title/gabungan/detail" ?>' class="btn btn-primary">Info
+                        <a href='<?php echo base_url()."data-diklat/$orig_title/gabungan/detail" ?>' class="btn btn-primary">Info
                             Detail <i class="fa-regular fa-circle-right"></i></a>
                     </div>
                     <div class='table-responsive'>
@@ -288,7 +286,7 @@
                                 
                                 if ($key==0) {
                                     echo "<tr>";
-                                    $define_col_pelatihan=0;
+                                    $define_col_gabungan=0;
                                     foreach (array_keys($value) as $field) {
                                         if (is_numeric($field)) {
                                             if ($field<0) {
@@ -308,52 +306,51 @@
                                             }
                                         }
 
-                                        ${"col_".$define_col_pelatihan}=$field;
-                                        $define_col_pelatihan+=1;
-                                        echo "<th>$field</th>";
+                                        ${"col_".$define_col_gabungan}=$field;
+                                        $define_col_gabungan+=1;
+                                        echo "<th>".ucfirst($field)."</th>";
                                     }
                                     echo "</tr></thead><tbody>";
                                 }
 
                                 
                                 echo "<tr>";
-                                $define_row_pelatihan=0;
+                                $define_row_gabungan=0;
                                 foreach ($value as $key_row=>$row) {
-                                    
-                                    if($define_row_pelatihan==$define_col_pelatihan){
+                                    $get_param=[];
+                                    if($define_row_gabungan==$define_col_gabungan){
                                         
 
                                     }
-                                    $define_operator_pelatihan='';
-                                    $set_attr_col=${"col_".$define_row_pelatihan};
+                                    $define_operator_gabungan='';
+                                    $set_attr_col=${"col_".$define_row_gabungan};
                                     if (!is_numeric(substr($set_attr_col,0,1)) && is_numeric(substr($set_attr_col,1,1))) {
-                                        $define_operator_pelatihan='less_than';
+                                        $define_operator_gabungan='less_than';
                                         $set_attr_col=ltrim($set_attr_col,substr($set_attr_col,0,1));
                                     }
                                     
-                                    if ($define_row_pelatihan>0) {
-                                        $get_param=[];
+                                    if ($define_row_gabungan>0) {
+                                        
                                         if (!empty($set_attr_col)) {
                                             if (is_numeric($set_attr_col)) {
-                                                $get_param[]='tahun='.$set_attr_col;
+                                                $get_param[]=array('tahun'=>$set_attr_col);
                                             }
                                         }
                                         if (!empty($set_attr_row)) {
-                                            $get_param[]='kode_program='.$set_attr_row;
+                                            $get_param[]=array('kode_program'=>$set_attr_row);
                                         }
-                                        if (!empty($define_operator_pelatihan)) {
-                                            $get_param[]='operator_tahun='.urlencode($define_operator_pelatihan);
+                                        if (!empty($define_operator)) {
+                                            $get_param[]=array('operator_tahun'=>urlencode($define_operator_gabungan));
                                         }
+                                        $send_get_param=(!empty($get_param))?'?data='.base64_encode(json_encode($get_param)):'';
 
-                                        $send_get_param=(!empty($get_param))?'?'.join("&",$get_param):'';
-
-                                        $url=base_url().'/data-diklat/'.$orig_title.'/gabungan/detail'.$send_get_param;
-                                        echo "<td>".(is_null($row) || $row==''?'-':'<a target="_blank" href="'.$url.'">'.$row.'</a> ')."</td>";
+                                        $url=base_url().'data-diklat/'.$orig_title.'/gabungan/detail'.$send_get_param;
+                                        echo "<td>".(is_null($row) || $row==''?'-':($row>0?'<a target="_blank" href="'.$url.'">'.$row.'</a> ':$row))."</td>";
                                     }else{
                                         echo "<td>".(is_null($row) || $row==''?'-':$row)."</td>";
                                         $set_attr_row=$row;
                                     }
-                                    $define_row_pelatihan+=1;
+                                    $define_row_gabungan+=1;
                                     $group_gabungan[$key_row][]=$row;
                                 }
                                 echo "</tr>";

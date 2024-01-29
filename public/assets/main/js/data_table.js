@@ -36,7 +36,7 @@ var dataSet = [
     ['Martena Mccray', 'Post-Sales support', 'Edinburgh', '8240', '2011/03/09', '$324,050'],
     ['Unity Butler', 'Marketing Designer', 'San Francisco', '5384', '2009/12/09', '$85,675'],
 ];
-
+var global_csrf_hash='';
 var Globalfilters={};
 function generateGlobalFilters() {
     Globalfilters = $.map($('.Globalfilters'), function(el) {
@@ -110,11 +110,21 @@ $(document).ready(function () {
             "order": [],
         
             "ajax": {
-                "url": baseUrl+"/web/globalDtTable/"+DtModelNaame+"/"+DtMethodName+"/"+DtMethodParam+"/"+DtMethodType,
+                "url": baseUrl+"web/globalDtTable/"+DtModelNaame+"/"+DtMethodName+"/"+DtMethodParam+"/"+DtMethodType,
                 "type": "POST",
                 "dataType": 'json',
                 "data":function (d) { 
-                    d.filters=Globalfilters; 
+                    d.filters=Globalfilters;
+                    d[csrf_name]=csrf_hash;
+                },
+                
+                "data": function(data) {
+                    data[csrf_name] = $('input[name='+[csrf_name]+']').val() //function bridge token view to controller (wajib);
+                    data.filters = Globalfilters; //function bridge token view to controller (wajib)
+                },
+                "dataSrc": function(response) {
+                    $('input[name='+[csrf_name]+']').val(response[csrf_name]); //dataSrc untuk random request token char (wajib)
+                    return response.data;
                 },
                 // "beforeSend": function() {
                 //     $("#ajax_loader").show();

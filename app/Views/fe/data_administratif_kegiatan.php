@@ -1,3 +1,4 @@
+<?php echo csrf_field(); ?>
 <section id="services" class="services">
     <div class="container" data-aos="fade-up">
         <div class="row">
@@ -106,9 +107,11 @@
 
 </style>
 <script>
-var DtTableId = 'tableDetailKegiatan';
-var DtModelNaame = '<?php echo $model_init; ?>';
-var DtMethodName = '<?php echo $method; ?>';
+var DtTableId     = 'tableDetailKegiatan';
+var DtModelNaame  = '<?php echo $model_init; ?>';
+var DtMethodName  = '<?php echo $method; ?>';
 var DtMethodParam = '<?php echo $method_param; ?>';
-var DtMethodType = '<?php echo $method_type; ?>';
+var DtMethodType  = '<?php echo $method_type; ?>';
+var csrf_name     = '<?php echo $csrf_name; ?>';
+var csrf_hash     = '<?php echo $csrf_hash; ?>';
 </script>

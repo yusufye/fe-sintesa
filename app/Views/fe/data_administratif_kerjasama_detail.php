@@ -1,5 +1,6 @@
 <?php 
-        $data_kerjasama=$detail[$model_name][$param];
+    echo csrf_field();
+    $data_kerjasama=$detail[$model_name][$param];
 ?>
 
 <section id="services" class="services">
@@ -59,4 +60,6 @@ var DtModelNaame = '<?php echo $model_init; ?>';
 var DtMethodName = '<?php echo $method; ?>';
 var DtMethodParam = '<?php echo $method_param; ?>';
 var DtMethodType = '<?php echo $method_type; ?>';
+var csrf_name     = '<?php echo $csrf_name; ?>';
+var csrf_hash     = '<?php echo $csrf_hash; ?>';
 </script>

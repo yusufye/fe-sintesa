@@ -1,5 +1,6 @@
 <?php 
-        $data_detail_pendidikan=$detail[$model_name][$param];
+    echo csrf_field();
+    $data_detail_pendidikan=$detail[$model_name][$param];
 ?>
 
 <section id="services" class="services">
@@ -169,6 +170,7 @@
         </div> -->
     </div>
 </section>
+<?= csrf_field(); ?>
 
 
 
@@ -180,4 +182,6 @@ var DtMethodParam = '<?php echo $method_param; ?>';
 var DtMethodType = '<?php echo $method_type; ?>';
 var type = '<?php echo $orig_title; ?>';
 var method_type = '<?php echo $method_type; ?>';
+var csrf_name = '<?php echo $csrf_name; ?>';
+var csrf_hash = '<?php echo $csrf_hash; ?>';
 </script>

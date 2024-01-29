@@ -9,7 +9,17 @@ use App\Models\Model_datatable;
 use Config\Services;
 class Web extends BaseController
 {
-    
+    protected $csrf;
+
+    public function __construct()
+    {
+
+        // Assign the model result to the badly named Class Property
+        $this->csrf['csrf_token']	=csrf_token();
+        $this->csrf['csrf_hash']	=csrf_hash();
+    }
+
+
     public function index()
     {
 		$data['menu_title']   			= 'Home';
@@ -21,8 +31,10 @@ class Web extends BaseController
     
 	public function data_diklat($sub=null,$sub2=null,$type=null)
 	{
-		$request           = Services::request();
-		$filtersGET	   	   = $request->getGet();
+		$request           		= Services::request();
+		$filtersGET	   	   		= $request->getGet('data');
+		$filtersGET_decrypted 	= json_decode(base64_decode($filtersGET), true);
+		$send_filtersGET		= (!empty($filtersGET))?call_user_func_array('array_merge_recursive', $filtersGET_decrypted):'';
 		
 		$data_diklat_model = new Data_diklat_model();
 		$list_sub=['data-pelamar','data-penempatan','data-alumni'];
@@ -70,8 +82,8 @@ class Web extends BaseController
 			$data['list_instansi'] 			= $data_diklat_model->get_list_instansi($sub);
 			$data['list_periode']	 		= $data_diklat_model->get_list_periode($sub);
 			$data['list_program']	 		= $data_diklat_model->get_list_program($sub);
-			$data['filtersGET']		 		= $filtersGET;
-
+			$data['filtersGET']		 		= $send_filtersGET;
+			
 		}
 		if ($send_type!='detail') {
 			$data[$send_type][$model_name]['pendidikan']	=$data_diklat_model->{'get_diklat_'.$model_name}('pendidikan',$send_type);
@@ -80,8 +92,10 @@ class Web extends BaseController
 		}else{
 			$data[$send_type][$model_name][$sub2]	=$data_diklat_model->{'get_diklat_'.$model_name}($sub2,$send_type);
 		}
-		
-      
+
+		$data['csrf_name']		 		= $this->csrf['csrf_token'];
+		$data['csrf_hash']		 		= $this->csrf['csrf_hash'];
+
 		return view('fe/template/header',$data)
 		.view('fe/data_diklat_'.$send_type,$data)
 		.view('fe/template/footer',$data);
@@ -219,14 +233,17 @@ class Web extends BaseController
                 "recordsFiltered" => $datamodel->count_filtered(),
                 "data" => $data
             ];
+			$output[csrf_token()] = csrf_hash(); 
             echo json_encode($output);
         }
 	}
 
 	public function data_perencana($sub=null,$sub2=null,$type=null)
 	{
-		$request           = Services::request();
-		$filtersGET	   	   = $request->getGet();
+		$request           		= Services::request();
+		$filtersGET	   	   		= $request->getGet('data');
+		$filtersGET_decrypted 	= json_decode(base64_decode($filtersGET), true);
+		$send_filtersGET		= (!empty($filtersGET))?call_user_func_array('array_merge_recursive', $filtersGET_decrypted):'';
 
         $data_perencana_model = new Data_perencana_model();
 		$list_sub=['data-perencana','data-tim-penilai'];
@@ -248,7 +265,7 @@ class Web extends BaseController
 		$data['model_init']     = 'Data_perencana_model';
 		$data['init_datatable'] = true;
 		$data['init_chart'] 	= true;
-		$data['filtersGET']		= $filtersGET;
+		$data['filtersGET']		= $send_filtersGET;
 		
 		if ($type==null) { //count all
 			$send_type='count';
@@ -286,6 +303,9 @@ class Web extends BaseController
 		}else{
 			$data[$send_type][$model_name][$sub2]	=$data_perencana_model->{'get_perencana_'.$model_name}($sub2,$send_type);
 		}
+
+		$data['csrf_name']		 		= $this->csrf['csrf_token'];
+		$data['csrf_hash']		 		= $this->csrf['csrf_hash'];
 		
 		
       
@@ -312,7 +332,8 @@ class Web extends BaseController
 		$data['method_param']           = 'biodata_narasumber';
 		$data['method_type']            = 'detail';
 		$data['init_global_dttable_js'] = true;
-		
+		$data['csrf_name']		 		= $this->csrf['csrf_token'];
+		$data['csrf_hash']		 		= $this->csrf['csrf_hash'];
       
 		return view('fe/template/header',$data)
 		.view('fe/data_administratif_narasumber',$data)
@@ -345,7 +366,9 @@ class Web extends BaseController
 		$data['method_param']           = 'data_kegiatan';
 		$data['method_type']            = 'detail';
 		$data['init_global_dttable_js'] = true;
-	
+		$data['csrf_name']		 		= $this->csrf['csrf_token'];
+		$data['csrf_hash']		 		= $this->csrf['csrf_hash'];
+
 		return view('fe/template/header',$data)
 		.view('fe/data_administratif_kegiatan',$data)
 		.view('fe/template/footer',$data);
@@ -376,7 +399,8 @@ class Web extends BaseController
 		$data['method_param']           = 'biodata_narasumber';
 		$data['method_type']            = 'detail';
 		$data['init_global_dttable_js'] = true;
-		
+		$data['csrf_name']		 		= $this->csrf['csrf_token'];
+		$data['csrf_hash']		 		= $this->csrf['csrf_hash'];
       
 		return view('fe/template/header',$data)
 		.view('fe/data_administratif_lkj',$data)
@@ -518,6 +542,10 @@ class Web extends BaseController
 		}else{
 			$data[$send_type]['data_kerjasama'][$sub2]		=$data_administratif_model->{'get_data_administratif_kerjasama'}($sub2,$send_type);
 		}
+
+		$data['csrf_name']		 		= $this->csrf['csrf_token'];
+		$data['csrf_hash']		 		= $this->csrf['csrf_hash'];
+
 		return view('fe/template/header',$data)
 		.view('fe/data_administratif_kerjasama_'.$send_type,$data)
 		.view('fe/template/footer',$data);
@@ -575,6 +603,10 @@ class Web extends BaseController
 		}else{
 			$data[$send_type][$model_name][$sub2]		=$publikasi_model->{'get_publikasi_'.$model_name}($sub2,$send_type);
 		}
+
+		$data['csrf_name']		 		= $this->csrf['csrf_token'];
+		$data['csrf_hash']		 		= $this->csrf['csrf_hash'];
+		
 		return view('fe/template/header',$data)
 		.view('fe/publikasi_'.$send_type,$data)
 		.view('fe/template/footer',$data);
