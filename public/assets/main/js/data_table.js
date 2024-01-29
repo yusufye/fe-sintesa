@@ -115,15 +115,15 @@ $(document).ready(function () {
                 "dataType": 'json',
                 "data":function (d) { 
                     d.filters=Globalfilters;
-                    d.csrf_test_name=csrf_hash;
+                    d[csrf_name]=csrf_hash;
                 },
                 
                 "data": function(data) {
-                    data.csrf_test_name = $('input[name=csrf_test_name]').val() //function bridge token view to controller (wajib);
+                    data[csrf_name] = $('input[name='+[csrf_name]+']').val() //function bridge token view to controller (wajib);
                     data.filters = Globalfilters; //function bridge token view to controller (wajib)
                 },
                 "dataSrc": function(response) {
-                    $('input[name=csrf_test_name]').val(response.csrf_test_name); //dataSrc untuk random request token char (wajib)
+                    $('input[name='+[csrf_name]+']').val(response[csrf_name]); //dataSrc untuk random request token char (wajib)
                     return response.data;
                 },
                 // "beforeSend": function() {
